@@ -16,6 +16,7 @@ alias nv='nvim'
 alias ls='lsd'
 alias lv='lvim'
 alias tree="tree -I node_modules -L 3"
+alias code-insider="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 eval "$(starship init zsh)"
 

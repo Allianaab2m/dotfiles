@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = main
+[ghq]
+	user = Allianaab2m
+[user]
+	email = 56180684+Allianaab2m@users.noreply.github.com
+	name = Alliana
+[push]
+	autoSetupRemote = true

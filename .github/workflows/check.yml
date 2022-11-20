@@ -11,7 +11,7 @@ jobs:
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .install.sh install
 
   centos:
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
       - name: Install required packages
         run: yum install -y git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .install.sh install
 
   alpine:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
       - name: Install required packages
         run: apk add git sudo bash
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .install.sh install
 
   arch:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Install required packages
         run: pacman -S --noconfirm git sudo
       - name: Install dotfiles
-        run: .bin/install.sh install
+        run: .install.sh install
 
   lint:
     runs-on: ubuntu-latest

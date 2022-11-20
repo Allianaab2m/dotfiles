@@ -1,0 +1,33 @@
+[colors]
+ansi = [
+    '#FFF7ED', # sun
+    '#CA736C', # red
+    '#47A477', # green
+    '#8D9741', # yellow
+    '#5794D0', # blue
+    '#9481CC', # purple
+    '#00A2AF', # cyan
+    '#303338', # shade
+]
+background = '#FFF7ED'
+brights = [
+    '#FFFDFB', # sun+
+    '#CA736C', # red
+    '#47A477', # green
+    '#8D9741', # yellow
+    '#5794D0', # blue
+    '#9481CC', # purple
+    '#00A2AF', #cyan
+    '#3E4044', # shade+
+]
+cursor_bg = '#303338' #shade
+cursor_border = '#F2E6D4' #sun-
+cursor_fg = '#FFF7ED' # sun
+foreground = '#303338' # shade
+selection_bg = '#00A2AF' # cyan
+selection_fg = '#303338' # shade
+
+[colors.indexed]
+
+[metadata]
+name = 'penumbra-light'

@@ -293,6 +293,7 @@ require('packer').startup({
     use({ 'davidsierradz/cmp-conventionalcommits' })
     use({ 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' })
     use({ 'L3MON4D3/LuaSnip', after = 'nvim-cmp' })
+    use({ "rinx/cmp-skkeleton", after = { "nvim-cmp", "skkeleton" }})
 
     use({
       'williamboman/mason.nvim',

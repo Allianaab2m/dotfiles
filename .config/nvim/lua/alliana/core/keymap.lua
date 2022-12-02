@@ -46,3 +46,7 @@ key("v", ">", ">gv", opts)
 -- NeoTree
 key("n", "<leader>e", ":NeoTreeFocusToggle<CR>", opts)
 
+-- Skkeleton
+key("i", "<C-j>", "<Plug>(skkeleton-toggle)", opts)
+
+

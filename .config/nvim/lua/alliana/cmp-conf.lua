@@ -70,7 +70,8 @@ cmp.setup({
   sources = cmp.config.sources(
     {{ name = 'nvim_lsp' }},
     {{ name = 'luasnip' }},
-    {{ name = 'fuzzy_path' }},
+    {{ name = "skkeleton" }},
+    -- {{ name = 'fuzzy_path' }},
     {{ name = 'conventionalcommits' }}
   ),
   experimental = {

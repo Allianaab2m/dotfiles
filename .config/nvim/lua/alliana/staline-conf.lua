@@ -1,8 +1,16 @@
+local skkeleton_status = function ()
+  if (vim.fn["skkeleton#is_enabled"]() == true) then
+    return "▼ "
+  else
+    return "▽ "
+  end
+end
+
 local conditionalSections = function ()
   local sections = {
       left = { '- ', '-mode', 'left_sep', 'file_name' },
       mid  = {},
-      right = {'lsp_name', 'right_sep_double', '-line_column' },
+      right = { skkeleton_status, 'lsp_name', 'right_sep_double', '-line_column' },
   }
   local branchIcon = ' '
 
@@ -23,6 +31,7 @@ local conditionalSections = function ()
   if status_ok then
     sections.mid = { navic.get_location }
   end
+
 
   return {
     sections = sections,

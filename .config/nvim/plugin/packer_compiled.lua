@@ -136,6 +136,16 @@ _G.packer_plugins = {
     path = "/home/alliana/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-skkeleton"] = {
+    after_files = { "/home/alliana/.local/share/nvim/site/pack/packer/opt/cmp-skkeleton/after/plugin/cmp_skkeleton.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/opt/cmp-skkeleton",
+    url = "https://github.com/rinx/cmp-skkeleton"
+  },
   cmp_luasnip = {
     after_files = { "/home/alliana/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua" },
     load_after = {
@@ -169,6 +179,12 @@ _G.packer_plugins = {
     path = "/home/alliana/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lsp_lines.nvim"] = {
+    config = { "\27LJ\2\nT\0\0\4\0\3\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\2\v\0\2\0X\1\5Ä6\1\0\0'\3\1\0B\1\2\0029\1\2\1B\1\1\1K\0\1\0\vtoggle\14lsp_lines\frequireT\0\0\4\0\3\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\2\v\0\1\0X\1\5Ä6\1\0\0'\3\1\0B\1\2\0029\1\2\1B\1\1\1K\0\1\0\vtoggle\14lsp_lines\frequireƒ\1\1\0\5\0\r\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0005\2\6\0005\3\b\0003\4\a\0=\4\t\3B\0\3\0016\0\3\0009\0\4\0009\0\5\0005\2\n\0005\3\f\0003\4\v\0=\4\t\3B\0\3\1K\0\1\0\1\0\0\0\1\2\0\0\16InsertLeave\rcallback\1\0\0\0\1\2\0\0\16InsertEnter\24nvim_create_autocmd\bapi\bvim\nsetup\14lsp_lines\frequire\0" },
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
+    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -190,6 +206,12 @@ _G.packer_plugins = {
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mellow.nvim"] = {
+    config = { "\27LJ\2\n]\0\0\3\0\5\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\1K\0\1\0\23colorscheme mellow\bcmd\25mellow_bold_keywords\6g\bvim\0" },
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/mellow.nvim",
+    url = "https://github.com/kvrohit/mellow.nvim"
+  },
   ["neo-tree.nvim"] = {
     commands = { "NeoTreeFocusToggle" },
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rneo-tree\frequire\0" },
@@ -200,7 +222,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["noice.nvim"] = {
-    config = { "\27LJ\2\n\\\0\2\4\0\6\0\t\14\0\1\0X\2\1Ä'\1\0\0005\2\1\0005\3\2\0=\1\3\3=\0\4\3=\3\5\2L\2\2\0\vfilter\tfind\tkind\1\0\1\nevent\rmsg_show\1\0\1\tview\tmini\5É\a\1\0\t\0%\1Q3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\0035\4\f\0005\5\v\0=\5\r\4=\4\14\0034\4\15\0005\5\15\0005\6\16\0=\6\17\5>\5\1\0045\5\19\0005\6\18\0=\6\17\0055\6\20\0=\6\21\5>\5\2\4\18\5\0\0'\a\22\0B\5\2\2>\5\3\4\18\5\0\0'\a\23\0B\5\2\2>\5\4\4\18\5\0\0'\a\24\0B\5\2\2>\5\5\4\18\5\0\0'\a\25\0B\5\2\2>\5\6\4\18\5\0\0'\a\26\0B\5\2\2>\5\a\4\18\5\0\0'\a\26\0'\b\27\0B\5\3\2>\5\b\4\18\5\0\0'\a\28\0B\5\2\2>\5\t\4\18\5\0\0'\a\29\0B\5\2\2>\5\n\4\18\5\0\0'\a\30\0B\5\2\2>\5\v\4\18\5\0\0'\a\31\0B\5\2\2>\5\f\4\18\5\0\0'\a \0'\b!\0B\5\3\2>\5\r\4\18\5\0\0'\a\"\0'\b#\0B\5\3\0?\5\0\0=\4$\3B\1\2\1K\0\1\0\vroutes\temsg\28E486: Pattern not found\twmsg!search hit .*, continuing at\22No line in buffer\14line less\18change; after\19change; before\14lua_error\17fewer lines?\16more lines?\vyanked\fwritten\25Already at .* change\topts\1\0\1\tskip\2\1\0\0\1\0\3\tfind/failed to run generator.*is not executable\fwarning\2\nevent\vnotify\vfilter\1\0\1\nevent\17msg_showmode\1\0\1\tview\vnotify\blsp\roverride\1\0\0\1\0\3 cmp.entry.get_documentation\2\"vim.lsp.util.stylize_markdown\0021vim.lsp.util.convert_input_to_markdown_lines\2\rmessages\1\0\1\16view_search\tmini\14popupmenu\1\0\1\fbackend\bcmp\fpresets\1\0\0\1\0\1\19lsp_doc_border\2\nsetup\nnoice\frequire\0\29ÄÄ¿ô\4\0" },
+    config = { "\27LJ\2\n\\\0\2\4\0\6\0\t\14\0\1\0X\2\1Ä'\1\0\0005\2\1\0005\3\2\0=\1\3\3=\0\4\3=\3\5\2L\2\2\0\vfilter\tfind\tkind\1\0\1\nevent\rmsg_show\1\0\1\tview\tmini\5É\a\1\0\t\0%\1Q3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\0035\4\f\0005\5\v\0=\5\r\4=\4\14\0034\4\15\0005\5\15\0005\6\16\0=\6\17\5>\5\1\0045\5\19\0005\6\18\0=\6\17\0055\6\20\0=\6\21\5>\5\2\4\18\5\0\0'\a\22\0B\5\2\2>\5\3\4\18\5\0\0'\a\23\0B\5\2\2>\5\4\4\18\5\0\0'\a\24\0B\5\2\2>\5\5\4\18\5\0\0'\a\25\0B\5\2\2>\5\6\4\18\5\0\0'\a\26\0B\5\2\2>\5\a\4\18\5\0\0'\a\26\0'\b\27\0B\5\3\2>\5\b\4\18\5\0\0'\a\28\0B\5\2\2>\5\t\4\18\5\0\0'\a\29\0B\5\2\2>\5\n\4\18\5\0\0'\a\30\0B\5\2\2>\5\v\4\18\5\0\0'\a\31\0B\5\2\2>\5\f\4\18\5\0\0'\a \0'\b!\0B\5\3\2>\5\r\4\18\5\0\0'\a\"\0'\b#\0B\5\3\0?\5\0\0=\4$\3B\1\2\1K\0\1\0\vroutes\temsg\28E486: Pattern not found\twmsg!search hit .*, continuing at\22No line in buffer\14line less\18change; after\19change; before\14lua_error\17fewer lines?\16more lines?\vyanked\fwritten\25Already at .* change\topts\1\0\1\tskip\2\1\0\0\1\0\3\tfind/failed to run generator.*is not executable\nevent\vnotify\fwarning\2\vfilter\1\0\1\nevent\17msg_showmode\1\0\1\tview\vnotify\blsp\roverride\1\0\0\1\0\3 cmp.entry.get_documentation\2\"vim.lsp.util.stylize_markdown\0021vim.lsp.util.convert_input_to_markdown_lines\2\rmessages\1\0\1\16view_search\tmini\14popupmenu\1\0\1\fbackend\bcmp\fpresets\1\0\0\1\0\1\19lsp_doc_border\2\nsetup\nnoice\frequire\0\29ÄÄ¿ô\4\0" },
     loaded = true,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/noice.nvim",
     url = "https://github.com/folke/noice.nvim"
@@ -227,7 +249,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "LuaSnip", "cmp-nvim-lsp", "cmp_luasnip", "cmp-fuzzy-path", "nvim-autopairs", "cmp-cmdline" },
+    after = { "nvim-autopairs", "cmp_luasnip", "cmp-cmdline", "cmp-nvim-lsp", "cmp-fuzzy-path", "cmp-skkeleton", "LuaSnip" },
     config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21alliana.cmp-conf\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -241,11 +263,22 @@ _G.packer_plugins = {
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-ide"] = {
+    config = { "\27LJ\2\n≤\6\0\0\17\0\31\0L6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\0\0'\4\3\0B\2\2\0026\3\0\0'\5\4\0B\3\2\0026\4\0\0'\6\5\0B\4\2\0026\5\0\0'\a\6\0B\5\2\0026\6\0\0'\b\a\0B\6\2\0026\a\0\0'\t\b\0B\a\2\0026\b\0\0'\n\t\0B\b\2\0026\t\0\0'\v\n\0B\t\2\0026\n\0\0'\f\v\0B\n\2\0026\v\0\0'\r\f\0B\v\2\0029\v\r\v5\r\14\0005\14\16\0005\15\15\0=\15\17\14=\14\18\r5\14\19\0=\14\20\r5\14\22\0004\15\5\0009\16\21\0>\16\1\0159\16\21\t>\16\2\0159\16\21\2>\16\3\0159\16\21\1>\16\4\15=\15\23\0144\15\3\0009\16\21\4>\16\1\15=\15\24\0144\15\5\0009\16\21\6>\16\1\0159\16\21\a>\16\2\0159\16\21\3>\16\3\0159\16\21\b>\16\4\15=\15\25\14=\14\26\r5\14\27\0=\14\28\r5\14\29\0=\14\30\rB\v\2\1K\0\1\0\16panel_sizes\1\0\3\tleft\3\30\vbottom\3\15\nright\3\30\15workspaces\1\0\1\14auto_open\tboth\17panel_groups\bgit\rterminal\rexplorer\1\0\0\tName\vpanels\1\0\2\tleft\rexplorer\nright\bgit\15components\19global_keymaps\1\0\0\1\0\1\thide\6h\1\0\1\ricon_set\fdefault\nsetup\bide\30ide.components.bufferlist\29ide.components.bookmarks\28ide.components.branches\27ide.components.commits\27ide.components.changes,ide.components.terminal.terminalbrowser\28ide.components.terminal\28ide.components.timeline!ide.components.callhierarchy\27ide.components.outline\28ide.components.explorer\frequire\0" },
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/nvim-ide",
+    url = "https://github.com/ldelossa/nvim-ide"
+  },
   ["nvim-lspconfig"] = {
     config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21alliana.lsp-conf\frequire\0" },
     loaded = true,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-material-icon"] = {
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/nvim-material-icon",
+    url = "https://github.com/DaikyXendo/nvim-material-icon"
   },
   ["nvim-navic"] = {
     loaded = true,
@@ -279,7 +312,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-ts-context-commentstring"] = {
-    after = { "Comment.nvim", "nvim-ts-rainbow", "playground" },
+    after = { "nvim-ts-rainbow", "playground", "Comment.nvim" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -297,7 +330,7 @@ _G.packer_plugins = {
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
-    config = { "\27LJ\2\n§\1\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\roverride\1\0\0\ajs\1\0\2\ncolor\f#F1DD35\ticon\bÔ†ù\ats\1\0\0\1\0\2\ncolor\f#3178C6\ticon\bÔØ§\nsetup\22nvim-web-devicons\frequire\0" },
+    config = { "\27LJ\2\nÑ\1\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0009\4\4\0B\4\1\2=\4\6\3B\1\2\1K\0\1\0\roverride\1\0\0\14get_icons\nsetup\22nvim-web-devicons\23nvim-material-icon\frequire\0" },
     loaded = true,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
@@ -306,12 +339,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["penumbra.nvim"] = {
-    config = { "\27LJ\2\nù\1\0\0\3\0\b\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0B\0\2\1K\0\1\0\25colorscheme penumbra\17nvim_command\bapi\bvim\1\0\2\19italic_comment\2\rcontrast\rplusplus\nsetup\rpenumbra\frequire\0" },
-    loaded = true,
-    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/penumbra.nvim",
-    url = "https://github.com/Allianaab2m/penumbra.nvim"
   },
   playground = {
     load_after = {
@@ -334,6 +361,17 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/alliana/.local/share/nvim/site/pack/packer/opt/quick-scope",
     url = "https://github.com/unblevable/quick-scope"
+  },
+  ["rust-tools.nvim"] = {
+    config = { "\27LJ\2\n∑\1\0\2\b\1\v\0\0236\2\0\0009\2\1\0029\2\2\2'\4\3\0'\5\4\0-\6\0\0009\6\5\0069\6\5\0065\a\6\0=\1\a\aB\2\5\0016\2\0\0009\2\1\0029\2\2\2'\4\3\0'\5\b\0-\6\0\0009\6\t\0069\6\t\0065\a\n\0=\1\a\aB\2\5\1K\0\1\0\0¿\1\0\0\22code_action_group\14<Leader>a\vbuffer\1\0\0\18hover_actions\14<C-Space>\6n\bset\vkeymap\bvimh\1\0\6\0\b\0\f6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\3B\1\2\0012\0\0ÄK\0\1\0\vserver\1\0\0\14on_attach\1\0\0\0\nsetup\15rust-tools\frequire\0" },
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  skkeleton = {
+    loaded = true,
+    path = "/home/alliana/.local/share/nvim/site/pack/packer/start/skkeleton",
+    url = "https://github.com/vim-skk/skkeleton"
   },
   ["staline.nvim"] = {
     config = { "\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25alliana.staline-conf\frequire\0" },
@@ -365,34 +403,50 @@ time([[Setup for quick-scope]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n§\1\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\roverride\1\0\0\ajs\1\0\2\ncolor\f#F1DD35\ticon\bÔ†ù\ats\1\0\0\1\0\2\ncolor\f#3178C6\ticon\bÔØ§\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
--- Config for: mason.nvim
-time([[Config for mason.nvim]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
-time([[Config for mason.nvim]], false)
+-- Config for: mellow.nvim
+time([[Config for mellow.nvim]], true)
+try_loadstring("\27LJ\2\n]\0\0\3\0\5\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\1K\0\1\0\23colorscheme mellow\bcmd\25mellow_bold_keywords\6g\bvim\0", "config", "mellow.nvim")
+time([[Config for mellow.nvim]], false)
+-- Config for: nvim-ide
+time([[Config for nvim-ide]], true)
+try_loadstring("\27LJ\2\n≤\6\0\0\17\0\31\0L6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\0\0'\4\3\0B\2\2\0026\3\0\0'\5\4\0B\3\2\0026\4\0\0'\6\5\0B\4\2\0026\5\0\0'\a\6\0B\5\2\0026\6\0\0'\b\a\0B\6\2\0026\a\0\0'\t\b\0B\a\2\0026\b\0\0'\n\t\0B\b\2\0026\t\0\0'\v\n\0B\t\2\0026\n\0\0'\f\v\0B\n\2\0026\v\0\0'\r\f\0B\v\2\0029\v\r\v5\r\14\0005\14\16\0005\15\15\0=\15\17\14=\14\18\r5\14\19\0=\14\20\r5\14\22\0004\15\5\0009\16\21\0>\16\1\0159\16\21\t>\16\2\0159\16\21\2>\16\3\0159\16\21\1>\16\4\15=\15\23\0144\15\3\0009\16\21\4>\16\1\15=\15\24\0144\15\5\0009\16\21\6>\16\1\0159\16\21\a>\16\2\0159\16\21\3>\16\3\0159\16\21\b>\16\4\15=\15\25\14=\14\26\r5\14\27\0=\14\28\r5\14\29\0=\14\30\rB\v\2\1K\0\1\0\16panel_sizes\1\0\3\tleft\3\30\vbottom\3\15\nright\3\30\15workspaces\1\0\1\14auto_open\tboth\17panel_groups\bgit\rterminal\rexplorer\1\0\0\tName\vpanels\1\0\2\tleft\rexplorer\nright\bgit\15components\19global_keymaps\1\0\0\1\0\1\thide\6h\1\0\1\ricon_set\fdefault\nsetup\bide\30ide.components.bufferlist\29ide.components.bookmarks\28ide.components.branches\27ide.components.commits\27ide.components.changes,ide.components.terminal.terminalbrowser\28ide.components.terminal\28ide.components.timeline!ide.components.callhierarchy\27ide.components.outline\28ide.components.explorer\frequire\0", "config", "nvim-ide")
+time([[Config for nvim-ide]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 try_loadstring("\27LJ\2\nø\2\0\0\t\0\17\1\0316\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\15\0004\4\4\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\0059\5\a\0055\a\t\0005\b\b\0=\b\n\aB\5\2\2>\5\2\0049\5\3\0009\5\4\0059\5\v\0059\5\a\0055\a\r\0005\b\f\0=\b\14\aB\5\2\0?\5\0\0=\4\16\3B\1\2\1K\0\1\0\fsources\1\0\0\14filetypes\1\0\0\1\2\0\0\rmarkdown\rtextlint\15extra_args\1\0\0\1\2\0\0;--config-path /home/alliana/.config/stylua/stylua.toml\twith\vstylua\rdeno_fmt\15formatting\rbuiltins\nsetup\fnull-ls\frequire\aÄÄ¿ô\4\0", "config", "null-ls.nvim")
 time([[Config for null-ls.nvim]], false)
--- Config for: penumbra.nvim
-time([[Config for penumbra.nvim]], true)
-try_loadstring("\27LJ\2\nù\1\0\0\3\0\b\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0B\0\2\1K\0\1\0\25colorscheme penumbra\17nvim_command\bapi\bvim\1\0\2\19italic_comment\2\rcontrast\rplusplus\nsetup\rpenumbra\frequire\0", "config", "penumbra.nvim")
-time([[Config for penumbra.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21alliana.lsp-conf\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\2\0\0\bcss\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
 -- Config for: noice.nvim
 time([[Config for noice.nvim]], true)
-try_loadstring("\27LJ\2\n\\\0\2\4\0\6\0\t\14\0\1\0X\2\1Ä'\1\0\0005\2\1\0005\3\2\0=\1\3\3=\0\4\3=\3\5\2L\2\2\0\vfilter\tfind\tkind\1\0\1\nevent\rmsg_show\1\0\1\tview\tmini\5É\a\1\0\t\0%\1Q3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\0035\4\f\0005\5\v\0=\5\r\4=\4\14\0034\4\15\0005\5\15\0005\6\16\0=\6\17\5>\5\1\0045\5\19\0005\6\18\0=\6\17\0055\6\20\0=\6\21\5>\5\2\4\18\5\0\0'\a\22\0B\5\2\2>\5\3\4\18\5\0\0'\a\23\0B\5\2\2>\5\4\4\18\5\0\0'\a\24\0B\5\2\2>\5\5\4\18\5\0\0'\a\25\0B\5\2\2>\5\6\4\18\5\0\0'\a\26\0B\5\2\2>\5\a\4\18\5\0\0'\a\26\0'\b\27\0B\5\3\2>\5\b\4\18\5\0\0'\a\28\0B\5\2\2>\5\t\4\18\5\0\0'\a\29\0B\5\2\2>\5\n\4\18\5\0\0'\a\30\0B\5\2\2>\5\v\4\18\5\0\0'\a\31\0B\5\2\2>\5\f\4\18\5\0\0'\a \0'\b!\0B\5\3\2>\5\r\4\18\5\0\0'\a\"\0'\b#\0B\5\3\0?\5\0\0=\4$\3B\1\2\1K\0\1\0\vroutes\temsg\28E486: Pattern not found\twmsg!search hit .*, continuing at\22No line in buffer\14line less\18change; after\19change; before\14lua_error\17fewer lines?\16more lines?\vyanked\fwritten\25Already at .* change\topts\1\0\1\tskip\2\1\0\0\1\0\3\tfind/failed to run generator.*is not executable\fwarning\2\nevent\vnotify\vfilter\1\0\1\nevent\17msg_showmode\1\0\1\tview\vnotify\blsp\roverride\1\0\0\1\0\3 cmp.entry.get_documentation\2\"vim.lsp.util.stylize_markdown\0021vim.lsp.util.convert_input_to_markdown_lines\2\rmessages\1\0\1\16view_search\tmini\14popupmenu\1\0\1\fbackend\bcmp\fpresets\1\0\0\1\0\1\19lsp_doc_border\2\nsetup\nnoice\frequire\0\29ÄÄ¿ô\4\0", "config", "noice.nvim")
+try_loadstring("\27LJ\2\n\\\0\2\4\0\6\0\t\14\0\1\0X\2\1Ä'\1\0\0005\2\1\0005\3\2\0=\1\3\3=\0\4\3=\3\5\2L\2\2\0\vfilter\tfind\tkind\1\0\1\nevent\rmsg_show\1\0\1\tview\tmini\5É\a\1\0\t\0%\1Q3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\0035\4\f\0005\5\v\0=\5\r\4=\4\14\0034\4\15\0005\5\15\0005\6\16\0=\6\17\5>\5\1\0045\5\19\0005\6\18\0=\6\17\0055\6\20\0=\6\21\5>\5\2\4\18\5\0\0'\a\22\0B\5\2\2>\5\3\4\18\5\0\0'\a\23\0B\5\2\2>\5\4\4\18\5\0\0'\a\24\0B\5\2\2>\5\5\4\18\5\0\0'\a\25\0B\5\2\2>\5\6\4\18\5\0\0'\a\26\0B\5\2\2>\5\a\4\18\5\0\0'\a\26\0'\b\27\0B\5\3\2>\5\b\4\18\5\0\0'\a\28\0B\5\2\2>\5\t\4\18\5\0\0'\a\29\0B\5\2\2>\5\n\4\18\5\0\0'\a\30\0B\5\2\2>\5\v\4\18\5\0\0'\a\31\0B\5\2\2>\5\f\4\18\5\0\0'\a \0'\b!\0B\5\3\2>\5\r\4\18\5\0\0'\a\"\0'\b#\0B\5\3\0?\5\0\0=\4$\3B\1\2\1K\0\1\0\vroutes\temsg\28E486: Pattern not found\twmsg!search hit .*, continuing at\22No line in buffer\14line less\18change; after\19change; before\14lua_error\17fewer lines?\16more lines?\vyanked\fwritten\25Already at .* change\topts\1\0\1\tskip\2\1\0\0\1\0\3\tfind/failed to run generator.*is not executable\nevent\vnotify\fwarning\2\vfilter\1\0\1\nevent\17msg_showmode\1\0\1\tview\vnotify\blsp\roverride\1\0\0\1\0\3 cmp.entry.get_documentation\2\"vim.lsp.util.stylize_markdown\0021vim.lsp.util.convert_input_to_markdown_lines\2\rmessages\1\0\1\16view_search\tmini\14popupmenu\1\0\1\fbackend\bcmp\fpresets\1\0\0\1\0\1\19lsp_doc_border\2\nsetup\nnoice\frequire\0\29ÄÄ¿ô\4\0", "config", "noice.nvim")
 time([[Config for noice.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\nÑ\1\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\5\0009\4\4\0B\4\1\2=\4\6\3B\1\2\1K\0\1\0\roverride\1\0\0\14get_icons\nsetup\22nvim-web-devicons\23nvim-material-icon\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: lsp_lines.nvim
+time([[Config for lsp_lines.nvim]], true)
+try_loadstring("\27LJ\2\nT\0\0\4\0\3\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\2\v\0\2\0X\1\5Ä6\1\0\0'\3\1\0B\1\2\0029\1\2\1B\1\1\1K\0\1\0\vtoggle\14lsp_lines\frequireT\0\0\4\0\3\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\2\v\0\1\0X\1\5Ä6\1\0\0'\3\1\0B\1\2\0029\1\2\1B\1\1\1K\0\1\0\vtoggle\14lsp_lines\frequireƒ\1\1\0\5\0\r\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0005\2\6\0005\3\b\0003\4\a\0=\4\t\3B\0\3\0016\0\3\0009\0\4\0009\0\5\0005\2\n\0005\3\f\0003\4\v\0=\4\t\3B\0\3\1K\0\1\0\1\0\0\0\1\2\0\0\16InsertLeave\rcallback\1\0\0\0\1\2\0\0\16InsertEnter\24nvim_create_autocmd\bapi\bvim\nsetup\14lsp_lines\frequire\0", "config", "lsp_lines.nvim")
+time([[Config for lsp_lines.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21alliana.lsp-conf\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+try_loadstring("\27LJ\2\n∑\1\0\2\b\1\v\0\0236\2\0\0009\2\1\0029\2\2\2'\4\3\0'\5\4\0-\6\0\0009\6\5\0069\6\5\0065\a\6\0=\1\a\aB\2\5\0016\2\0\0009\2\1\0029\2\2\2'\4\3\0'\5\b\0-\6\0\0009\6\t\0069\6\t\0065\a\n\0=\1\a\aB\2\5\1K\0\1\0\0¿\1\0\0\22code_action_group\14<Leader>a\vbuffer\1\0\0\18hover_actions\14<C-Space>\6n\bset\vkeymap\bvimh\1\0\6\0\b\0\f6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\3B\1\2\0012\0\0ÄK\0\1\0\vserver\1\0\0\14on_attach\1\0\0\0\nsetup\15rust-tools\frequire\0", "config", "rust-tools.nvim")
+time([[Config for rust-tools.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd skkeleton ]]
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -401,17 +455,17 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> T <cmd>lua require("packer.load")({'quick-scope'}, { keys = "T", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> F <cmd>lua require("packer.load")({'quick-scope'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> t <cmd>lua require("packer.load")({'quick-scope'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> T <cmd>lua require("packer.load")({'quick-scope'}, { keys = "T", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> f <cmd>lua require("packer.load")({'quick-scope'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> F <cmd>lua require("packer.load")({'quick-scope'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'bufferline.nvim', 'nvim-cmp', 'staline.nvim', 'indent-blankline.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'indent-blankline.nvim', 'nvim-cmp', 'bufferline.nvim', 'nvim-ts-context-commentstring', 'staline.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

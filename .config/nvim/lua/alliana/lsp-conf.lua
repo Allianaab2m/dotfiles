@@ -13,7 +13,7 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  virtual_text = true,
+  virtual_text = false,
   signs = {},
   update_in_insert = true,
   underline = true,

@@ -286,6 +286,28 @@ require('packer').startup({
       end,
     })
     use({ 'onsails/lspkind-nvim' })
+    use({
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+        vim.api.nvim_create_autocmd({"InsertEnter"}, {
+          callback = function ()
+            local state = require("lsp_lines").toggle()
+            if state == true then
+              require("lsp_lines").toggle()
+            end
+          end
+        })
+        vim.api.nvim_create_autocmd({"InsertLeave"}, {
+          callback = function ()
+            local state = require("lsp_lines").toggle()
+            if state == false then
+              require("lsp_lines").toggle()
+            end
+          end
+        })
+      end,
+    })
 
     use({
       'hrsh7th/nvim-cmp',

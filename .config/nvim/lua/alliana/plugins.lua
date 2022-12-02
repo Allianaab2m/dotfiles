@@ -3,22 +3,16 @@ require('packer').startup({
     -- base plugins
     use({ 'wbthomason/packer.nvim' })
     use('lewis6991/impatient.nvim')
+    use({'DaikyXendo/nvim-material-icon'})
     use({
       'nvim-tree/nvim-web-devicons',
       config = function()
+        local material_icon = require("nvim-material-icon")
         require('nvim-web-devicons').setup({
-          override = {
-            ts = {
-              icon = 'ﯤ',
-              color = '#3178C6',
-            },
-            js = {
-              icon = '',
-              color = '#F1DD35',
-            },
-          },
+          override = material_icon.get_icons()
         })
       end,
+      requires = { 'DaikyXendo/nvim-material-icon' }
     })
     use({'vim-denops/denops.vim'})
 

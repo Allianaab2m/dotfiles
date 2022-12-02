@@ -32,6 +32,7 @@ local options = {
   linebreak = true,
   scrolloff = 8,
   sidescrolloff = 8,
+  termguicolors = true,
 }
 
 vim.opt.shortmess:append "c"

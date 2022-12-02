@@ -69,14 +69,23 @@ require('packer').startup({
     --   end,
     -- })
 
+    -- use({
+    --   'Allianaab2m/penumbra.nvim',
+    --   config = function ()
+    --     require('penumbra').setup({
+    --       italic_comment = true,
+    --       contrast = 'plusplus'
+    --     })
+    --     vim.api.nvim_command('colorscheme penumbra')
+    --   end
+    -- })
+
     use({
-      'Allianaab2m/penumbra.nvim',
+      'kvrohit/mellow.nvim',
       config = function ()
-        require('penumbra').setup({
-          italic_comment = true,
-          contrast = 'plusplus'
-        })
-        vim.api.nvim_command('colorscheme penumbra')
+        vim.g.mellow_bold_keywords = true
+
+        vim.cmd [[colorscheme mellow]]
       end
     })
 

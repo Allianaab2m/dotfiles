@@ -37,9 +37,10 @@ return {
     '~/.config/wezterm/colors/penumbra-dark.toml',
     '~/.config/wezterm/colors/penumbra-dark_plus.toml',
     '~/.config/wezterm/colors/penumbra-dark_plusplus.toml',
+    '~/.config/wezterm/colors/mellow.toml'
   },
   xim_im_name = 'fcitx',
-  color_scheme = 'penumbra-dark-plusplus',
+  color_scheme = 'mellow',
   window_padding = {
     left = 0,
     right = 0,

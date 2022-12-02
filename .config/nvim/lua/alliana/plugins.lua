@@ -342,10 +342,94 @@ require('packer').startup({
       end,
     })
 
+    use({"vim-skk/skkeleton", requires = { "vim-denops/denops.vim" }})
+
+    use({
+      "simrat39/rust-tools.nvim",
+      config = function ()
+        local rt = require("rust-tools")
+        rt.setup({
+          server = {
+            on_attach = function (_, bufnr)
+              vim.keymap.set("n", "<C-Space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+              vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+            end
+          }
+        })
+      end
+    })
+
     use({
       "iamcco/markdown-preview.nvim",
       run = function ()
         vim.fn["mkdp#util#install"]()
+      end
+    })
+
+    use({
+      'ldelossa/nvim-ide',
+      config = function ()
+        -- default components
+        local explorer        = require('ide.components.explorer')
+        local outline         = require('ide.components.outline')
+        local callhierarchy   = require('ide.components.callhierarchy')
+        local timeline        = require('ide.components.timeline')
+        local terminal        = require('ide.components.terminal')
+        local terminalbrowser = require('ide.components.terminal.terminalbrowser')
+        local changes         = require('ide.components.changes')
+        local commits         = require('ide.components.commits')
+        local branches        = require('ide.components.branches')
+        local bookmarks       = require('ide.components.bookmarks')
+        local bufferlist      = require('ide.components.bufferlist')
+
+        require('ide').setup({
+            -- The global icon set to use.
+            -- values: "nerd", "codicon", "default"
+            icon_set = "default",
+            -- Component specific configurations and default config overrides.
+            components = {
+                -- The global keymap is applied to all Components before construction.
+                -- It allows common keymaps such as "hide" to be overriden, without having
+                -- to make an override entry for all Components.
+                --
+                -- If a more specific keymap override is defined for a specific Component
+                -- this takes precedence.
+                global_keymaps = {
+                    -- example, change all Component's hide keymap to "h"
+                    hide = "h"
+                },
+
+                -- example, prefer "x" for hide only for Explorer component.
+                -- Explorer = {
+                --     keymaps = {
+                --         hide = "x",
+                --     }
+                -- }
+            },
+            -- default panel groups to display on left and right.
+            panels = {
+                left = "explorer",
+                right = "git",
+            },
+            -- panels defined by groups of components, user is free to redefine the defaults
+            -- and/or add additional.
+            panel_groups = {
+                explorer = { explorer.Name, bookmarks.Name, callhierarchy.Name, outline.Name },
+                terminal = { terminal.Name },
+                git = { changes.Name, commits.Name, timeline.Name, branches.Name },
+            },
+            -- workspaces config
+            workspaces = {
+                -- which panels to open by default, one of: 'left', 'right', 'both', 'none'
+                auto_open = 'both',
+            },
+            -- default panel sizes for the different positions
+            panel_sizes = {
+                left = 30,
+                right = 30,
+                bottom = 15
+            }
+        })
       end
     })
   end,

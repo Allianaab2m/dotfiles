@@ -8,6 +8,11 @@ require('packer').startup({
     use({
       'nvim-tree/nvim-web-devicons',
       config = function()
+        import({"nvim-web-devicons", "nvim-material-icon"}, function (mods)
+          mods["nvim-web-devicons"].setup({
+            override = mods["nvim-material-icon"].get_icons()
+          })
+        end)
       end,
       requires = { 'DaikyXendo/nvim-material-icon' }
     })
@@ -83,9 +88,9 @@ require('packer').startup({
     use({
       'norcalli/nvim-colorizer.lua',
       config = function ()
-        require('colorizer').setup({
-          'css'
-        })
+        import("colorizer", function (colorizer)
+          colorizer.setup({"css"})
+        end)
       end
     })
 
@@ -105,7 +110,9 @@ require('packer').startup({
       after = 'nvim-ts-rainbow',
       run = ':TSUpdate',
       config = function()
-        require('alliana.treesitter-conf').treesitterSetup()
+        import("alliana.treesitter-conf", function (ts_conf)
+          ts_conf.treesitterSetup()
+        end)
       end,
     })
 

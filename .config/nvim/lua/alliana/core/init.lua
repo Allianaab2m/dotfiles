@@ -1,3 +1,3 @@
-require('alliana.core.base')
-require('alliana.core.keymap')
-require('alliana.core.autocommand')
+import('alliana.core.base')
+import('alliana.core.keymap')
+import('alliana.core.autocommand')

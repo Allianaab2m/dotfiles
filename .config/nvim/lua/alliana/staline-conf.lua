@@ -27,23 +27,24 @@ local conditionalSections = function ()
     end
   end
 
-  local status_ok, navic = pcall(require, 'nvim-navic')
-  if status_ok then
+  import("nvim-navic", function (navic)
     sections.mid = { navic.get_location }
-  end
-
+  end)
 
   return {
     sections = sections,
     branchIcon = branchIcon
   }
+
 end
 
 local stalineSetupOpt = conditionalSections()
-require('staline').setup({
-  defaults = {
-    branch_symbol = stalineSetupOpt.branchIcon
-  },
-  sections = stalineSetupOpt.sections
-})
 
+import("staline", function (staline)
+  staline.setup({
+    defaults = {
+      branch_symbol = stalineSetupOpt.branchIcon
+    },
+    sections = stalineSetupOpt.sections
+  })
+end)

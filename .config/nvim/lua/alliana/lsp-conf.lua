@@ -1,5 +1,8 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+import("cmp_nvim_lsp", function (cmp_lsp)
+  capabilities = cmp_lsp.default_capabilities(capabilities)
+end)
 
 local signs = {
   { name = 'DiagnosticSignError' },
@@ -63,14 +66,15 @@ local on_attach = function (client, bufnr)
   local active_clients = vim.lsp.get_active_clients()
 
   if client.server_capabilities.documentSymbolProvider then
-    local navic = require('nvim-navic')
-    navic.setup({
-      depth_limit = 4
-    })
-    navic.attach(client, bufnr)
+    import("nvim-navic", function (navic)
+      navic.setup({
+        depth_limit = 4
+      })
+      navic.attach(client, bufnr)
+    end)
   end
 
-  if client.supports_method('textDocument/formatting') then
+  if client.supports_method('textDocument/Formatting') then
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
     vim.api.nvim_create_autocmd('BufWritePre', {
       group = augroup,
@@ -84,8 +88,13 @@ local on_attach = function (client, bufnr)
   lsp_keymaps(bufnr)
 end
 
-local lspconfig = require('lspconfig')
-require('mason-lspconfig').setup_handlers({
+local lspconfig
+import("lspconfig", function (lc)
+  lspconfig = lc
+end)
+
+import("mason-lspconfig", function (mason_lspconfig)
+  mason_lspconfig.setup_handlers({
   function(server_name)
     -- https://zenn.dev/kawarimidoll/articles/2b57745045b225
     local node_root_dir = lspconfig.util.root_pattern('package.json')
@@ -125,3 +134,5 @@ require('mason-lspconfig').setup_handlers({
     vim.diagnostic.config(config)
   end,
 })
+  
+end)

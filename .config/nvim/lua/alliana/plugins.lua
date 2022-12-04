@@ -5,6 +5,13 @@ require('packer').startup({
     use('lewis6991/impatient.nvim')
     use('miversen33/import.nvim')
     use({'DaikyXendo/nvim-material-icon'})
+    use({"lewis6991/gitsigns.nvim", config = function ()
+      import("gitsigns", function (gs)
+        gs.setup({
+          current_line_blame = true
+        })
+      end)
+    end})
     use({
       'nvim-tree/nvim-web-devicons',
       config = function()

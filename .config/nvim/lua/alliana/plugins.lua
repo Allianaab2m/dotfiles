@@ -3,14 +3,11 @@ require('packer').startup({
     -- base plugins
     use({ 'wbthomason/packer.nvim' })
     use('lewis6991/impatient.nvim')
+    use('miversen33/import.nvim')
     use({'DaikyXendo/nvim-material-icon'})
     use({
       'nvim-tree/nvim-web-devicons',
       config = function()
-        local material_icon = require("nvim-material-icon")
-        require('nvim-web-devicons').setup({
-          override = material_icon.get_icons()
-        })
       end,
       requires = { 'DaikyXendo/nvim-material-icon' }
     })

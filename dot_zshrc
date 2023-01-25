@@ -1,0 +1,52 @@
+fpath=(~/.zsh $fpath)
+
+# autoload -Uz compinit
+# compinit -u
+
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/alliana/ghq/github.com/yuki-yano/zeno.zsh/zeno.zsh
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+export EDITOR="nvim"
+
+alias nv="nvim"
+alias ls="lsd"
+alias cz="chezmoi"
+
+export GPG_TTY=$(tty)
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+#
+
+zinit ice lucid depth"1" blockf
+zinit light yuki-yano/zeno.zsh
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+if [[ -n $ZENO_LOADED ]]; then
+  bindkey ' '  zeno-auto-snippet
+  bindkey '^m' zeno-auto-snippet-and-accept-line
+  bindkey '^i' zeno-completion
+  bindkey '^g' zeno-ghq-cd
+  bindkey '^r' zeno-history-selection
+  bindkey '^x' zeno-insert-snippet
+fi
+
+eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/home/alliana/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

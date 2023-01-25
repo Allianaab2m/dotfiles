@@ -6,7 +6,7 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/language", "keyboard-state", "custom/pacman"],
-    "modules-center": ["clock", "custom/np", "custom/weather"],
+    "modules-center": ["clock", "custom/weather"],
     "modules-right": ["pulseaudio", "custom/mem", "backlight", "battery", "tray"],
 
 

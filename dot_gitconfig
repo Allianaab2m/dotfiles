@@ -7,3 +7,5 @@
 	name = Alliana
 [push]
 	autoSetupRemote = true
+[commit]
+	gpgsign = true

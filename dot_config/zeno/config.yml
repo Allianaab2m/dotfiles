@@ -1,0 +1,16 @@
+snippets:
+  - name: git status
+    keyword: gs
+    snippet: git status --short --branch
+
+completions:
+  - name: chdir
+    patterns: 
+      - "^cd $"
+    sourceCommand: "find . -path '*/.git' -prune -o -maxdepth 5 -type d -print0"
+    options:
+      --read0: true
+      --prompt: "'Chdir> '"
+      --preview: "cd {} && ls -a | sed '/^[.]*$/d'"
+    callback: "cut -z -c 3-"
+    callbackZero: true

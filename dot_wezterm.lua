@@ -31,6 +31,7 @@ wezterm.on(
 return {
   font = wezterm.font 'PlemolJP35 Console NF',
   font_size = 10.0,
+  treat_east_asian_ambiguous_width_as_wide = true,
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   color_scheme_dirs = {

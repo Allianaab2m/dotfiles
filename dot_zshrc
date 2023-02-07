@@ -9,10 +9,23 @@ source /home/alliana/ghq/github.com/yuki-yano/zeno.zsh/zeno.zsh
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 export EDITOR="nvim"
+export TERM="alacritty"
+export GPG_TTY=$(tty)
 
 alias nv="nvim"
 alias ls="lsd"
 alias cz="chezmoi"
+quote_search_terms() {
+  for term in "$@"; do
+    echo "\"$term\" "
+  done
+}
+
+searchGoogle() {
+  xdg-open "https://www.google.com/search?q=$(quote_search_terms "$@")"
+}
+
+alias ggl=searchGoogle()
 
 export GPG_TTY=$(tty)
 

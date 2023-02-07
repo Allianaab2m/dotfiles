@@ -3,6 +3,15 @@ return {
     "vim-denops/denops.vim",
     event = "VeryLazy"
   },
+  -- {{{ Git
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "CursorHold",
+    config = function ()
+      require("gitsigns").setup({})
+    end
+  }, -- }}}
+
   -- {{{ Icons
   {
     "nvim-tree/nvim-web-devicons",
@@ -91,7 +100,7 @@ return {
   },
   -- }}}
 
--- {{{ Colorscheme
+  -- {{{ Colorscheme
   {
     "Allianaab2m/penumbra.nvim",
     enabled = false,
@@ -164,9 +173,43 @@ return {
           enabled = true,
           shade = "dark",
           percentage = 0.15
-        }
+        },
+        custom_highlights = function (C)
+          return {
+            Folded = { link = "Comment" },
+            CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
+            CmpItemKindKeyword = { fg = C.base, bg = C.red },
+            CmpItemKindText = { fg = C.base, bg = C.teal },
+            CmpItemKindMethod = { fg = C.base, bg = C.blue },
+            CmpItemKindConstructor = { fg = C.base, bg = C.blue },
+            CmpItemKindFunction = { fg = C.base, bg = C.blue },
+            CmpItemKindFolder = { fg = C.base, bg = C.blue },
+            CmpItemKindModule = { fg = C.base, bg = C.blue },
+            CmpItemKindConstant = { fg = C.base, bg = C.peach },
+            CmpItemKindField = { fg = C.base, bg = C.green },
+            CmpItemKindProperty = { fg = C.base, bg = C.green },
+            CmpItemKindEnum = { fg = C.base, bg = C.green },
+            CmpItemKindUnit = { fg = C.base, bg = C.green },
+            CmpItemKindClass = { fg = C.base, bg = C.yellow },
+            CmpItemKindVariable = { fg = C.base, bg = C.flamingo },
+            CmpItemKindFile = { fg = C.base, bg = C.blue },
+            CmpItemKindInterface = { fg = C.base, bg = C.yellow },
+            CmpItemKindColor = { fg = C.base, bg = C.red },
+            CmpItemKindReference = { fg = C.base, bg = C.red },
+            CmpItemKindEnumMember = { fg = C.base, bg = C.red },
+            CmpItemKindStruct = { fg = C.base, bg = C.blue },
+            CmpItemKindValue = { fg = C.base, bg = C.peach },
+            CmpItemKindEvent = { fg = C.base, bg = C.blue },
+            CmpItemKindOperator = { fg = C.base, bg = C.blue },
+            CmpItemKindTypeParameter = { fg = C.base, bg = C.blue },
+          }
+        end
       })
       vim.cmd.colorscheme "catppuccin"
+      vim.cmd[[ hi DiagnosticUnderlineError  gui=undercurl ]]
+      vim.cmd[[ hi DiagnosticUnderlineWarn gui=undercurl ]]
+      vim.cmd[[ hi DiagnosticUnderlineInfo gui=undercurl ]]
+      vim.cmd[[ hi DiagnosticUnderlineHint gui=undercurl ]]
     end
   },
 -- }}}
@@ -218,7 +261,6 @@ return {
       "williamboman/mason.nvim",
       "folke/lsp-colors.nvim",
       "hrsh7th/cmp-nvim-lsp",
-      "Maan2003/lsp_lines.nvim",
       "nvim-lua/plenary.nvim",
       "SmiteshP/nvim-navic",
       "yioneko/nvim-vtsls",
@@ -246,18 +288,37 @@ return {
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
       vim.diagnostic.config({
-        float = { border = "single" }
+        float = {
+          border = "rounded",
+          title = "Diagnostics",
+          focusable = false,
+          header = {},
+          format = function (diag)
+            if diag.code then
+              return ("[%s](%s): %s"):format(diag.source, diag.code, diag.message)
+            else
+              return ("[%s]: %s"):format(diag.source, diag.message)
+            end
+          end
+        }
+      })
+
+      vim.api.nvim_create_autocmd({"CursorHold"}, {
+        pattern = "*",
+        callback = function ()
+          vim.diagnostic.open_float()
+        end
       })
 
       local signs = {
-        { name = "DiagnosticSignError" },
-        { name = "DiagnosticSignWarn" },
-        { name = "DiagnosticSignHint" },
-        { name = "DiagnosticSignInfo" }
+        { name = "DiagnosticSignError", text = "" },
+        { name = "DiagnosticSignWarn", text = "" },
+        { name = "DiagnosticSignHint", text = "" },
+        { name = "DiagnosticSignInfo", text = "" },
       }
 
       for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { text_hl = sign.name, numhl = sign.name })
+        vim.fn.sign_define(sign.name, { text_hl = sign.name, numhl = sign.name, text = sign.text })
       end
 
       local function lsp_keymaps(bufnr)
@@ -272,8 +333,8 @@ return {
         keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
         keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
         keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-        keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer = 0})<CR>", opts)
-        keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer = 0})<CR>", opts)
+        keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer = 0, float = false})<CR>", opts)
+        keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer = 0, float = false})<CR>", opts)
         keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
         keymap(bufnr, "n", "<leader>lq", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
       end
@@ -338,8 +399,6 @@ return {
         end
       })
 
-      require("lsp_lines").setup()
-
       vim.api.nvim_create_autocmd({ "InsertEnter" }, {
         callback = function()
           vim.diagnostic.config({ virtual_lines = false })
@@ -369,13 +428,14 @@ return {
       null_ls.setup({
         sources = {
           builtins.formatting.eslint_d,
+          builtins.diagnostics.textlint.with({ filetypes = { "markdown" } })
         }
       })
     end
   },
   -- }}}
 
--- {{{ Skkeleton
+  -- {{{ Skkeleton
   {
     "vim-skk/skkeleton",
     lazy = false,
@@ -396,7 +456,7 @@ return {
   },
 -- }}}
 
--- {{{ Comment
+  -- {{{ Comment
   {
     "numToStr/Comment.nvim",
     keys = { "gc", "gb" },
@@ -679,35 +739,57 @@ return {
         })
       end
     },
+    {
+      "luukvbaal/statuscol.nvim",
+      lazy = false,
+      config = function ()
+        require("statuscol").setup({
+          setopt = true,
+          reeval = true,
+          separator = " ",
+          order = "sFNsSs",
+        })
+      end
+    },
   -- }}}
 
--- {{{ partedit
+  -- {{{ partedit
   {
     "thinca/vim-partedit",
     cmd = "Partedit"
   },
--- }}}
+  -- }}}
 
--- {{{ Dressing
+  -- {{{ Dressing
   {
     "stevearc/dressing.nvim",
     event = "BufReadPre",
     config = function ()
-      require("dressing").setup({})
+      require("dressing").setup({
+        select = {
+          builtin = {
+            relative = "cursor",
+            mappings = {
+              ["q"] = "Close",
+              ["<CR>"] = "Confirm"
+            }
+          }
+        }
+      })
     end
   },
--- }}}
+  -- }}}
 
--- {{{ Jumpout
+  -- {{{ Jumpout
   {
     "Allianaab2m/jumpout.vim",
     dev = true, lazy = false,
     config = function ()
     end
   },
--- }}}
+  -- }}}
 
--- {{{ fuzzy-motion
+  -- {{{ fuzzy-motion
   {
     "yuki-yano/fuzzy-motion.vim",
     dependencies = { "vim-denops/denops.vim", "lambdalisue/kensaku.vim" },
@@ -720,9 +802,9 @@ return {
     "lambdalisue/kensaku.vim",
     lazy = false,
   },
--- }}}
+  -- }}}
 
--- {{{ utils
+  -- {{{ utils
   {
     "LeafCage/vimhelpgenerator",
     cmd = { "VimHelpGenerator" }
@@ -732,7 +814,33 @@ return {
     dir = "~/ghq/github.com/Allianaab2m/vimskey",
     lazy = false,
     dependencies = { "vim-denops/denops.vim" }
+  },
+  {
+    "anuvyklack/pretty-fold.nvim",
+    event = "BufReadPre",
+    config = function ()
+      require('pretty-fold').setup{
+      keep_indentation = false,
+      fill_char = '━',
+      sections = {
+          left = {
+            '━ ', function() return string.rep('*', vim.v.foldlevel) end, ' ━┫', 'content', '┣'
+          },
+          right = {
+            '┫ ', 'number_of_folded_lines', ': ', 'percentage', ' ┣━━',
+          }
+        }
+      }
+    end
+  },
+  {
+    "rhysd/clever-f.vim",
+    event = "VeryLazy",
+  },
+  {
+    "unblevable/quick-scope",
+    event = "VeryLazy"
   }
--- }}}
+  -- }}}
 }
 -- vim:se fdm=marker:

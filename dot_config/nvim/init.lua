@@ -37,7 +37,6 @@ vim.g.fuzzy_motion_matchers = { 'fzf', 'kensaku' }
 vim.api.nvim_create_user_command('Filetree', [[ call ddu#start({ 'name': 'filer', 'uiParams': {'filer': {'search': expand('%:p')}}}) ]], {})
 vim.api.nvim_create_user_command('SkipSong', [[ call system('playerctl next') ]], {})
 
-vim.cmd[[nnoremap <expr> <leader>f "<Cmd>FuzzyMotion<CR>"]]
 vim.cmd[[nnoremap <C-j> <Cmd>call jumpout#select_jump('j', ['bo term', 'Trouble workspace_diagnostics'])<CR>]]
 vim.cmd[[nnoremap <C-h> <Cmd>call jumpout#jump('h', 'Filetree')<CR>]]
 

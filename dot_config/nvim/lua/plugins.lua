@@ -10,7 +10,8 @@ return {
     config = function ()
       require("gitsigns").setup({})
     end
-  }, -- }}}
+  },
+  -- }}}
 
   -- {{{ Icons
   {
@@ -459,7 +460,10 @@ return {
   -- {{{ Comment
   {
     "numToStr/Comment.nvim",
-    keys = { "gc", "gb" },
+    keys = {
+      { "gb", mode = "n" },
+      { "gc", mode = "n" }
+    },
     config = function ()
       require("Comment").setup()
     end
@@ -677,6 +681,7 @@ return {
   {
     "Shougo/ddu.vim",
     keys = { ";" },
+    enabled = false,
     dependencies = {
       "vim-denops/denops.vim",
       -- UI
@@ -701,6 +706,51 @@ return {
       require("denops-lazy").load("ddu")
       vim.cmd [[ source ~/.config/nvim/ddu-conf.vim ]]
       vim.cmd [[ source ~/.config/nvim/ddu-filer-conf.vim ]]
+    end
+  },
+  -- }}}
+
+  -- {{{ Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    event = { "VeryLazy" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function ()
+          require("telescope").load_extension("fzf")
+        end
+      },
+    },
+    config = function ()
+      local actions = require("telescope.actions")
+      require("telescope").setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<Esc>"] = actions.close,
+            },
+            n = {
+              ["j"] = actions.move_selection_next,
+              ["k"] = actions.move_selection_previous,
+              ["q"] = actions.close
+            }
+          },
+          layout_strategy = "horizontal",
+          layout_config = { prompt_position = "top" },
+          sorting_strategy = "ascending",
+          winblend = 0
+        },
+      })
+      vim.keymap.set("n", ";f", "<Cmd>Telescope live_grep<CR>", { noremap = true })
+     -- Git
+      -- vim.keymap.set("n", ";gc", "<Cmd>Telescope git_commits<CR>", { noremap = true })
+      -- vim.keymap.set("n", ";gs", "<Cmd>Telescope git_status<CR>", { noremap = true })
+      -- vim.keymap.set("n", ";gb", "<Cmd>Telescope git_branches<CR>", { noremap = true })
+      -- LSP
+      vim.keymap.set("n", ";ld", "<Cmd>Telescope lsp_document_symbols<CR>", { noremap = true })
     end
   },
   -- }}}
@@ -751,6 +801,37 @@ return {
         })
       end
     },
+    {
+      "tkmpypy/chowcho.nvim",
+      lazy = false,
+      config = function ()
+        local chowcho = require("chowcho")
+        local win_keymap_set = function (key, callback)
+          vim.keymap.set({ 'n', 't' }, '<C-w>' .. key, callback)
+          vim.keymap.set({ 'n', 't' }, '<C-w><C-' .. key .. '>', callback)
+        end
+
+        win_keymap_set('w',
+          function ()
+            local wins = 0
+            for i = 1, vim.fn.winnr('$') do
+              local win_id = vim.fn.win_getid(i)
+              local conf = vim.api.nvim_win_get_config(win_id)
+
+              if conf.focusable then
+                wins = wins + 1
+                if wins > 2 then
+                  chowcho.run()
+                  return
+                end
+              end
+            end
+
+            vim.api.nvim_command("wincmd w")
+          end
+        )
+      end
+    },
   -- }}}
 
   -- {{{ partedit
@@ -792,6 +873,7 @@ return {
   -- {{{ fuzzy-motion
   {
     "yuki-yano/fuzzy-motion.vim",
+    enabled = false,
     dependencies = { "vim-denops/denops.vim", "lambdalisue/kensaku.vim" },
     cmd = { "FuzzyMotion" },
     config = function ()
@@ -840,7 +922,26 @@ return {
   {
     "unblevable/quick-scope",
     event = "VeryLazy"
-  }
+  },
   -- }}}
-}
+
+  -- {{{ ToggleTerm
+  {
+    "akinsho/toggleterm.nvim",
+    keys = { ";t" },
+    config = function ()
+      require("toggleterm").setup({
+        direction = "float",
+        float_opts = {
+          border = "single",
+          width = 120,
+          height = 20,
+          winblend = 3,
+        }
+      })
+      vim.keymap.set("n", ";t", "<Cmd>ToggleTerm<CR>",{ noremap = true })
+    end
+  },
+  -- }}}
+ }
 -- vim:se fdm=marker:

@@ -745,10 +745,6 @@ return {
         },
       })
       vim.keymap.set("n", ";f", "<Cmd>Telescope live_grep<CR>", { noremap = true })
-     -- Git
-      -- vim.keymap.set("n", ";gc", "<Cmd>Telescope git_commits<CR>", { noremap = true })
-      -- vim.keymap.set("n", ";gs", "<Cmd>Telescope git_status<CR>", { noremap = true })
-      -- vim.keymap.set("n", ";gb", "<Cmd>Telescope git_branches<CR>", { noremap = true })
       -- LSP
       vim.keymap.set("n", ";ld", "<Cmd>Telescope lsp_document_symbols<CR>", { noremap = true })
     end

@@ -8,7 +8,10 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "CursorHold",
     config = function ()
-      require("gitsigns").setup({})
+      require("gitsigns").setup({
+        signcolumn = false,
+        numhl = true
+      })
     end
   },
   -- }}}
@@ -39,10 +42,10 @@ return {
           right = { "lsp_name", "right_sep_double", "-line_column"}
         },
         mode_colors = {
-          n = palette.sky,
-          i = palette.green,
-          c = palette.rosewater,
-          v = palette.mauve,
+          n = palette.subtext1,
+          i = palette.subtext1,
+          c = palette.subtext1,
+          v = palette.subtext1,
         },
       })
     end,
@@ -169,12 +172,12 @@ return {
     config = function ()
       require("catppuccin").setup({
         flavor = "mocha",
-        transpalent_background = true,
-        dim_inactive = {
-          enabled = true,
-          shade = "dark",
-          percentage = 0.15
-        },
+        -- transparent_background = true,
+        -- dim_inactive = {
+        --   enabled = true,
+        --   shade = "dark",
+        --   percentage = 0.15
+        -- },
         custom_highlights = function (C)
           return {
             Folded = { link = "Comment" },
@@ -278,19 +281,19 @@ return {
           severity_sort = true,
           float = {
             focusable = true,
-            border = "rounded",
+            border = "single",
             source = "always",
             header = "",
             prefix = "",
           }
         }
       )
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
       vim.diagnostic.config({
         float = {
-          border = "rounded",
+          border = "single",
           title = "Diagnostics",
           focusable = false,
           header = {},
@@ -357,6 +360,8 @@ return {
         tsserver = {
           root_dir = lsp.util.root_pattern("package.json")
         },
+
+        nimls = {},
 
         sumneko_lua = {
           settings = {
@@ -514,7 +519,7 @@ return {
             col_offset = -3,
             side_padding = 0
           },
-          documentation = cmp.config.window.bordered({ border = "rounded" })
+          documentation = cmp.config.window.bordered({ border = "single" })
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },
@@ -723,6 +728,12 @@ return {
           require("telescope").load_extension("fzf")
         end
       },
+      {
+        "Allianaab2m/telescope-kensaku.nvim",
+        config = function ()
+          require("telescope").load_extension("kensaku")
+        end
+      },
     },
     config = function ()
       local actions = require("telescope.actions")
@@ -741,10 +752,13 @@ return {
           layout_strategy = "horizontal",
           layout_config = { prompt_position = "top" },
           sorting_strategy = "ascending",
-          winblend = 0
+          winblend = 0,
+          borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         },
       })
       vim.keymap.set("n", ";f", "<Cmd>Telescope live_grep<CR>", { noremap = true })
+      vim.keymap.set("n", ";d", "<Cmd>Telescope find_files<CR>", { noremap = true })
+      vim.keymap.set("n", ";k", "<Cmd>Telescope kensaku<CR>", { noremap = true })
       -- LSP
       vim.keymap.set("n", ";ld", "<Cmd>Telescope lsp_document_symbols<CR>", { noremap = true })
     end
@@ -772,6 +786,21 @@ return {
         })
 
         require("noice").setup({
+          views = {
+            cmdline_popup = {
+              position = {
+                row = 15,
+                col = "50%"
+              },
+              size = {
+                width = 60,
+                height = "auto"
+              },
+              border = {
+                style = "single",
+              }
+            },
+          },
           presets = {
             lsp_doc_border = true
           },
@@ -782,18 +811,6 @@ return {
               ["cmp.entry.get_documentation"] = true
             },
           }
-        })
-      end
-    },
-    {
-      "luukvbaal/statuscol.nvim",
-      lazy = false,
-      config = function ()
-        require("statuscol").setup({
-          setopt = true,
-          reeval = true,
-          separator = " ",
-          order = "sFNsSs",
         })
       end
     },
@@ -828,6 +845,22 @@ return {
         )
       end
     },
+    {
+      "mvllow/modes.nvim",
+      tag = "v0.2.0",
+      event = "ModeChanged",
+      config = function ()
+        local palette = require("catppuccin.palettes.mocha")
+        require("modes").setup({
+          colors = {
+            delete = palette.sky,
+            insert = palette.green,
+            copy = palette.rosewater,
+            visual = palette.mauve,
+          }
+        })
+      end
+    },
   -- }}}
 
   -- {{{ partedit
@@ -843,6 +876,12 @@ return {
     event = "BufReadPre",
     config = function ()
       require("dressing").setup({
+        input = {
+          border = "single"
+        },
+        builtin = {
+          border = "single"
+        },
         select = {
           builtin = {
             relative = "cursor",
@@ -938,6 +977,41 @@ return {
       vim.keymap.set("n", ";t", "<Cmd>ToggleTerm<CR>",{ noremap = true })
     end
   },
+  -- }}}
+
+  -- {{{ Neorg
+  {
+    "nvim-neorg/neorg",
+    lazy = false,
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
+        ["core.norg.dirman"] = {
+          config = {
+            workspaces = {
+              notes = "~/notes"
+            }
+          }
+        },
+        ["core.norg.completion"] = {
+          config = {
+            engine = "nvim-cmp"
+          }
+        },
+        ["core.integrations.treesitter"] = {}
+      }
+    }
+  },
+  -- }}}
+
+  -- {{{ Nim 
+  {
+    "alaviss/nim.nvim",
+    ft = "nim"
+  }
   -- }}}
  }
 -- vim:se fdm=marker:

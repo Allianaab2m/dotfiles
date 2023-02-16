@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0
+  opacity: 0.7
 
   # Startup Mode (changes require restart)
   #
@@ -557,6 +557,9 @@ font:
 #
 # `- { key: V, mods: Control|Shift, action: Paste }`
 #
+key_bindings:
+  - { key: LShift, mods: Shift, chars: ";k" }
+  - { key: RShift, mods: Shift, chars: ";k" }
 # Each key binding will specify a:
 #
 # - `key`: Identifier of the key pressed

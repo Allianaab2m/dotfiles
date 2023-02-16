@@ -52,12 +52,12 @@ output * bg /home/alliana/Downloads/IMG_6023.JPG fill
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_layout us,ca
     xkb_variant ,multix
-    xkb_options grp:shifts_toggle
+    xkb_options grp:shifts_toggle,caps:escape
 }
 
 input "type:keyboard" {
     xkb_layout us
-    xkb_options ctrl:nocaps
+    xkb_options caps:escape
   }
 
 input type:touchpad {

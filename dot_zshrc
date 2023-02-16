@@ -57,9 +57,14 @@ if [[ -n $ZENO_LOADED ]]; then
   bindkey '^x' zeno-insert-snippet
 fi
 
-eval "$(starship init zsh)"
 
 # pnpm
 export PNPM_HOME="/home/alliana/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# nim
+export PATH="/home/alliana/.nimble/bin:$PATH"
+# nim end
+
+eval "$(starship init zsh)"

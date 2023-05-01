@@ -363,6 +363,12 @@ return {
 
         nimls = {},
 
+        svelte = {},
+
+        elixirls = {
+          cmd = { "/home/alliana/.local/share/nvim/mason/bin/elixir-ls" }
+        },
+
         sumneko_lua = {
           settings = {
             Lua = {
@@ -445,18 +451,25 @@ return {
   {
     "vim-skk/skkeleton",
     lazy = false,
-    dependencies = { "vim-denops/denops.vim" },
+    dependencies = {
+      "vim-denops/denops.vim",
+      "delphinus/skkeleton_indicator.nvim"
+    },
     config = function()
+      require("skkeleton_indicator").setup({})
       vim.cmd[[
         imap <C-j> <Plug>(skkeleton-enable)
         cmap <C-j> <Plug>(skkeleton-enable)
         call skkeleton#config({
           \ 'globalDictionaries': [
           \   '~/.local/share/fcitx5/skk/user.dict.utf8', 
-          \   '~/.local/share/fcitx5/skk/SKK-JISYO.vtuber'],
+          \   '~/.local/share/fcitx5/skk/SKK-JISYO.vtuber',
+          \   '/usr/share/skk/SKK-JISYO.L',
+          \  ],
           \ 'markerHenkan': '▽ ',
           \ 'markerHenkanSelect': '▼ '
           \ })
+        call skkeleton#register_keymap('input', ';', 'henkanPoint')
       ]]
     end
   },
@@ -600,7 +613,7 @@ return {
     end
   },
   {
-    "hrsh7th/nvim-minx",
+    "hrsh7th/nvim-insx",
     lazy = false,
     config = function ()
       require("insx.preset.standard").setup()
@@ -983,6 +996,7 @@ return {
   {
     "nvim-neorg/neorg",
     lazy = false,
+    ft = { "norg" },
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {

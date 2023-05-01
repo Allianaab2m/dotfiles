@@ -4,35 +4,26 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
     lazypath
   })
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(require("plugins"), {
-  defaults = { lazy = true },
-  dev = {
-    path = "~/ghq/github.com/Allianaab2m",
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "netrwPlugin",
-        "tutor"
-      },
-      rtp = {
-	reset = false
-      }
+vim.g.mapleader = " "
+
+require("lazy").setup(
+  "plugins",
+  {
+    defaults = {
+      lazy = true
     },
-  },
-})
+    install = {
+      colorscheme = { "catppuccin" }
+    }
+  }
+)
 
-require("core")
-
-vim.g.fuzzy_motion_matchers = { 'fzf', 'kensaku' }
--- vim.opt.ambiwidth = 'double'
-vim.api.nvim_create_user_command('Filetree', [[ call ddu#start({ 'name': 'filer', 'uiParams': {'filer': {'search': expand('%:p')}}}) ]], {})
-
+require("core.options")
+require("core.keymaps")

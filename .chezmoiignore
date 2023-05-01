@@ -17,3 +17,10 @@
 .zshrc.local
 .wezterm.lua
 {{ end }}
+
+# Personally file.
+{{ if ne .chezmoi.hostname "amethyst" }}
+  {{ if ne .chezmoi.hostname "larimar" }}
+    .gitconfig
+  {{ end }}
+{{ end }}

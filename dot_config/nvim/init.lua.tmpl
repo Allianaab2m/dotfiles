@@ -1,4 +1,11 @@
+{{ if (eq .chezmoi.os "windows") }}
+local lazypath = vim.fn.stdpath("data") .. "\\lazy\\lazy.nvim"
+{{ end }}
+
+{{ if (ne .chezmoi.os "windows") }}
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+{{ end }}
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",

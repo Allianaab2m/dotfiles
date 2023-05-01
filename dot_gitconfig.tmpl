@@ -5,6 +5,10 @@
 [user]
 	email = 56180684+Allianaab2m@users.noreply.github.com
 	name = Alliana
+{{ if (eq .chezmoi.os "windows")}}
+[gpg]
+  program = "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
+{{ end }}
 [push]
 	autoSetupRemote = true
 [commit]

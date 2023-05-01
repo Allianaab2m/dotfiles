@@ -1,0 +1,19 @@
+{{ if eq .chezmoi.os "windows" }}
+.config/alacritty/
+.config/dunst/
+.config/foot/
+.config/mako/
+.config/neofetch/
+.config/starship.toml
+.config/sway/
+.config/waybar/
+.config/wezterm/
+.config/wofi/
+.config/zeno/
+.tmux.conf
+.zsh/
+.zshenv
+.zshrc
+.zshrc.local
+.wezterm.lua
+{{ end }}

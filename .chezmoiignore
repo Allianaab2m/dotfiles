@@ -16,7 +16,6 @@
 .zshenv
 .zshrc
 .zshrc.local
-.wezterm.lua
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}

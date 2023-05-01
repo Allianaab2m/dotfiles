@@ -8,6 +8,7 @@
 .config/sway/
 .config/waybar/
 .config/wezterm/
+.config/wezterm/colors/
 .config/wofi/
 .config/zeno/
 .tmux.conf
@@ -16,6 +17,13 @@
 .zshrc
 .zshrc.local
 .wezterm.lua
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+.wezterm_windows.lua
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.wezterm_linux.lua
 {{ end }}
 
 # Personally file.

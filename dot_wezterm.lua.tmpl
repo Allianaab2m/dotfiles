@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.os "windows" }}
-{{   include ".wezterm_windows.lua" }}
+{{   include "dot_wezterm_windows.lua" }}
 {{ end }}
 {{ if eq .chezmoi.os "linux" }}
-{{   include ".wezterm_linux.lua" }}
+{{   include "dot_wezterm_linux.lua" }}
 {{ end }}

@@ -24,20 +24,6 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-			{
-				"zbirenbaum/copilot-cmp",
-				dependencies = "zbirenbaum/copilot.lua",
-				opts = {},
-				config = function(_, opts)
-					local copilot_cmp = require("copilot_cmp")
-					copilot_cmp.setup(opts)
-					require("utils").on_attach(function(client)
-						if client.name == "copilot" then
-							copilot_cmp._on_insert_enter()
-						end
-					end)
-				end,
-			},
 		},
 		opts = function()
 			local cmp = require("cmp")
@@ -52,12 +38,83 @@ return {
 				behavior = cmp.ConfirmBehavior.Replace,
 			})
 			return {
+				completion = {
+					completeopt = "menu,menuone,noinsert",
+				},
 				window = {
 					completion = {
 						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
 						col_offset = -3,
 						side_padding = 0,
 					},
+					documentation = cmp.config.window.bordered({ border = "single" }),
+				},
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(_, item)
+						local icons = require("utils").icons.kinds
+						if icons[item.kind] then
+							item.menu = "    (" .. item.kind .. ")"
+							item.kind = " " .. icons[item.kind] .. " "
+						end
+
+						return item
+					end,
+				},
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+				sources = {
+					{ name = "copilot", group_index = 2 },
+					{ name = "nvim_lsp", group_index = 2 },
+					{ name = "luasnip", group_index = 2 },
+					{ name = "buffer", group_index = 2 },
+					{ name = "path", group_index = 2 },
+				},
+				experimental = {
+					ghost_text = {
+						hl_group = "LspCodeLens",
+					},
+				},
+				mapping = {
+					["<Tab"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						elseif has_words_before() then
+							cmp.complete()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<CR>"] = cmp.mapping({
+						i = function(fallback)
+							local entry = cmp.get_active_entry()
+							if cmp.visible() and cmp.get_active_entry() then
+								if entry and entry.source_name == "copilot" then
+									return confirm_copilot()
+								end
+								return cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+							else
+								fallback()
+							end
+						end,
+						s = cmp.mapping.confirm({ select = true }),
+						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+					}),
+					["<C-e>"] = cmp.mapping.abort(),
 				},
 				sorting = {
 					priority_weight = 2,
@@ -72,75 +129,22 @@ return {
 						cmp.config.compare.length,
 						cmp.config.compare.order,
 					},
-					formatting = {
-						fields = { "kind", "abbr", "menu" },
-						format = function(_, item)
-							local icons = require("utils").icons.kind
-							if icons[item.kind] then
-								item.menu = "    (" .. item.kind .. ")"
-								item.kind = " " .. icons[item.kind] .. " "
-							end
-
-							return item
-						end,
-					},
-					snippet = {
-						expand = function(args)
-							luasnip.lsp_expand(args.body)
-						end,
-					},
-					sources = cmp.config.sources({
-						{ name = "copilot", group_index = 2 },
-						{ name = "nvim_lsp" },
-						{ name = "luasnip" },
-						{ name = "buffer" },
-						{ name = "path" },
-					}),
-					experimental = {
-						ghost_text = {
-							hl_group = "LspCodeLens",
-						},
-					},
-					mapping = {
-						["<Tab"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.select_next_item()
-							elseif luasnip.expand_or_jumpable() then
-								luasnip.expand_or_jump()
-							elseif has_words_before() then
-								cmp.complete()
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-						["<S-Tab"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.select_prev_item()
-							elseif luasnip.jumpable(-1) then
-								luasnip.jump(-1)
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-						["<CR>"] = cmp.mapping({
-							i = function(fallback)
-								local entry = cmp.get_active_entry()
-								if cmp.visible() and cmp.get_active_entry() then
-									if entry and entry.source_name == "copilot" then
-										return confirm_copilot()
-									end
-									return cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-								else
-									fallback()
-								end
-							end,
-							s = cmp.mapping.confirm({ select = true }),
-							c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-						}),
-						["<C-e>"] = cmp.mapping.abort(),
-					},
 				},
 			}
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = "zbirenbaum/copilot.lua",
+		opts = {},
+		config = function(_, opts)
+			local copilot_cmp = require("copilot_cmp")
+			copilot_cmp.setup(opts)
+			require("utils").on_attach(function(client)
+				if client.name == "copilot" then
+					copilot_cmp._on_insert_enter()
+				end
+			end)
 		end,
 	},
 

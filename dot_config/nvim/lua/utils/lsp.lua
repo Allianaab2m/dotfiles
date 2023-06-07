@@ -60,4 +60,3 @@ function M.keymaps_on_attach(client, bufnr)
 end
 
 return M
-

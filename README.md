@@ -13,4 +13,5 @@ chezmoi init --apply Allianaab2m
 
 ## Environment
 Main PC: Windows 11 + Neovim
+
 Sub PC: Arch Linux + Sway + Neovim

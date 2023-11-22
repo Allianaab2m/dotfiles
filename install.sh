@@ -10,7 +10,7 @@ function init() {
   echo "│                                                                        │"
   echo "│Be sure to review the contents of this shell script before proceeding!  │"
   echo "│  https://github.com/Allianaab2m/dotfiles/blob/main/install.sh          │"
-  echo "│  https://github.com/Allianaab2m/dotfiles/blob/main/link.ts             │"
+  echo "│  https://github.com/Allianaab2m/dotfiles/blob/main/setup.ts            │"
   echo "│                                                                        │"
   echo "│The following tools will be installed:                                  │"
   echo "│  - Rust toolchains(rustup, rustc, cargo)                               │"
@@ -54,8 +54,6 @@ function install_rust() {
   rustup self update
   rustup update
   rustup --version
-  rustc --version
-  cargo --version
 }
 
 function install_rtx() {
@@ -68,6 +66,8 @@ function install_rtx() {
     echo -e "\e[34m>>> rtx-cli has been already installed.\e[m\n"    
   fi
   rtx --version
+  export RTX_DATA_DIR=$HOME/.rtx
+  export RTX_CACHE_DIR=$RTX_DATA_DIR/cache
 }
 
 function install_deno_via_rtx() {
@@ -85,9 +85,11 @@ function install_deno_via_rtx() {
 
 function run_deno_script() {
   echo -e "\e[36m> Executing Deno script...\e[m\n"    
-  git clone -b rework https://github.com/Allianaab2m/dotfiles $HOME/dotfiles
-  cd $HOME/dotfiles
-  deno run --allow-net --allow-read=. --allow-write=$HOME/.config/,. link.ts
+  if [ ! -e $HOME/dotfiles-alliana/setup.ts ]; then
+    git clone -b rework https://github.com/Allianaab2m/dotfiles $HOME/dotfiles-alliana
+  fi
+  cd $HOME/dotfiles-alliana
+  deno run --allow-net --allow-read=. --allow-write=$HOME/.config/,. setup.ts
 }
 
 init

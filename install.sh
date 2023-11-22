@@ -16,6 +16,7 @@ function init() {
   echo "│  - Rust toolchains(rustup, rustc, cargo)                               │"
   echo "│  - rtx-cli(https://github.com/jdx/rtx)                                 │"
   echo "│  - sheldon(https://sheldon.cli.rs)                                     │"
+  echo "│  - lsd(https://github.com/lsd-rs/lsd)                                  │"
   echo "│  - ghq(https://github.com/x-motemen/ghq)                               │"
   echo "│                                                                        │"
   echo "│  - Deno@latest                                                         │"
@@ -88,7 +89,8 @@ function run_deno_script() {
   if [ ! -e $HOME/dotfiles-alliana/setup.ts ]; then
     git clone -b rework https://github.com/Allianaab2m/dotfiles $HOME/dotfiles-alliana
   fi
-  cd $HOME/dotfiles-alliana
+  # cd $HOME/dotfiles-alliana
+  deno run --allow-net --allow-read=. --allow-write=$HOME/.config,. setup.ts tool-install
   deno run --allow-net --allow-read=. --allow-write=$HOME/.config/,. setup.ts deploy run
 }
 

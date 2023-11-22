@@ -1,17 +1,19 @@
 # dotfiles
-My dotfiles
 
-## How to use?
+## Install
 
-Install [chezmoi](https://www.chezmoi.io/).
-You can use this dotfiles on Windows.
-but, almost dotfiles(except `nvim`) are ignored.
-
-```
-chezmoi init --apply Allianaab2m
+```sh
+$ bash -c "$(curl -fsSL https://dot.ab2m.link/install)"
 ```
 
-## Environment
-Main PC: Windows 11 + Neovim
+## Update
+```sh
+$ cd ~/dotfiles-alliana
+$ git pull
+$ deno run -A setup.ts deploy run
+```
 
-Sub PC: Arch Linux + Sway + Neovim
+## Useful commands(for me)
+```sh
+$ sudo deno run -A setup.ts nvim-build
+```

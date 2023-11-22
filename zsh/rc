@@ -1,0 +1,42 @@
+fpath=(~/.zsh $fpath)
+autoload -U compinit
+compinit
+
+export RTX_DATA_DIR=$HOME/.rtx
+export RTX_CACHE_DIR=$RTX_DATA_DIR/cache
+export GCM_CREDENTIAL_STORE='gpg'
+export EDITOR='nvim'
+export GPG_TTY=$(tty)
+export PATH=$PATH:/mnt/c/wsl/arch/bin
+
+alias ls='lsd'
+eval "$(sheldon source)"
+
+function is_dirty() {
+  local dotfiles_dir=~/ghq/github.com/Allianaab2m/dotfiles
+  test -n "$(git -C ${dotfiles_dir} status --porcelain)" ||
+      ! git -C ${dotfiles_dir} diff --exit-code --stat --cached origin/main > /dev/null
+}
+
+function warn_dirty() {
+  local dotfiles_dir=~/ghq/github.com/Allianaab2m/dotfiles
+  if is_dirty $? ; then
+      echo -e "\e[1;36m[[dotfiles]]\e[m"
+      echo -e "\e[1;33m[warn] DIRTY DOTFILES\e[m"
+      echo -e "\e[1;33m    -> Push your local changes in $dotfiles_dir\e[m"
+  fi
+}
+
+if [[ ! -o login ]]; then
+    # Avoid duplicate warning (See .config/zsh/.zprofile)
+    warn_dirty
+fi
+
+
+# pnpm
+export PNPM_HOME="/home/alliana/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

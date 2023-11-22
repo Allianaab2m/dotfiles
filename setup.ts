@@ -3,6 +3,10 @@ import { defineTask } from "https://deno.land/x/dotstingray@v0.2.1/core/mod.ts";
 import chalk from "npm:chalk@5.3.0";
 import { createTasks } from "./tasks.ts";
 
+const home = Deno.env.get("HOME");
+
+if (!home) throw new Error("$HOME is not set!");
+
 const deploy = defineTask(await createTasks());
 
 const installWithRtx = async (name: string, version = "latest") => {
@@ -33,9 +37,23 @@ const toolInstall = async () => {
   // Node.js + pnpm install
   await installWithRtx("node", "lts");
   await installWithRtx("pnpm");
+
+  // github-cli install
+  await installWithRtx("github-cli");
 };
 
 const nvimBuild = async () => {
+  if ($.commandExistsSync("ghq") === false) {
+    console.log("ghq not installed");
+    Deno.exit(1);
+  }
+
+  await $`ghq get https://github.com/neovim/neovim`;
+  await $`sudo pacman -S base-devel cmake unzip ninja curl`;
+  await $`make CMAKE_BUILD_TYPE=RelWithDebInfo`.cwd(
+    `${home}/ghq/github.com/neovim/neovim`,
+  );
+  await $`sudo make install`.cwd(`${home}/ghq/github.com/neovim/neovim`);
 };
 
 if (Deno.args.includes("deploy")) {

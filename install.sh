@@ -20,6 +20,7 @@ function init() {
   echo "│  - ghq(https://github.com/x-motemen/ghq)                               │"
   echo "│                                                                        │"
   echo "│  - Deno@latest                                                         │"
+  echo "│  - github-cli@latest                                                   │"
   echo "│  - Node.js@LTS                                                         │"
   echo "│  - Go@latest                                                           │"
   echo "│                                                                        │"

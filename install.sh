@@ -89,7 +89,7 @@ function run_deno_script() {
     git clone -b rework https://github.com/Allianaab2m/dotfiles $HOME/dotfiles-alliana
   fi
   cd $HOME/dotfiles-alliana
-  deno run --allow-net --allow-read=. --allow-write=$HOME/.config/,. setup.ts
+  deno run --allow-net --allow-read=. --allow-write=$HOME/.config/,. setup.ts deploy run
 }
 
 init

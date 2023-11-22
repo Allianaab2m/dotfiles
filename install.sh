@@ -88,7 +88,7 @@ function install_deno_via_rtx() {
 function run_deno_script() {
   echo -e "\e[36m> Executing Deno script...\e[m\n"    
   if [ ! -e $HOME/dotfiles-alliana/setup.ts ]; then
-    git clone -b rework https://github.com/Allianaab2m/dotfiles $HOME/dotfiles-alliana
+    git clone  https://github.com/Allianaab2m/dotfiles $HOME/dotfiles-alliana
   fi
   cd $HOME/dotfiles-alliana
   deno run --allow-net --allow-read=. --allow-write=$HOME/.config,. setup.ts tool-install

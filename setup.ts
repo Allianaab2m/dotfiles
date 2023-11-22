@@ -1,30 +1,9 @@
 import $ from "https://deno.land/x/dax@0.35.0/mod.ts";
 import { defineTask } from "https://deno.land/x/dotstingray@v0.2.1/core/mod.ts";
-import { link } from "https://deno.land/x/dotstingray@v0.2.1/utils/mod.ts";
 import chalk from "npm:chalk@5.3.0";
+import { createTasks } from "./tasks.ts";
 
-const home = Deno.env.get("HOME");
-
-if (!home) throw new Error("$HOME is not set!");
-
-const deploy = defineTask([
-  link({
-    source: "./starship/starship.toml",
-    destination: `${home}/.config/starship.toml`,
-  }),
-  link({
-    source: "./sheldon/plugins.toml",
-    destination: `${home}/.config/sheldon/plugins.toml`,
-  }),
-  link({
-    source: "./nvim/",
-    destination: `${home}/.config/nvim/`,
-  }),
-  link({
-    source: "./zsh/rc",
-    destination: `${home}/.zshrc`,
-  }),
-]);
+const deploy = defineTask(await createTasks());
 
 const installWithRtx = async (name: string, version = "latest") => {
   $.log(chalk.cyan(`> Installing ${name}`));

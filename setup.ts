@@ -40,23 +40,25 @@ const nvimBuild = async () => {
 
 if (Deno.args.includes("deploy")) {
   if (Deno.args.includes("run")) {
-    const result = await deploy.run();
+    await deploy.run();
+  } else {
+    const check = await deploy.check();
 
-    const success = result.filter((res) => res.check.ok);
-    const fail = result.filter((res) => !res.check.ok);
-    if (result.length === success.length) {
+    const success = check.filter((c) => c.ok);
+    const fail = check.filter((c) => !c.ok);
+    if (check.length === success.length) {
       $.log(chalk.green("☑ Symbolic link has been created!"));
       success.map((r) => {
-        $.log(chalk.green("+", chalk.white(r.check.name)));
+        $.log(chalk.green("+", chalk.white(r.name)));
       });
       fail.map((r) => {
-        $.log(chalk.red("×", chalk.white(r.check.name)));
+        $.log(chalk.red("×", chalk.white(r.name)));
       });
       Deno.exit(0);
-    } else if (result.length === fail.length) {
+    } else if (check.length === fail.length) {
       $.log(chalk.red("✖ Symbolic links were not created properly!"));
       fail.map((r) => {
-        $.log(chalk.red("×", chalk.white(r.check.name)));
+        $.log(chalk.red("×", chalk.white(r.name)));
       });
       Deno.exit(1);
     } else {
@@ -64,15 +66,12 @@ if (Deno.args.includes("deploy")) {
         chalk.yellow("△ Some symbolic links were not created properly."),
       );
       success.map((r) => {
-        $.log(chalk.green("+", chalk.white(r.check.name)));
+        $.log(chalk.green("+", chalk.white(r.name)));
       });
       fail.map((r) => {
-        $.log(chalk.red("×", chalk.white(r.check.name)));
+        $.log(chalk.red("×", chalk.white(r.name)));
       });
     }
-  } else {
-    const check = await deploy.check();
-    console.log(check);
   }
 } else if (Deno.args.includes("tool-install")) {
   toolInstall();

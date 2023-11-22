@@ -9,9 +9,19 @@ if (!home) throw new Error("$HOME is not set!");
 
 const deploy = defineTask(await createTasks());
 
-const installWithRtx = async (name: string, version = "latest") => {
+const installWithRtx = async (
+  name: string,
+  version = "latest",
+  alias?: string,
+) => {
   $.log(chalk.cyan(`> Installing ${name}`));
-  if ($.commandExistsSync(name)) {
+  let cmdName = "";
+  if (alias) {
+    cmdName = alias;
+  } else {
+    cmdName = name;
+  }
+  if ($.commandExistsSync(cmdName)) {
     $.log(chalk.cyan(`>>> ${name} has been already installed.`));
   } else {
     await $`rtx install ${name}@${version}`;
@@ -39,7 +49,7 @@ const toolInstall = async () => {
   await installWithRtx("pnpm");
 
   // github-cli install
-  await installWithRtx("github-cli");
+  await installWithRtx("github-cli", "latest", "gh");
 };
 
 const nvimBuild = async () => {
@@ -59,6 +69,13 @@ const nvimBuild = async () => {
 if (Deno.args.includes("deploy")) {
   if (Deno.args.includes("run")) {
     await deploy.run();
+    await $`mkdir -p ${home}/.zsh`;
+    $`sheldon completions --shell zsh`.text().then(async (t) =>
+      await Deno.writeTextFile(`${home}/.zsh/_sheldon`, t)
+    );
+    $`deno completions zsh`.text().then(async (t) =>
+      await Deno.writeTextFile(`${home}/.zsh/_deno`, t)
+    );
   } else {
     const check = await deploy.check();
 

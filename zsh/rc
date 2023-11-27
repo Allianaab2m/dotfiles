@@ -10,6 +10,7 @@ export GPG_TTY=$(tty)
 export PATH=$PATH:/mnt/c/wsl/arch/bin
 
 alias ls='lsd'
+alias :q='exit'
 eval "$(sheldon source)"
 
 function is_dirty() {

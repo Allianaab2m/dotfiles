@@ -32,7 +32,6 @@ if [[ ! -o login ]]; then
     warn_dirty
 fi
 
-
 # pnpm
 export PNPM_HOME="/home/alliana/.local/share/pnpm"
 case ":$PATH:" in

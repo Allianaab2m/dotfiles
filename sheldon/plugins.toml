@@ -19,10 +19,10 @@ github = "marlonrichert/zsh-autocomplete"
 github = "zsh-users/zsh-syntax-highlighting"
 
 [plugins.rtx]
-inline = 'eval "$(rtx activate zsh)"'
+inline = 'eval "$(/home/alliana/.local/share/rtx/bin/rtx activate zsh)"'
 
 [plugins.starship]
-inline = 'eval "$(starship init zsh)"'
+inline = 'eval "$(/home/alliana/.rtx/installs/starship/latest/bin/starship init zsh)"'
 # For example:
 #
 # [plugins.base16]

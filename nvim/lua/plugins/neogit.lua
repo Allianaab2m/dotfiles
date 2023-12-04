@@ -1,8 +1,8 @@
 return {
-	"NeogitOrg/neogit",
+	"https://github.com/NeogitOrg/neogit",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
+		"https://github.com/nvim-lua/plenary.nvim",
+		"https://github.com/nvim-telescope/telescope.nvim",
 	},
 	cmd = "Neogit",
 	keys = {

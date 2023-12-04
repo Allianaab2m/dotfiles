@@ -1,6 +1,6 @@
 return {
 	{
-		"nvim-telescope/telescope.nvim",
+		"https://github.com/nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		version = "0.1.x",
 		keys = {
@@ -12,17 +12,8 @@ return {
 			{ ";b", "<Cmd>Telescope buffers<CR>", mode = "n", desc = "Telescope buffers" },
 		},
 		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{
-				"Allianaab2m/telescope-kensaku.nvim",
-				dependencies = {
-					"lambdalisue/kensaku.vim",
-				},
-				config = function()
-					require("telescope").load_extension("kensaku")
-				end,
-			},
-			"nvim-telescope/telescope-file-browser.nvim",
+			"https://github.com/nvim-lua/plenary.nvim",
+			"https://github.com/nvim-telescope/telescope-file-browser.nvim",
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -53,9 +44,6 @@ return {
 			})
 
 			require("telescope").load_extension("file_browser")
-
-			local key = vim.keymap.set
-			local opts = { noremap = true, silent = true }
 		end,
 	},
 }

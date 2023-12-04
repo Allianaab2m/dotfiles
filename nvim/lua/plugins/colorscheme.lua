@@ -26,6 +26,10 @@ return {
       require("catppuccin").setup({
         term_colors = true,
         transparent_background = false,
+        background = {
+          light = "latte",
+          dark = "mocha"
+        },
         styles = {
           comments = { "italic" },
           conditionals = {},
@@ -41,10 +45,21 @@ return {
         },
         color_overrides = {
           mocha = {
-            base = "#000000",
-            mantle = "#000000",
-            crust = "#000000"
+            base = "#100F0F",
+            mantle = "#100F0F",
+            crust = "#100F0F"
           }
+        },
+        integrations = {
+          telescope = {
+            enabled = true,
+            style = "nvchad"
+          },
+        },
+        dim_inactive = {
+          enabled = true,
+          shade = "dark",
+          percentage = 0.1
         },
         custom_highlights = function(C)
           return {

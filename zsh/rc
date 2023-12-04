@@ -13,6 +13,9 @@ alias ls='lsd'
 alias :q='exit'
 eval "$(sheldon source)"
 
+setopt auto_cd
+function chpwd() { ls }
+
 function is_dirty() {
   local dotfiles_dir=~/ghq/github.com/Allianaab2m/dotfiles
   test -n "$(git -C ${dotfiles_dir} status --porcelain)" ||
@@ -28,10 +31,8 @@ function warn_dirty() {
   fi
 }
 
-if [[ ! -o login ]]; then
-    # Avoid duplicate warning (See .config/zsh/.zprofile)
-    warn_dirty
-fi
+# Avoid duplicate warning (See .config/zsh/.zprofile)
+warn_dirty
 
 # pnpm
 export PNPM_HOME="/home/alliana/.local/share/pnpm"

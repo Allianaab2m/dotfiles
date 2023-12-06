@@ -1,12 +1,12 @@
 return {
-  { "vim-denops/denops.vim", lazy = false },
+	{ "https://github.com/vim-denops/denops.vim", lazy = false },
+	{
+		"https://github.com/yuki-yano/denops-lazy.nvim",
+	},
+	{ "https://github.com/tani/vim-artemis" },
+	{ "https://github.com/nvim-lua/plenary.nvim", lazy = false },
   {
-    "yuki-yano/denops-lazy.nvim",
-  },
-  { "tani/vim-artemis" },
-  { "nvim-lua/plenary.nvim", lazy = false },
-  {
-    "oflisback/obsidian-bridge.nvim",
+    "https://github.com/oflisback/obsidian-bridge.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     event = { "BufReadPre *.md", "BufNewFile *.md" },
     opts = {

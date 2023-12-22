@@ -1,0 +1,8 @@
+{
+  "oj-path": "/home/alliana/.rtx/installs/python/3.11.7/bin/oj",
+  "default-contest-dirname-format": "{ContestID}",
+  "default-task-dirname-format": "{tasklabel}",
+  "default-test-dirname-format": "tests",
+  "default-task-choice": "inquire",
+  "default-template": "go"
+}

@@ -1,0 +1,12 @@
+{
+  "task": {
+    "program": [
+      "main.go",
+      "run.sh",
+      "entr.sh",
+      "test.sh",
+      "input"
+    ],
+    "submit": "main.go"
+  }
+}

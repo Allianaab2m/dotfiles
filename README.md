@@ -29,8 +29,9 @@ Rust(cargo install/binstall) managing:
 - [bat](https://github.com/sharkdp/bat) for replace `cat`
 - [eza](https://github.com/eza-community/eza) for replace `ls`
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for replace `grep`
-- [delta](https://github.com/dandavision/delta) for replace `git diff` view
+- [delta](https://github.com/dandavison/delta) for replace `git diff` view
 - [starship](https://starship.rs)
+- [skim](https://github.com/lotabout/skim) for replace `fzf`
 
 ## Installation
 
@@ -83,9 +84,13 @@ curl https://mise.run | sh
 cargo binstall bat
 cargo binstall ripgrep
 cargo binstall eza
-cargo binstall delta
+cargo binstall git-delta
 cargo binstall starship
+cargo binstall skim
+```
 
+```sh
+mise install
 ```
 
 ### 4. (Optional) Build Neovim
@@ -108,3 +113,13 @@ cd ghq/github.com/neovim/neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 ```
+### 5. (Optional: Ubuntu) Install nala
+
+[Nala](https://github.com/volitank/nala) is a front-end for `libapt-pkg`.
+
+```sh
+sudo apt update && sudo apt install nala
+```
+
+and replace `apt` to `nala`.
+

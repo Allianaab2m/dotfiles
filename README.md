@@ -31,6 +31,7 @@ Rust(cargo install/binstall) managing:
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for replace `grep`
 - [delta](https://github.com/dandavison/delta) for replace `git diff` view
 - [starship](https://starship.rs)
+- [skim](https://github.com/lotabout/skim) for replace `fzf`
 
 ## Installation
 
@@ -85,6 +86,7 @@ cargo binstall ripgrep
 cargo binstall eza
 cargo binstall git-delta
 cargo binstall starship
+cargo binstall skim
 ```
 
 ```sh

@@ -46,6 +46,21 @@ alias ls="eza --icons --git"
 alias ls="eza -a --icons --git"
 alias cat="bat"
 alias grep="rg"
+alias fzf="sk"
+'''
+
+[plugins.func]
+inline = '''
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
 '''
 
 [plugins.starship]

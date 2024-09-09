@@ -5,6 +5,7 @@ jobs:
   install:
     name: Install dotfiles
     runs-on: ubuntu-latest
+    shell: zsh {0}
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles

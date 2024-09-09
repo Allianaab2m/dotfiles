@@ -1,0 +1,11 @@
+name: Run chezmoi
+on:
+  - push
+jobs:
+  install:
+    name: Install dotfiles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dotfiles
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .

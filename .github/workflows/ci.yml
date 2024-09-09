@@ -5,8 +5,8 @@ jobs:
   install:
     name: Install dotfiles
     runs-on: ubuntu-latest
-    shell: zsh {0}
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .
+        shell: zsh {0}

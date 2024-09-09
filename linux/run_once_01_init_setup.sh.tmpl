@@ -1,0 +1,25 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" }}
+apt update
+apt install -y \
+	bat \
+	curl \
+	exa \
+	fd-find \
+	git \
+	gh \
+	ripgrep \
+	wget
+# cargo
+curl https://sh.rustup.rs -sSf | sh
+
+# sheldon
+~/.cargo/bin/cargo install sheldon
+
+# starship
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+# mise
+curl https://mise.run | sh
+{{ end }}

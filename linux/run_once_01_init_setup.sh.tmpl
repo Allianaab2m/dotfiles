@@ -1,16 +1,17 @@
 #!/usr/bin/env zsh
 
 {{ if eq .chezmoi.os "linux" }}
-apt update
-apt install -y \
+sudo apt update
+sudo apt install -y \
 	bat \
 	curl \
-	exa \
+	eza \
 	fd-find \
 	git \
 	gh \
 	ripgrep \
-	wget
+	wget \
+	nala
 # cargo
 curl https://sh.rustup.rs -sSf | sh
 

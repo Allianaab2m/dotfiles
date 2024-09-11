@@ -18,11 +18,11 @@ inline = 'eval "$(starship init zsh)"'
 [plugins.mise]
 inline = 'eval "$(~/.local/bin/mise activate zsh)"'
 
-[plugins.alias]
+[plugins.aqua]
 inline = '''
-alias ls="eza"
-ln -s /usr/bin/batcat ~/.local/bin/bat
-alias cat="bat"
+export PATH="$(aqua root-dir)/bin:$PATH"
+export AQUA_GLOBAL_CONFIG="~/.config/aqua/aqua.yaml"
+export AQUA_PROGRESS_BAR=true
 '''
 
 {{ if eq .chezmoi.os "linux" }}

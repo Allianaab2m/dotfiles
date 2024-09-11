@@ -3,13 +3,8 @@
 {{ if eq .chezmoi.os "linux" }}
 sudo apt update
 sudo apt install -y \
-	bat \
 	curl \
-	eza \
-	fd-find \
 	git \
-	gh \
-	ripgrep \
 	wget \
 	nala \
 # cargo
@@ -26,6 +21,10 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 # mise
 curl https://mise.run | sh
+
+# aqua
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
+ln -sf ~/.local/share/aquaproj-aqua/bin/aqua ~/.local/bin/aqua
 
 source ~/.zshrc
 {{ end }}

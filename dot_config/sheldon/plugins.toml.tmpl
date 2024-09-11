@@ -21,6 +21,7 @@ inline = 'eval "$(~/.local/bin/mise activate zsh)"'
 [plugins.aqua]
 inline = '''
 export PATH="$(aqua root-dir)/bin:$PATH"
+export GITHUB_TOKEN={{ (onepasswordDetailsFields "mugucdnknj475nwn6y5mlexbvq").notesPlain.value }}
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 export AQUA_PROGRESS_BAR=true
 '''

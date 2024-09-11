@@ -7,3 +7,8 @@ apt install zsh
 chsh -s $(which zsh)
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply Allianaab2m
 ```
+
+## 1Password
+```sh
+eval $(op signin)
+```

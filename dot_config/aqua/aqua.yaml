@@ -14,7 +14,7 @@ packages:
 - name: 1password/cli@v2.30.0
 - name: x-motemen/ghq@v1.6.2
 - name: sharkdp/bat@v0.24.0
-- name: dandavison/delta@0.18.1
+- name: dandavison/delta@0.18.2
 - name: sharkdp/fd@v10.2.0
 - name: rossmacarthur/sheldon@0.8.0
 - name: BurntSushi/ripgrep@14.1.1

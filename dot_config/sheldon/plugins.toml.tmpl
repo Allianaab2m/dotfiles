@@ -25,6 +25,11 @@ export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 export AQUA_PROGRESS_BAR=true
 '''
 
+[plugins.aqua]
+inline = '''
+alias cat="bat"
+'''
+
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [plugins.ssh_exe]

@@ -17,31 +17,3 @@ jobs:
         id: install
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .
         shell: zsh {0}
-      - uses: jwalton/gh-find-current-pr@v1
-        if: steps.install.outcome == 'success'
-        id: finder
-      - name: "Make PR Comment body"
-        id: comment
-        if: steps.install.outcome == 'success'
-        run: |
-          pr_comment_body=''
-          aqua_output=$(aqua list --installed -a)
-          mise_output=$(mise ls)
-          pr_comment_body=$(cat << EOF
-          aqua managed tools
-          <code>${aqua_output}</code>
-          mise managed runtimes
-          <code>${mise_output}</code>
-          EOF)
-
-          echo ::set-output name=result::${pr_comment_body}
-      - name: "PR comment on Update in CI"
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: steps.install.outcome == 'success'
-        with:
-          header: Installed tools
-          recreate: true
-          number: ${{ steps.finder.outputs.pr }}
-          message: |
-            ${{ steps.comment.outputs.result }}
-

@@ -1,0 +1,40 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
+[plugins.mise]
+inline = 'eval "$(~/.local/bin/mise activate zsh)"'
+
+[plugins.aqua]
+inline = '''
+{{ if ne .chezmoi.username "runner" }}
+export GITHUB_TOKEN={{ (onepasswordDetailsFields "mugucdnknj475nwn6y5mlexbvq").notesPlain.value }}
+{{ end }}
+export AQUA_PROGRESS_BAR=true
+'''
+
+[plugins.alias]
+inline = '''
+alias cat="bat"
+alias ls="eza"
+'''
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[plugins.ssh_exe]
+inline = 'alias ssh="ssh.exe"'
+{{  end }}
+{{ end }}

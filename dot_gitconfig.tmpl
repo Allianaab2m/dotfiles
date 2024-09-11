@@ -1,0 +1,30 @@
+[user]
+  email = 56180684+Allianaab2m@users.noreply.github.com
+  name = Allianaab2m
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFLmR7uSY/Aj8w5VeojtLp8w0ba4tQnUIOzoe8GMkvsM
+
+[gpg]
+  format = ssh
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[gpg "ssh"]
+  program = "/mnt/c/Users/Alliana/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+[core]
+  sshCommand = ssh.exe
+{{   end }}
+{{ end }}
+
+[commit]
+  gpgsign = true
+
+[push]
+  default = current
+
+[init]
+  defaultBranch = main
+
+[fetch]
+  prune = true

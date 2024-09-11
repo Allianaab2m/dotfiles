@@ -1,0 +1,19 @@
+name: Run chezmoi
+on:
+  - push
+jobs:
+  install:
+    permissions:
+      pull-requests: write
+    name: Install dotfiles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y zsh
+      - name: Install dotfiles
+        id: install
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .
+        shell: zsh {0}

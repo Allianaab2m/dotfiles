@@ -17,6 +17,9 @@ jobs:
         id: install
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .
         shell: zsh {0}
+      - uses: jwalton/gh-find-current-pr@v1
+        if: steps.install.outcome == 'success'
+        id: finder
       - name: "Make PR Comment body"
         id: comment
         if: steps.install.outcome == 'success'
@@ -38,6 +41,7 @@ jobs:
         with:
           header: Installed tools
           recreate: true
+          number: ${{ steps.finder.outputs.pr }}
           message: |
             ${{ steps.comment.outputs.result }}
 

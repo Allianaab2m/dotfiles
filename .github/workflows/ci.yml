@@ -29,7 +29,7 @@ jobs:
           <code>${aqua_output}</code>
           mise managed runtimes
           <code>${mise_output}</code>
-          EOF
+          EOF)
 
           echo ::set-output name=result::${pr_comment_body}
       - name: "PR comment on Update in CI"

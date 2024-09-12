@@ -5,6 +5,7 @@ if [[ -d "$HOME/.local/bin" ]]; then
 fi
 
 export PATH="$HOME/.local/share/aquaproj-aqua/bin:$PATH"
+export PATH=$PATH:`npm prefix --location=global`/bin
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 
 export EDITOR="nvim"

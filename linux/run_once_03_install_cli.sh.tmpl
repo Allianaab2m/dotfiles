@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 {{ if eq .chezmoi.os "linux" }}
-aqua i -a
+export AQUA_GLOBAL_CONFIG=${HOME}/.config/aqua/aqua.yaml
+~/.local/bin/aqua i -a
 
 # bat cache build
 bat cache --build

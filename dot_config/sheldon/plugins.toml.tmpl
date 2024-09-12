@@ -20,9 +20,6 @@ defer = '{% for file in files %}zsh-defer source "{{"{{ file }}"}}"{% endfor %}'
 
 [plugins.aqua]
 inline = '''
-{{ if ne .chezmoi.username "runner" }}
-export GITHUB_TOKEN={{ (onepasswordDetailsFields "mugucdnknj475nwn6y5mlexbvq").notesPlain.value }}
-{{ end }}
 export AQUA_PROGRESS_BAR=true
 '''
 

@@ -12,9 +12,6 @@
 
 shell = "zsh"
 
-[plugins.compinit]
-inline = 'autoload -Uz compinit'
-
 [plugins.aqua]
 inline = '''
 {{ if ne .chezmoi.username "runner" }}
@@ -41,6 +38,9 @@ github = "zsh-users/zsh-syntax-highlighting"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'

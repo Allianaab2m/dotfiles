@@ -8,7 +8,7 @@ function auto_sync() {
     local dotfiles_dir=$(chezmoi source-path)
     echo -e "\e[1;36m[[dotfiles]]\e[m"
     echo -en "\e[1;36mTry auto sync...\n\e[m"
-    if (cd $dotfiles_dir && git pull && chezmoi apply && cd $HOME) > /dev/null 2>&1; then
+    if (chezmoi update && cd $HOME) > /dev/null 2>&1; then
         if is_dirty $? ; then
             echo -e "\e[1;31m [failed]\e[m"
             echo -e "\e[1;33m[warn] DIRTY DOTFILES\e[m"

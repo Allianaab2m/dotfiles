@@ -16,6 +16,9 @@ shell = "zsh"
 github = 'romkatv/zsh-defer'
 apply = ['source']
 
+[templates]
+defer = { value = 'zsh-defer source ""{{" file "}}""'}
+
 [plugins.aqua]
 inline = '''
 {{ if ne .chezmoi.username "runner" }}

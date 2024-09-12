@@ -1,3 +1,5 @@
 [tools]
 node = "lts"
+deno = "latest"
+bun = "latest"
 go = "latest"

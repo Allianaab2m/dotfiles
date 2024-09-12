@@ -12,12 +12,6 @@
 
 shell = "zsh"
 
-[plugins.starship]
-inline = 'eval "$(starship init zsh)"'
-
-[plugins.mise]
-inline = 'eval "$(~/.local/bin/mise activate zsh)"'
-
 [plugins.aqua]
 inline = '''
 {{ if ne .chezmoi.username "runner" }}
@@ -38,3 +32,15 @@ alias ls="eza"
 inline = 'alias ssh="ssh.exe"'
 {{  end }}
 {{ end }}
+
+[plugins.zsh-autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+
+[plugins.zsh-completions]
+github = 'zsh-users/zsh-completions'
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
+[plugins.mise]
+inline = 'eval "$(~/.local/bin/mise activate zsh)"'

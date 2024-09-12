@@ -10,6 +10,11 @@
 [gpg]
   format = ssh
 
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com
+[ghq]
+  user = Allianaab2m
+
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [gpg "ssh"]

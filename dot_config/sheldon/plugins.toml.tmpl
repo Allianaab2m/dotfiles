@@ -40,6 +40,10 @@ inline = 'alias ssh="ssh.exe"'
 {{  end }}
 {{ end }}
 
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 

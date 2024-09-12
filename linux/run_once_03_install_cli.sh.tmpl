@@ -11,4 +11,7 @@ bat cache --build
 {{ if ne .chezmoi.username "runner"}}
 gh extension install HikaruEgashira/gh-q
 {{ end }}
+
+# install @devcontainers/cli
+npm install -g @devcontainers/cli
 {{ end }}

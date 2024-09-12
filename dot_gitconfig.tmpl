@@ -28,3 +28,18 @@
 
 [fetch]
   prune = true
+
+[core]
+  pager = delta
+
+[interactive]
+  diffEnter = delta --color-only
+
+[delta]
+  navigate = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

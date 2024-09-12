@@ -2,5 +2,5 @@
 node = "lts"
 deno = "latest"
 bun = "latest"
-go = "1.21.3"
+go = "1.23.1"
 java = "openjdk-21"

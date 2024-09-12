@@ -33,7 +33,7 @@ alias ghq="gh q"
 [plugins.keybind]
 inline = '''
 function peco-ghq() {
-  cd $(gh q list | sk)
+  cd $(gh q list | sk --preview "bat README.md")
   zle reset-prompt
 }
 zle -N peco-ghq

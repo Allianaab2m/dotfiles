@@ -30,6 +30,16 @@ alias ls="eza --icons"
 alias ghq="gh q"
 '''
 
+[plugins.keybind]
+inline = '''
+function peco-ghq() {
+  cd $(gh q list | peco)
+  zle reset-prompt
+}
+zle -N peco-ghq
+bindkey '^G' peco-ghq
+'''
+
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [plugins.ssh_exe]

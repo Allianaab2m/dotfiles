@@ -2,6 +2,8 @@ local M = {}
 
 local map = vim.keymap.set
 
+vim.g.mapleader = " "
+
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
@@ -30,22 +32,22 @@ map("n", "<S-h>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
 
 map("n", "<leader>gg", function()
-	require("utils.lazygit")({ cwd = require("utils.root").git() })
+  require("utils.lazygit")({ cwd = require("utils.root").git() })
 end, { desc = "Lazygit (Root Dir)" })
 map("n", "<leader>gG", function()
-	require("utils.lazygit")()
+  require("utils.lazygit")()
 end, { desc = "Lazygit (cwd)" })
 -- map("n", "<leader>gb", LazyVim.lazygit.blame_line, { desc = "Git Blame Line" })
 -- map("n", "<leader>gB", LazyVim.lazygit.browse, { desc = "Git Browse" })
 map("n", "<leader>gf", function()
-	local git_path = vim.api.nvim_buf_get_name(0)
-	require("utils.lazygit")({ args = { "-f", vim.trim(git_path) } })
+  local git_path = vim.api.nvim_buf_get_name(0)
+  require("utils.lazygit")({ args = { "-f", vim.trim(git_path) } })
 end, { desc = "Lazygit current file history" })
 map("n", "<leader>gl", function()
-	require("utils.lazygit")({ args = { "log" }, cwd = require("utils.root").git() })
+  require("utils.lazygit")({ args = { "log" }, cwd = require("utils.root").git() })
 end, { desc = "Lazygit log" })
 map("n", "<leader>gL", function()
-	require("utils.lazygit")({ args = { "log" } })
+  require("utils.lazygit")({ args = { "log" } })
 end, { desc = "Lazygit log (cwd)" })
 
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
@@ -55,11 +57,11 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- floating terminal
 local term = function()
-	require("utils.term")(nil, { cwd = require("utils.root")() })
+  require("utils.term")(nil, { cwd = require("utils.root")() })
 end
 map("n", "<leader>ft", term, { desc = "Terminal (Root Dir)" })
 map("n", "<leader>fT", function()
-	require("utils.term")()
+  require("utils.term")()
 end, { desc = "Terminal (cwd)" })
 map("n", "<c-/>", term, { desc = "Terminal (Root Dir)" })
 map("n", "<c-_>", term, { desc = "which_key_ignore" })
@@ -80,73 +82,73 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 
 M.lsp = {
-	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-	{ "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
-	{ "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-	{ "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-	{ "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-	{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-	{ "K", vim.lsp.buf.hover, desc = "Hover" },
-	{ "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-	{ "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-	{ "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-	{ "<leader>lc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
-	{ "<leader>lC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
-	-- {
-	-- 	"<leader>cR",
-	-- 	require("utils.lsp").rename_file,
-	-- 	desc = "Rename File",
-	-- 	mode = { "n" },
-	-- 	has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
-	-- },
-	{
-		"<leader>lr",
-		function()
-			local inc_rename = require("inc_rename")
-			return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
-		end,
-		expr = true,
-		desc = "Rename",
-		has = "rename",
-	},
-	-- { "<leader>cA", require("utils.lsp").action.source, desc = "Source Action", has = "codeAction" },
+  { "<leader>li", "<cmd>LspInfo<cr>",          desc = "Lsp Info" },
+  { "gd",         vim.lsp.buf.definition,      desc = "Goto Definition",            has = "definition" },
+  { "gr",         vim.lsp.buf.references,      desc = "References",                 nowait = true },
+  { "gI",         vim.lsp.buf.implementation,  desc = "Goto Implementation" },
+  { "gy",         vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+  { "gD",         vim.lsp.buf.declaration,     desc = "Goto Declaration" },
+  { "K",          vim.lsp.buf.hover,           desc = "Hover" },
+  { "gK",         vim.lsp.buf.signature_help,  desc = "Signature Help",             has = "signatureHelp" },
+  { "<c-k>",      vim.lsp.buf.signature_help,  mode = "i",                          desc = "Signature Help", has = "signatureHelp" },
+  { "<leader>la", vim.lsp.buf.code_action,     desc = "Code Action",                mode = { "n", "v" },     has = "codeAction" },
+  { "<leader>lc", vim.lsp.codelens.run,        desc = "Run Codelens",               mode = { "n", "v" },     has = "codeLens" },
+  { "<leader>lC", vim.lsp.codelens.refresh,    desc = "Refresh & Display Codelens", mode = { "n" },          has = "codeLens" },
+  -- {
+  -- 	"<leader>cR",
+  -- 	require("utils.lsp").rename_file,
+  -- 	desc = "Rename File",
+  -- 	mode = { "n" },
+  -- 	has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
+  -- },
+  {
+    "<leader>lr",
+    function()
+      local inc_rename = require("inc_rename")
+      return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
+    end,
+    expr = true,
+    desc = "Rename",
+    has = "rename",
+  },
+  -- { "<leader>cA", require("utils.lsp").action.source, desc = "Source Action", has = "codeAction" },
 }
 
 ---@param method string|string[]
 M.has = function(buffer, method)
-	if type(method) == "table" then
-		for _, m in ipairs(method) do
-			if M.has(buffer, m) then
-				return true
-			end
-		end
-		return false
-	end
-	method = method:find("/") and method or "textDocument/" .. method
-	local clients = require("utils.lsp").get_clients({ bufnr = buffer })
-	for _, client in ipairs(clients) do
-		if client.supports_method(method) then
-			return true
-		end
-	end
-	return false
+  if type(method) == "table" then
+    for _, m in ipairs(method) do
+      if M.has(buffer, m) then
+        return true
+      end
+    end
+    return false
+  end
+  method = method:find("/") and method or "textDocument/" .. method
+  local clients = require("utils.lsp").get_clients({ bufnr = buffer })
+  for _, client in ipairs(clients) do
+    if client.supports_method(method) then
+      return true
+    end
+  end
+  return false
 end
 
 M.on_attach = function(_, buffer)
-	local Keys = require("lazy.core.handler.keys")
-	for _, keys in pairs(M.lsp) do
-		local has = not keys.has or M.has(buffer, keys.has)
-		local cond = not (keys.cond == false or ((type(keys.cond) == "function") and not keys.cond()))
+  local Keys = require("lazy.core.handler.keys")
+  for _, keys in pairs(M.lsp) do
+    local has = not keys.has or M.has(buffer, keys.has)
+    local cond = not (keys.cond == false or ((type(keys.cond) == "function") and not keys.cond()))
 
-		if has and cond then
-			local opts = Keys.opts(keys)
-			opts.cond = nil
-			opts.has = nil
-			opts.silent = opts.silent ~= false
-			opts.buffer = buffer
-			vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
-		end
-	end
+    if has and cond then
+      local opts = Keys.opts(keys)
+      opts.cond = nil
+      opts.has = nil
+      opts.silent = opts.silent ~= false
+      opts.buffer = buffer
+      vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+    end
+  end
 end
 
 return M

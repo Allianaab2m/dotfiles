@@ -12,6 +12,10 @@
 
 shell = "zsh"
 
+[plugins.zsh-defer]
+github = 'romkatv/zsh-defer'
+apply = ['source']
+
 [plugins.aqua]
 inline = '''
 {{ if ne .chezmoi.username "runner" }}

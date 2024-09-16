@@ -20,7 +20,7 @@ defer = '{% for file in files %}zsh-defer source "{{"{{ file }}"}}"{% endfor %}'
 
 [plugins.completion]
 inline='''
-fpath=(~/.zsh $path)
+fpath=(~/.zsh $fpath)
 
 autoload -U compinit
 compinit -u

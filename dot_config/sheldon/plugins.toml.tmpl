@@ -18,6 +18,14 @@ github = 'romkatv/zsh-defer'
 [templates]
 defer = '{% for file in files %}zsh-defer source "{{"{{ file }}"}}"{% endfor %}'
 
+[plugins.completion]
+inline='''
+fpath=(~/.zsh $path)
+
+autoload -U compinit
+compinit -u
+'''
+
 [plugins.aqua]
 inline = '''
 export AQUA_PROGRESS_BAR=true

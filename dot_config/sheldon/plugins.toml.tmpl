@@ -39,6 +39,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 大文字小文字の区�
 setopt list_packed
 '''
 
+[plugins.chore]
+inline = '''
+setopt auto_cd # dir名だけでcd
+'''
+
 [plugins.aqua]
 inline = '''
 export AQUA_PROGRESS_BAR=true
@@ -69,6 +74,10 @@ inline = 'alias ssh="ssh.exe"'
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
 apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]

@@ -24,6 +24,19 @@ fpath=(~/.zsh $fpath)
 
 autoload -U compinit
 compinit -u
+
+# 補完に色
+autoload -U colors
+colors
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+
+# 単語の入力中でもTab
+setopt complete_in_word
+
+zstyle ':completion:*:default' menu select=1 # 補完のハイライト
+zstyle ':completion::complete:*' use-cache true # キャッシュ使う
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 大文字小文字の区別をしない
+setopt list_packed
 '''
 
 [plugins.aqua]

@@ -9,5 +9,3 @@ export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 
 export EDITOR="nvim"
 export XDG_CONFIG_HOME="${HOME}/.config"
-
-skip_global_compinit=1

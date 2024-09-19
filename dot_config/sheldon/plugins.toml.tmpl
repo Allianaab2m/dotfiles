@@ -59,7 +59,7 @@ alias lg="lazygit"
 [plugins.keybind]
 inline = '''
 function peco-ghq() {
-  cd $(gh q list | sk --preview "bat {1}/README.md")
+  cd $(ghq list | sk --preview "bat {1}/README.md")
   zle reset-prompt
 }
 zle -N peco-ghq

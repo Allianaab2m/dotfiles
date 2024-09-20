@@ -24,4 +24,5 @@ packages:
 - name: jesseduffield/lazygit@v0.44.1
 - name: lotabout/skim@v0.10.4
 - name: junegunn/fzf@v0.55.0
+- name: tre@v0.4.0
 - name: aws/aws-cli@2.17.56

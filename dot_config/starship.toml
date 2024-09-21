@@ -5,7 +5,7 @@
 #[╰─cmd────❯](bold green) 
 #"""
 format = """
-$username$hostname $directory$rust$git_branch$git_status${custom.pr}$package$golang$docker_context$python$docker_context$nodejs
+$username$hostname $directory$rust$git_branch${custom.pr}$git_status$package$golang$docker_context$python$docker_context$nodejs
 $character
 """
 command_timeout=1500

@@ -1,62 +1,63 @@
 return {
-	{
-		"killitar/obscure.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			local colors = require("obscure.palettes").get_palette("obscure")
-			require("obscure").setup({
-				styles = {
-					comments = { italic = true },
-				},
-				highlight_overrides = {
-					CmpItemAbbrDeprecated = { fg = colors.gray3, bg = "NONE", strikethrough = true },
-					CmpItemAbbrMatch = { fg = colors.blue, bg = "NONE", bold = true },
-					CmpItemAbbrMatchFuzzy = { fg = colors.blue, bg = "NONE", bold = true },
-					CmpItemMenu = { fg = colors.bright_magenta, bg = "NONE", italic = true },
+  {
+    "killitar/obscure.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("obscure").setup({
+        styles = {
+          comments = { italic = true },
+        },
+        on_highlights = function(hl, c)
+          hl.CmpItemAbbrDeprecated = { fg = c.gray3, bg = "NONE", strikethrough = true }
+          hl.CmpItemAbbrMatch = { fg = c.blue, bg = "NONE", bold = true }
+          hl.CmpItemAbbrMatchFuzzy = { fg = c.blue, bg = "NONE", bold = true }
+          hl.CmpItemMenu = { fg = c.bright_magenta, bg = "NONE", italic = true }
 
-					CmpItemKindField = { fg = colors.bg, bg = colors.red },
-					CmpItemKindProperty = { fg = colors.bg, bg = colors.red },
-					CmpItemKindEvent = { fg = colors.bg, bg = colors.red },
+          hl.CmpItemKindField = { fg = c.bg, bg = colors.red }
+          hl.CmpItemKindProperty = { fg = c.bg, bg = colors.red }
+          hl.CmpItemKindEvent = { fg = c.bg, bg = colors.red }
 
-					CmpItemKindText = { fg = colors.bg, bg = colors.green },
-					CmpItemKindEnum = { fg = colors.bg, bg = colors.green },
-					CmpItemKindKeyword = { fg = colors.bg, bg = colors.green },
+          hl.CmpItemKindText = { fg = c.bg, bg = colors.green }
+          hl.CmpItemKindEnum = { fg = c.bg, bg = colors.green }
+          hl.CmpItemKindKeyword = { fg = c.bg, bg = colors.green }
 
-					CmpItemKindConstant = { fg = colors.bg, bg = colors.yellow },
-					CmpItemKindConstructor = { fg = colors.bg, bg = colors.yellow },
-					CmpItemKindReference = { fg = colors.bg, bg = colors.yellow },
+          hl.CmpItemKindConstant = { fg = c.bg, bg = colors.yellow }
+          hl.CmpItemKindConstructor = { fg = c.bg, bg = colors.yellow }
+          hl.CmpItemKindReference = { fg = c.bg, bg = colors.yellow }
 
-					CmpItemKindFunction = { fg = colors.bg, bg = colors.magenta },
-					CmpItemKindStruct = { fg = colors.bg, bg = colors.magenta },
-					CmpItemKindClass = { fg = colors.bg, bg = colors.magenta },
-					CmpItemKindModule = { fg = colors.bg, bg = colors.magenta },
-					CmpItemKindOperator = { fg = colors.bg, bg = colors.magenta },
+          hl.CmpItemKindFunction = { fg = c.bg, bg = colors.magenta }
+          hl.CmpItemKindStruct = { fg = c.bg, bg = colors.magenta }
+          hl.CmpItemKindClass = { fg = c.bg, bg = colors.magenta }
+          hl.CmpItemKindModule = { fg = c.bg, bg = colors.magenta }
+          hl.CmpItemKindOperator = { fg = c.bg, bg = colors.magenta }
 
-					CmpItemKindVariable = { fg = colors.bg, bg = colors.cyan },
-					CmpItemKindFile = { fg = colors.bg, bg = colors.cyan },
+          hl.CmpItemKindVariable = { fg = c.bg, bg = colors.cyan }
+          hl.CmpItemKindFile = { fg = c.bg, bg = colors.cyan }
 
-					CmpItemKindUnit = { fg = colors.bg, bg = colors.orange },
-					CmpItemKindSnippet = { fg = colors.bg, bg = colors.orange },
-					CmpItemKindFolder = { fg = colors.bg, bg = colors.orange },
+          hl.CmpItemKindUnit = { fg = c.bg, bg = colors.orange }
+          hl.CmpItemKindSnippet = { fg = c.bg, bg = colors.orange }
+          hl.CmpItemKindFolder = { fg = c.bg, bg = colors.orange }
 
-					CmpItemKindMethod = { fg = colors.bg, bg = colors.blue },
-					CmpItemKindValue = { fg = colors.bg, bg = colors.blue },
-					CmpItemKindEnumMember = { fg = colors.bg, bg = colors.blue },
+          hl.CmpItemKindMethod = { fg = c.bg, bg = colors.blue }
+          hl.CmpItemKindValue = { fg = c.bg, bg = colors.blue }
+          hl.CmpItemKindEnumMember = { fg = c.bg, bg = colors.blue }
 
-					CmpItemKindInterface = { fg = colors.bg, bg = colors.purple },
-					CmpItemKindColor = { fg = colors.bg, bg = colors.purple },
-					CmpItemKindTypeParameter = { fg = colors.bg, bg = colors.purple },
-				},
-			})
-			vim.cmd([[colorscheme obscure]])
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		enabled = false,
-		name = "catppuccin",
-		priority = 1000,
-		opts = {},
-	},
+          hl.CmpItemKindInterface = { fg = c.bg, bg = colors.purple }
+          hl.CmpItemKindColor = { fg = c.bg, bg = colors.purple }
+          hl.CmpItemKindTypeParameter = { fg = c.bg, bg = colors.purple }
+        end,
+        highlight_overrides = {
+        },
+      })
+      vim.cmd([[colorscheme obscure]])
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    enabled = false,
+    name = "catppuccin",
+    priority = 1000,
+    opts = {},
+  },
 }

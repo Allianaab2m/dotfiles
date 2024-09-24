@@ -37,6 +37,7 @@ zstyle ':completion:*:default' menu select=1 # 補完のハイライト
 zstyle ':completion::complete:*' use-cache true # キャッシュ使う
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 大文字小文字の区別をしない
 setopt list_packed
+complete -C '/usr/local/bin/aws_completer' aws
 '''
 
 [plugins.chore]

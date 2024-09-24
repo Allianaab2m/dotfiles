@@ -58,12 +58,16 @@ alias lg="lazygit"
 
 [plugins.keybind]
 inline = '''
-function peco-ghq() {
-  cd $(ghq root)/$(ghq list | sk --preview "glow $(ghq root)/{1}/README.md")
-  zle reset-prompt
+function ghq-fzf() {
+  local src=$(ghq list | sk --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
 }
-zle -N peco-ghq
-bindkey '^G' peco-ghq
+zle -N ghq-fzf
+bindkey '^G' ghq-fzf
 '''
 
 [plugins.tre]

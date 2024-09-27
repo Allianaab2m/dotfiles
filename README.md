@@ -38,3 +38,14 @@ sudo apt install \
 sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
+
+## Managed w/o aqua & mise
+
+npm
+
+```sh
+/home/alliana/.local/share/mise/installs/node/20.17.0/lib
+├── @devcontainers/cli@0.71.0
+├── corepack@0.29.3
+└── npm@10.8.2
+```

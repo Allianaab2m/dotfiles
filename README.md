@@ -39,6 +39,12 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
+## Erlang
+
+```sh
+sudo nala install erlang
+```
+
 ## Managed w/o aqua & mise
 
 npm

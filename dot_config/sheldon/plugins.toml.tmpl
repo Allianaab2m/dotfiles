@@ -94,14 +94,6 @@ inline = 'alias ssh="ssh.exe"'
 {{  end }}
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-[plugins.win32yank]
-inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
-{{  end }}
-{{ end }}
-
-
 [plugins.pnpm_home]
 inline = '''
 export PNPM_HOME="/home/alliana/.local/share/pnpm"

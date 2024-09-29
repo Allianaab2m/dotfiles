@@ -97,7 +97,7 @@ inline = 'alias ssh="ssh.exe"'
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [plugins.win32yank]
-inline = 'export PATH="$PATH:/mnt/c/wsl/ubuntu/bin"'
+inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
 {{  end }}
 {{ end }}
 

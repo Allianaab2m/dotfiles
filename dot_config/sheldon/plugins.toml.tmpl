@@ -96,7 +96,7 @@ inline = 'alias ssh="ssh.exe"'
 
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-[plugins.ssh_exe]
+[plugins.wsl_bin]
 inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
 {{  end }}
 {{ end }}

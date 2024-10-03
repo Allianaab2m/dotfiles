@@ -1,5 +1,5 @@
 [tools]
-node = "lts"
+node = "22"
 deno = "latest"
 bun = "latest"
 go = "1.23.2"

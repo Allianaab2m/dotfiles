@@ -25,5 +25,5 @@ packages:
 - name: junegunn/fzf@v0.55.0
 - name: dduan/tre@v0.4.0
 - name: aws/aws-cli@2.17.63
-- name: fastfetch-cli/fastfetch@2.26.1
+- name: fastfetch-cli/fastfetch@2.27.1
 - name: go-task/task@v3.39.2

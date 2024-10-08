@@ -1,10 +1,10 @@
 [tools]
 node = "22"
-deno = "latest"
-bun = "latest"
+deno = "1.46.3"
+bun = "1.1.29"
 go = "1.23.2"
 java = "openjdk-21"
 coursier = "latest"
 usage = "latest"
 python = "latest"
-gleam = "latest"
+gleam = "1.5.1"

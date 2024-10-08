@@ -9,3 +9,6 @@ usage = "latest"
 python = "3.11"
 gleam = "1.5.1"
 
+[settings]
+python_compile = false
+

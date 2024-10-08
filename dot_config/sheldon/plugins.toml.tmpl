@@ -107,15 +107,6 @@ inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
 {{  end }}
 {{ end }}
 
-[plugins.pnpm_home]
-inline = '''
-export PNPM_HOME="/home/alliana/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-'''
-
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]

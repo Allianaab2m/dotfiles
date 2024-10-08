@@ -55,3 +55,9 @@ npm
 ├── corepack@0.29.3
 └── npm@10.8.2
 ```
+
+pip
+
+```sh
+pip install online-judge-tools
+```

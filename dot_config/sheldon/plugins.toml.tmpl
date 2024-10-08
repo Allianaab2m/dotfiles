@@ -107,6 +107,15 @@ inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
 {{  end }}
 {{ end }}
 
+[plugins.custom_notfound]
+inline = '''
+command_not_found_handler() {
+  echo "zsh: command not found: $@\nIf you need runtime, use \"mise use $@\".\nIf you need CLI tools, \"aqua g -i\" should be helpful."
+  return 127
+}
+
+'''
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]

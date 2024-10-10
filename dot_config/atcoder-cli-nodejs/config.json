@@ -1,0 +1,8 @@
+{
+  "oj-path": "/home/alliana/.local/share/mise/installs/python/3.12.0/bin/oj",
+  "default-contest-dirname-format": "{ContestID}",
+  "default-task-dirname-format": "{tasklabel}",
+  "default-test-dirname-format": "tests",
+  "default-task-choice": "all",
+  "default-template": "python"
+}

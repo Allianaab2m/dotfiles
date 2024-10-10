@@ -1,6 +1,6 @@
 [tools]
 node = "22.9.0"
-deno = "1.46.3"
+deno = "2.0.0"
 bun = "1.1.30"
 go = "1.23.2"
 java = "openjdk-21"

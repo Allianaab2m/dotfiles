@@ -6,8 +6,10 @@
   ],
   "reviewers": ["Allianaab2m"],
   "packageRules": [
-    "matchPackageNames": ["aws/aws-cli", "aquaproj/aqua-registry"],
-    "matchUpdateTypes": ["patch"],
-    "automerge": true
+    {
+      "matchPackageNames": ["aws/aws-cli", "aquaproj/aqua-registry"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
   ]
 }

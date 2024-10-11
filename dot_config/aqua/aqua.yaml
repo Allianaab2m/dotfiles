@@ -28,3 +28,4 @@ packages:
 - name: fastfetch-cli/fastfetch@2.27.1
 - name: go-task/task@v3.39.2
 - name: pnpm/pnpm@v9.12.1
+- name: dylanaraps/neofetch@7.1.0

@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+
+mise upgrade < {{ joinPath .chezmoi.sourceDir "dot_config/mise/config.toml" | quote }}

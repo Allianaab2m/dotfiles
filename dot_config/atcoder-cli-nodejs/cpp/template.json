@@ -1,7 +1,9 @@
 {
   "task": {
     "program": [
-      "main.cpp"
+      "main.cpp",
+      "Taskfile.yaml",
+      ".clangd"
     ],
     "submit": "main.cpp"
   }

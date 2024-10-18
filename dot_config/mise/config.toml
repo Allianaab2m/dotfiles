@@ -1,7 +1,7 @@
 [tools]
 node = "22.10.0"
 deno = "2.0.1"
-bun = "1.1.30"
+bun = "1.1.31"
 go = "1.23.2"
 java = "openjdk-21"
 coursier = "latest"

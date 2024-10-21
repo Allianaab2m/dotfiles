@@ -18,7 +18,7 @@ packages:
 - name: sharkdp/fd@v10.2.0
 - name: rossmacarthur/sheldon@0.8.0
 - name: BurntSushi/ripgrep@14.1.1
-- name: starship/starship@v1.21.0
+- name: starship/starship@v1.21.1
 - name: eza-community/eza@v0.20.4
 - name: neovim/neovim@v0.10.2
 - name: jesseduffield/lazygit@v0.44.1

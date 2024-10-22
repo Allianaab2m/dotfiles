@@ -4,6 +4,9 @@ if [[ -d "$HOME/.local/bin" ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [[ -d "$HOME/.ghcup"]]; then
+fi
+
 export PATH="$HOME/.local/share/aquaproj-aqua/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aqua/aqua.yaml"
 

@@ -4,7 +4,8 @@ if [[ -d "$HOME/.local/bin" ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [[ -d "$HOME/.ghcup"]]; then
+if [[ -d "$HOME/.ghcup" ]]; then
+  export PATH="$HOME/.ghcup/bin:$PATH"
 fi
 
 export PATH="$HOME/.local/share/aquaproj-aqua/bin:$PATH"

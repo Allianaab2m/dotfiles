@@ -30,6 +30,29 @@ using vvs = vv<string>; // vector<vector<string>>
 
 #define Yes cout << "Yes" << '\n'
 #define No cout << "No" << '\n'
+// if (a == b) YN;
+#define YN                                                                     \
+  {                                                                            \
+    cout << "Yes" << "\n";                                                     \
+  }                                                                            \
+  else {cout << "No" << "\n"}
+
+#define chmax(x, y) x = max(x, y)
+#define chmin(x, y) x = min(x, y)
+
+// Grid
+// [0] = r [1] = d [2] = l [3] = u
+vl dx = {1, 0, -1, 0};
+vl dy = {0, 1, 0, -1};
+
+// Trueの時にContinue
+bool out_grid(ll i, ll j, ll h, ll w) {
+  return (!(0 <= i && i < h && 0 <= j && j < w));
+}
+
+// nC_2, nC_3
+ll nc2(ll x) { return x * (x - 1) / 2; }
+ll nc3(ll x) { return x * (x - 1) * (x - 2) / 6; }
 
 #define debug(x) cerr << #x << " = " << x << '\n'
 

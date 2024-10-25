@@ -32,10 +32,10 @@ using vvs = vv<string>; // vector<vector<string>>
 #define No cout << "No" << '\n'
 // if (a == b) YN;
 #define YN                                                                     \
-  {                                                                            \
-    cout << "Yes" << "\n";                                                     \
-  }                                                                            \
-  else {cout << "No" << "\n"}
+  { cout << "Yes" << "\n"; }                                                   \
+  else {                                                                       \
+    cout << "No" << "\n";                                                      \
+  }
 
 #define chmax(x, y) x = max(x, y)
 #define chmin(x, y) x = min(x, y)

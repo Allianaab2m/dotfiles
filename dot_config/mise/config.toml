@@ -8,7 +8,7 @@ coursier = "latest"
 usage = "latest"
 python = "3.12.0"
 gleam = "1.5.1"
-ghc = "9.10.1"
+ghc = "9.8.2"
 
 [settings]
 python_compile = false

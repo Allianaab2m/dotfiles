@@ -26,7 +26,7 @@ packages:
 - name: dduan/tre@v0.4.0
 - name: aws/aws-cli@2.19.2
 - name: fastfetch-cli/fastfetch@2.29.0
-- name: go-task/task@v3.39.2
+- name: go-task/task@v3.40.0
 - name: pnpm/pnpm@v9.12.3
 - name: dylanaraps/neofetch@7.1.0
 - name: jqlang/jq@jq-1.7.1

@@ -22,7 +22,7 @@ packages:
 - name: eza-community/eza@v0.20.7
 - name: neovim/neovim@v0.10.2
 - name: jesseduffield/lazygit@v0.44.1
-- name: junegunn/fzf@v0.56.0
+- name: junegunn/fzf@v0.56.2
 - name: dduan/tre@v0.4.0
 - name: aws/aws-cli@2.19.4
 - name: fastfetch-cli/fastfetch@2.29.0

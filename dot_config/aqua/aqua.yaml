@@ -24,7 +24,7 @@ packages:
 - name: jesseduffield/lazygit@v0.44.1
 - name: junegunn/fzf@v0.56.2
 - name: dduan/tre@v0.4.0
-- name: aws/aws-cli@2.19.5
+- name: aws/aws-cli@2.20.0
 - name: fastfetch-cli/fastfetch@2.29.0
 - name: go-task/task@v3.40.0
 - name: pnpm/pnpm@v9.12.3

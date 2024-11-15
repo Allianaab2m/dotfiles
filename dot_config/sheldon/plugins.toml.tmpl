@@ -44,11 +44,6 @@ inline = '''
 setopt auto_cd # dir名だけでcd
 '''
 
-[plugins.aqua]
-inline = '''
-export AQUA_PROGRESS_BAR=true
-'''
-
 [plugins.alias]
 inline = '''
 alias cat="bat"
@@ -110,7 +105,7 @@ inline = 'export PATH=$PATH:/mnt/c/wsl/ubuntu/bin'
 [plugins.custom_notfound]
 inline = '''
 command_not_found_handler() {
-  echo "zsh: command not found: $@\nIf you need runtime, use \"mise use $@\".\nIf you need CLI tools, \"aqua g -i\" should be helpful."
+  echo "zsh: command not found: $@\nIf you need runtime or cli, use \"mise use $@\"."
   return 127
 }
 

@@ -1,5 +1,5 @@
 {
-  "oj-path": "/home/alliana/.local/share/mise/installs/python/3.12.0/bin/oj",
+  "oj-path": "/home/alliana/.local/share/mise/installs/pipx-online-judge-tools/latest/bin/oj",
   "default-contest-dirname-format": "{ContestID}",
   "default-task-dirname-format": "{tasklabel}",
   "default-test-dirname-format": "tests",

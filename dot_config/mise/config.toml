@@ -9,9 +9,6 @@ usage = "latest"
 python = "3.12.0"
 gleam = "1.5.1"
 ghc = "9.8.2"
-"npm:@devcontainers/cli" = "0.72.0"
-"npm:@biomejs/biome" = "1.9.4"
-"npm:atcoder-cli" = "2.2.0"
 
 [settings]
 python_compile = false

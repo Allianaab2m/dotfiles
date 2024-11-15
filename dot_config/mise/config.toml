@@ -16,4 +16,4 @@ ghc = "9.8.2"
 
 [settings]
 python_compile = false
-
+experimental = true

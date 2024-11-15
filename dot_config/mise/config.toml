@@ -33,6 +33,7 @@ neovim = "latest"
 "aqua:pnpm/pnpm" = "9.12.3"
 "aqua:astral-sh/uv" = "0.5.2"
 "aqua:jqlang/jq" = "1.7.1"
+cargo-binstall = "latest"
 
 [settings]
 python_compile = false

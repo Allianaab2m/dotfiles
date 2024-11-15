@@ -12,7 +12,6 @@ ghc = "9.8.2"
 "npm:@devcontainers/cli" = "0.72.0"
 "npm:@biomejs/biome" = "1.9.4"
 "npm:atcoder-cli" = "2.2.0"
-"pipx:online-judge-tools" = {version = "latest", pipx_args = "--fetch-missing-python --python python3.11"}
 
 [settings]
 python_compile = false

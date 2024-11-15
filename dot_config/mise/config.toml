@@ -39,3 +39,5 @@ cargo-binstall = "latest"
 python_compile = false
 experimental = true
 
+[plugins]
+neovim = "https://github.com/richin13/asdf-neovim"

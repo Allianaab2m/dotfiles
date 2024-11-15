@@ -44,27 +44,3 @@ sudo usermod -aG docker $USER
 ```sh
 sudo nala install erlang
 ```
-
-## Managed w/o aqua & mise
-
-npm
-
-```sh
-/home/alliana/.local/share/mise/installs/node/20.17.0/lib
-├── @devcontainers/cli@0.71.0
-├── corepack@0.29.3
-└── npm@10.8.2
-
-/home/alliana/.local/share/pnpm/global/5
-
-dependencies:
-@biomejs/biome 1.7.3
-@devcontainers/cli 0.71.0
-atcoder-cli 2.2.0
-```
-
-pip
-
-```sh
-pip install online-judge-tools
-```

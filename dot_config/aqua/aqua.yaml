@@ -30,3 +30,4 @@ packages:
 - name: pnpm/pnpm@v9.12.3
 - name: dylanaraps/neofetch@7.1.0
 - name: jqlang/jq@jq-1.7.1
+- name: astral-sh/uv@0.5.2

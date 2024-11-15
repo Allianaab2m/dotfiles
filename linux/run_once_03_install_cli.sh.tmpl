@@ -11,4 +11,7 @@ bat cache --build
 {{ if ne .chezmoi.username "runner"}}
 gh extension install HikaruEgashira/gh-q
 {{ end }}
+
+# install pipx for mise backend
+pip install --user pipx
 {{ end }}

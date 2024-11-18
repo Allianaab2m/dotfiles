@@ -34,15 +34,15 @@ local components = {
 			return msg
 		end
 
-		local lsp_names = ""
+		local lsp_names = {}
 		for _, client in ipairs(clients) do
 			local filetypes = client.config.filetypes
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				lsp_names = lsp_names .. "," .. client.name
+				table.insert(lsp_names, client.name)
 			end
 		end
 
-		return "Active" .. "(" .. lsp_names .. ")"
+		return "Active" .. "(" .. table.concat(lsp_names, ",") .. ")"
 	end,
 }
 

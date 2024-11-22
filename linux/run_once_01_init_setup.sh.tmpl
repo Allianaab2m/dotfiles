@@ -34,10 +34,10 @@ retval=$?
 
 if [ $retval -ne 0 ]; then
   curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
-  ln -sf ~/.local/share/aquaproj-aqua/bin/aqua ~/.local/bin/aqua
 else
   echo "aqua found, skipping installation"
 fi
+ln -sf ~/.local/share/aquaproj-aqua/bin/aqua ~/.local/bin/aqua
 
 # mise
 which mise > /dev/null 2>&1

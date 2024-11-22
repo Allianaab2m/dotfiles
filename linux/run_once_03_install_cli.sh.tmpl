@@ -13,5 +13,6 @@ gh extension install HikaruEgashira/gh-q
 {{ end }}
 
 # install online-judge-tools
-pipx install online-judge-tools --python python3.11
+mise shell python@3.11
+pipx install online-judge-tools --python $(which python)
 {{ end }}

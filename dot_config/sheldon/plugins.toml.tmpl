@@ -137,6 +137,9 @@ apply = ["defer"]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
+[plugins.aqua]
+inline = 'export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH'
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 

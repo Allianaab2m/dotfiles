@@ -44,11 +44,6 @@ inline = '''
 setopt auto_cd # dir名だけでcd
 '''
 
-[plugins.aqua]
-inline = '''
-export AQUA_PROGRESS_BAR=true
-'''
-
 [plugins.alias]
 inline = '''
 alias cat="bat"
@@ -137,11 +132,14 @@ apply = ["defer"]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.aqua]
-inline = 'export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH'
-
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
+
+[plugins.aqua]
+inline = '''
+export AQUA_PROGRESS_BAR=true
+export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
+'''
 
 [plugins.mise]
 inline = 'eval "$(~/.local/bin/mise activate zsh)"'

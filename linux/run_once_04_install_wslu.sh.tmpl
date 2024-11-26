@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-sudo add-apt-repository ppa:wslutilities/wslu
-sudo apt update
-sudo apt install wslu
-{{   end }}
-{{ end }}

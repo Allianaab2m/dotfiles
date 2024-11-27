@@ -53,15 +53,34 @@ in
     userEmail = "56180684+Allianaab2m@users.noreply.github.com";
     signing = {
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFLmR7uSY/Aj8w5VeojtLp8w0ba4tQnUIOzoe8GMkvsM";
-      gpgPath = "ssh.exe";
       signByDefault = true;
+    };
+    delta = {
+      enable = true;
+    };
+    aliases = {
+      ad = "add -A";
+      st = "status";
+      sw = "switch";
+      swc = "switch -c";
+      cm = "commit -m";
+      al = "config --get-regexp ^alias\\.";
     };
     extraConfig = {
       core = {
-        pager = "delta";
+        sshCommand = "ssh.exe";
       };
       init = {
         defaultBranch = "main";
+      };
+      gpg = {
+        "ssh".program = "/mnt/c/Users/Alliana/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
+	format = "ssh";
+      };
+      url = {
+        "git@github.com" = {
+	  pushInsteadOf = "https://github.com";
+	};
       };
     };
   };
@@ -79,6 +98,7 @@ in
       la = "eza --icons always --classify always --all ";
       ll = "eza --icons always --long --all --git ";
       tree = "eza --icons always --classify always --tree";
+      ssh = "ssh.exe";
     };
     envExtra = ''
     export PATH=$PATH:/mnt/c/wsl/ubuntu/bin

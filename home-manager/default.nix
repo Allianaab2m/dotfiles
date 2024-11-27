@@ -7,13 +7,14 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./programs
   ];
 
   nixpkgs = {
-    overlays = [];
+    overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
     config = {
       allowUnfree = true;
     };

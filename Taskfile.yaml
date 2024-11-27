@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  switch:
+    cmds:
+      - nix run nixpkgs#home-manager -- switch --flake .#{{env "NAME"}}

@@ -78,7 +78,7 @@ in
 	format = "ssh";
       };
       url = {
-        "git@github.com" = {
+        "git@github.com:" = {
 	  pushInsteadOf = "https://github.com";
 	};
       };

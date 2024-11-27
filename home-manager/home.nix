@@ -107,7 +107,9 @@ in
 
   programs.starship = {
     enable = true;
-    aws.disabled = true;
-    gcloud.disabled = true;
+    settings = {
+      aws.disabled = true;
+      gcloud.disabled = true;
+    };
   };
 }

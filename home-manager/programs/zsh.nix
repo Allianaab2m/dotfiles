@@ -12,6 +12,11 @@
       la = "eza --icons always --classify always --all";
       ll = "eza --icons always --long --all --git";
       tree = "eza --icons always --classify always --tree";
+      acc = "pnpm acc";
+      dot = "cd ~/dotfiles";
     };
+    initExtra = ''
+      eval "$(direnv hook zsh)"
+    '';
   };
 }

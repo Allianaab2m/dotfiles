@@ -24,11 +24,12 @@
     }@inputs:
     let
       inherit (self) outputs;
+      flakeRoot = ./.;
+      homeManager = /${flakeRoot}/home-manager;
       systems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
-      username = "alliana";
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
@@ -44,8 +45,7 @@
         youmu-wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs username;
-            homeDirectory = "/home/${username}";
+            inherit inputs outputs flakeRoot homeManager;
           };
           modules = [
             ./home-manager

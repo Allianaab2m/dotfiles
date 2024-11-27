@@ -1,8 +1,6 @@
 {
   inputs,
   outputs,
-  username,
-  homeDirectory,
   lib,
   config,
   pkgs,
@@ -18,11 +16,6 @@
     config = {
       allowUnfree = true;
     };
-  };
-
-  home = {
-    username = username;
-    homeDirectory = homeDirectory;
   };
 
   programs.home-manager.enable = true;

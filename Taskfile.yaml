@@ -4,3 +4,6 @@ tasks:
   switch:
     cmds:
       - nix run nixpkgs#home-manager -- switch --flake .#{{env "NAME"}}
+  gc:
+    cmds:
+      - nix-collect-garbage --delete-old

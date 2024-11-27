@@ -88,9 +88,9 @@ in
   programs.zsh = {
     enable = true;
     autocd = true;
-    enableCompletion = true; # 自動補完
-    autosuggestion.enable = true; # 入力サジェスト
-    syntaxHighlighting.enable = true; # シンタックスハイライト
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
     shellAliases = {
       cat = "bat";
       grep = "rg";
@@ -107,5 +107,7 @@ in
 
   programs.starship = {
     enable = true;
+    aws.disabled = true;
+    gcloud.disabled = true;
   };
 }

@@ -57,6 +57,18 @@
             ./home-manager/hosts/youmu-wsl
           ];
         };
+
+        reimu-wsl = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs flakeRoot homeManager;
+          };
+          modules = [
+            ./home-manager
+            ./home-manager/hosts/reimu-wsl
+          ];
+        };
+
         # marisa = home-manager.lib.homeManagerConfiguration {
         #   pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         #   extraSpecialArgs = { inherit inputs outputs; };

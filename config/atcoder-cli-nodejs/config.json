@@ -1,5 +1,4 @@
 {
-	"oj-path": "/nix/store/ic4qi9ipxg5fvrvhbm27brnjkixjndv2-python3.12-online-judge-tools-12.0.0/bin/oj",
 	"default-contest-dirname-format": "{ContestID}",
 	"default-task-dirname-format": "{tasklabel}",
 	"default-test-dirname-format": "tests",

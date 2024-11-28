@@ -12,7 +12,7 @@
   ];
 
   nixpkgs = {
-    overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+    overlays = [ inputs.neovim-nightly-overlay.overlays.default inputs.fenix.overlays.default ];
     config = {
       allowUnfree = true;
     };

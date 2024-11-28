@@ -8,7 +8,17 @@ let
   dev = with pkgs; [
     gcc nodejs-slim nodePackages.pnpm go python3 deno
   ];
+
+  rust = with pkgs; [
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+  ];
 in
 {
-  home.packages = misc ++ dev;
+  home.packages = misc ++ dev ++ rust;
 }

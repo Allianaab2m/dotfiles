@@ -17,8 +17,7 @@
     plugins = with pkgs.vimPlugins; [ lazy-nvim ];
   };
 
-  xdg.configFile."nvim/lua" = {
+  xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/nvim";
   };
-
 }

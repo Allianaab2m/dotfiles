@@ -7,6 +7,7 @@
     ./gh.nix
     ./package.nix
     ./neovim.nix
+    ./zellij.nix
     ./zsh.nix
   ];
 }

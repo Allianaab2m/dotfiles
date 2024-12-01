@@ -1,12 +1,15 @@
 { pkgs, ... }:
 {
   imports = [
+    ./bat.nix
+    ./delta.nix
     ./direnv.nix
-    ./starship.nix
     ./git.nix
     ./gh.nix
-    ./package.nix
+    ./lazygit.nix
     ./neovim.nix
+    ./package.nix
+    ./starship.nix
     ./zellij.nix
     ./zsh.nix
   ];

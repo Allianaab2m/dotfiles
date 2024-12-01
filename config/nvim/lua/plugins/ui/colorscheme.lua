@@ -60,11 +60,6 @@ return {
 		opts = {},
 		config = function()
 			require("catppuccin").setup({
-				color_overrides = {
-					mocha = {
-						base = "#000000",
-					},
-				},
 				custom_highlights = function(c)
 					return {
 						CmpItemAbbrDeprecated = { fg = c.overlay0, bg = "NONE", strikethrough = true },

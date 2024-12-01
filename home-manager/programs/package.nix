@@ -6,7 +6,7 @@ let
   ];
   # Language runtimes
   dev = with pkgs; [
-    gcc nodejs-slim nodePackages.pnpm go python3 deno
+    gcc nodejs_22 nodePackages.pnpm go python3 deno
   ];
 
   rust = with pkgs; [

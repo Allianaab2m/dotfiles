@@ -28,6 +28,9 @@
           pushInsteadOf = "https://github.com/";
         };
       };
+      push = {
+        autoSetupRemote = true;
+      };
     };
   };
 }

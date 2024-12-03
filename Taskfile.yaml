@@ -10,6 +10,9 @@ tasks:
   dwsw: # nix-darwin switch
     cmds:
       - nix run nix-darwin -- switch --flake .#marisa
+  dwhmsw:
+    cmds:
+      - nix run nixpkgs#home-manager -- switch --flake .#marisa
   gc:
     cmds:
       - nix-collect-garbage --delete-old

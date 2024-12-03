@@ -6,10 +6,10 @@
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
     # Nix modules for darwin
-    # nix-darwin = {
-    #   url = "github:LnL7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +30,7 @@
     {
       self,
       nixpkgs,
-      # nix-darwin,
+      nix-darwin,
       home-manager,
       fenix,
       ...
@@ -53,11 +53,12 @@
       ];
 
       # nix-darwin
-      # darwinConfigurations = {
-      #   marisa = nix-darwin.lib.darwinSystem {
-      #     modules = [ ./nix-darwin ];
-      #   };
-      # };
+      darwinConfigurations = {
+        marisa = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [ ./nix-darwin ];
+        };
+      };
 
       # home-manager
       homeManagerModules = import ./modules/home-manager;
@@ -88,14 +89,14 @@
         };
 
         # marisa: macOS 15(Darwin)
-        # marisa = home-manager.lib.homeManagerConfiguration {
-        #   pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        #   extraSpecialArgs = { inherit inputs outputs; };
-        #   modules = [
-        #     ./home-manager/home.nix
-        #     ./home-manager/hosts/marisa
-        #   ];
-        # };
+        marisa = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager
+            ./home-manager/hosts/marisa
+          ];
+        };
       };
     };
 }

@@ -15,6 +15,9 @@
       cm = "commit -m";
       al = "config --get-regexp ^alias\\.";
     };
+    ignores = [
+      ".DS_Store"
+    ];
     extraConfig = {
       init = {
         defaultBranch = "main";
@@ -30,6 +33,12 @@
       };
       push = {
         autoSetupRemote = true;
+      };
+      ghq = {
+        user = "Allianaab2m";
+      };
+      core = {
+        pager = "delta";
       };
     };
   };

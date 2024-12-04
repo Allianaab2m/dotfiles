@@ -4,6 +4,7 @@ let
 in
 rec {
   imports = [
+    ./alacritty.nix
     ./git.nix
   ];
 
@@ -24,5 +25,13 @@ rec {
     username = "alliana";
     homeDirectory = "/Users/${home.username}";
     stateVersion = "24.11";
+  };
+
+  targets.darwin.defaults = {
+      # DS_Store
+      "com.apple.desktopservices" = {
+        DSDontWriteUSBStores = true;
+        DSDontWriteNetworkStores = true;
+      };
   };
 }

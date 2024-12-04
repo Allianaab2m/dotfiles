@@ -7,10 +7,10 @@ tasks:
   hmsw: # home-manager switch
     cmds:
       - nix run nixpkgs#home-manager -- switch --flake .#{{env "NAME"}}
-  dwsw: # nix-darwin switch
+  darwin-sw: # nix-darwin switch
     cmds:
       - nix run nix-darwin -- switch --flake .#marisa
-  dwhmsw:
+  darwin-home-sw:
     cmds:
       - nix run nixpkgs#home-manager -- switch --flake .#marisa
   gc:

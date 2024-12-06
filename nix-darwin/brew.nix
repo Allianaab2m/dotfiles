@@ -19,6 +19,7 @@
       "orbstack"
       "visual-studio-code@insiders"
       "tailscale"
+      "anytype"
     ];
   };
 

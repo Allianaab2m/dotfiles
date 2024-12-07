@@ -28,7 +28,7 @@
 
       zle -N _fzf_cd_ghq
       bindkey "^g" _fzf_cd_ghq
-        eval "$(direnv hook zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 }

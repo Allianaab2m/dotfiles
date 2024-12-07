@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  build:
+    sources:
+      - 'main.cpp'
+    cmds:
+      - g++ main.cpp -std=gnu++20 -O2 -Wall -Wextra
+
+  test:
+    deps: [build]
+    sources:
+      - 'main.cpp'
+    cmds:
+      - oj t -d './tests'

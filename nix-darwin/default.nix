@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ./system.nix
     ./brew.nix
+    ./system.nix
   ];
 
   nix = {

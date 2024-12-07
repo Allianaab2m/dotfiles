@@ -5,13 +5,13 @@ in
 rec {
   imports = [
     ./alacritty.nix
+    ./aerospace.nix
     ./git.nix
   ];
 
   home.packages = with pkgs; [
     gcc
     alacritty
-    # _1password-gui
   ];
 
   home.activation = {
@@ -25,6 +25,10 @@ rec {
     username = "alliana";
     homeDirectory = "/Users/${home.username}";
     stateVersion = "24.11";
+  };
+
+  home.file.".hushlogin" = {
+    text = "";
   };
 
   targets.darwin.defaults = {

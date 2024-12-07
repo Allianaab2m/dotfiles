@@ -25,9 +25,14 @@
         orientation = "left";
         mineffect = "scale";
         minimize-to-application = true;
+        # 右下にカーソル動かしたら出るメモを無効化
         wvous-br-corner = 1;
         # for Aerospace + Mission Control
         expose-group-by-app = true;
+      };
+      # Fnキーで入力ソースを切り替えない
+      hitoolbox = {
+        AppleFnUsageType = "Do Nothing";
       };
       screencapture = {
         location = "/Users/alliana/Pictures/screenshot";

@@ -1,3 +1,4 @@
+# Marisa - Apple M3 MacBook Air 13"
 { lib, config, pkgs, homeManager, ... }:
 let
   symlink = config.lib.file.mkOutOfStoreSymlink;
@@ -9,10 +10,7 @@ rec {
     ./git.nix
   ];
 
-  home.packages = with pkgs; [
-    gcc
-    alacritty
-  ];
+  home.packages = with pkgs; [];
 
   home.activation = {
     updateLinks = ''
@@ -27,6 +25,7 @@ rec {
     stateVersion = "24.11";
   };
 
+  # Remove `Last login:` prompt
   home.file.".hushlogin" = {
     text = "";
   };

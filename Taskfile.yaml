@@ -1,9 +1,18 @@
 version: '3'
 
 tasks:
-  switch:
+  up:
+    cmds:
+      - nix flake update
+  hmsw: # home-manager switch
     cmds:
       - nix run nixpkgs#home-manager -- switch --flake .#{{env "NAME"}}
+  darwin-sw: # nix-darwin switch
+    cmds:
+      - nix run nix-darwin -- switch --flake .#marisa
+  darwin-home-sw:
+    cmds:
+      - nix run nixpkgs#home-manager -- switch --flake .#marisa
   gc:
     cmds:
       - nix-collect-garbage --delete-old

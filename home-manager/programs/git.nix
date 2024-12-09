@@ -22,9 +22,6 @@
       init = {
         defaultBranch = "main";
       };
-      ghq = {
-        user = "Allianaab2m";
-      };
       gpg = {
         format = "ssh";
         "ssh".allowedSignersFile = "~/.ssh/allowed_signers";

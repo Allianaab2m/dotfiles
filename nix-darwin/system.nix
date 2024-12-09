@@ -28,7 +28,7 @@
         # 右下にカーソル動かしたら出るメモを無効化
         wvous-br-corner = 1;
         # for Aerospace + Mission Control
-        expose-group-by-app = true;
+        expose-group-apps = true;
       };
       # Fnキーで入力ソースを切り替えない
       hitoolbox = {

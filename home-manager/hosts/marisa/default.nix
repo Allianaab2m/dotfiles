@@ -8,9 +8,12 @@ rec {
     ./alacritty.nix
     ./aerospace.nix
     ./git.nix
+    ./zsh.nix
   ];
 
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    jdk21
+  ];
 
   home.activation = {
     updateLinks = ''

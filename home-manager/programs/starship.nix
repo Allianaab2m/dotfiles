@@ -3,14 +3,14 @@
   lib,
   ...
 }:
-  let
-    src = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "starship";
-      rev = "31b224a6408015d1e17a5766de6b764cf9af3c1c";
-      sha256 = "15nna6hmmz9awaazr4hjlnx3nsbmp7hgviym56bqlii6b032hdsf";
-    };
-  in
+let
+  src = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "starship";
+    rev = "31b224a6408015d1e17a5766de6b764cf9af3c1c";
+    sha256 = "15nna6hmmz9awaazr4hjlnx3nsbmp7hgviym56bqlii6b032hdsf";
+  };
+in
 {
   programs.starship = {
     enable = true;

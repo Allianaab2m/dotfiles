@@ -1,5 +1,11 @@
 # Marisa - Apple M3 MacBook Air 13"
-{ lib, config, pkgs, homeManager, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  homeManager,
+  ...
+}:
 let
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in
@@ -17,8 +23,8 @@ rec {
 
   home.activation = {
     updateLinks = ''
-    export ROOT="${home.homeDirectory}/dotfiles"
-    ln -snf "$ROOT/config/atcoder-cli-nodejs" "${home.homeDirectory}/.config/"
+      export ROOT="${home.homeDirectory}/dotfiles"
+      ln -snf "$ROOT/config/atcoder-cli-nodejs" "${home.homeDirectory}/.config/"
     '';
   };
 
@@ -34,10 +40,10 @@ rec {
   };
 
   targets.darwin.defaults = {
-      # DS_Store
-      "com.apple.desktopservices" = {
-        DSDontWriteUSBStores = true;
-        DSDontWriteNetworkStores = true;
-      };
+    # DS_Store
+    "com.apple.desktopservices" = {
+      DSDontWriteUSBStores = true;
+      DSDontWriteNetworkStores = true;
+    };
   };
 }

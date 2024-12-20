@@ -1,12 +1,12 @@
 { pkgs, lib, ... }:
-  let
-    src = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "alacritty";
-      sha256 = "1r2z223hza63v5lmzlg3022mlar67j3a2gh41rsaiqwja2wyiihz";
-      rev = "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7";
-    };
-  in
+let
+  src = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "alacritty";
+    sha256 = "1r2z223hza63v5lmzlg3022mlar67j3a2gh41rsaiqwja2wyiihz";
+    rev = "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7";
+  };
+in
 {
   programs.alacritty = {
     enable = true;

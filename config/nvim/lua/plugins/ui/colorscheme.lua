@@ -60,45 +60,33 @@ return {
 		opts = {},
 		config = function()
 			require("catppuccin").setup({
-				custom_highlights = function(c)
+				custom_highlights = function(C)
 					return {
-						CmpItemAbbrDeprecated = { fg = c.overlay0, bg = "NONE", strikethrough = true },
-						CmpItemAbbrMatch = { fg = c.blue, bg = "NONE", bold = true },
-						CmpItemAbbrMatchFuzzy = { fg = c.blue, bg = "NONE", bold = true },
-						CmpItemMenu = { fg = c.flamingo, bg = "NONE", italic = true },
-
-						CmpItemKindField = { fg = c.base, bg = c.red },
-						CmpItemKindProperty = { fg = c.base, bg = c.red },
-						CmpItemKindEvent = { fg = c.base, bg = c.red },
-
-						CmpItemKindText = { fg = c.base, bg = c.green },
-						CmpItemKindEnum = { fg = c.base, bg = c.green },
-						CmpItemKindKeyword = { fg = c.base, bg = c.green },
-
-						CmpItemKindConstant = { fg = c.base, bg = c.yellow },
-						CmpItemKindConstructor = { fg = c.base, bg = c.yellow },
-						CmpItemKindReference = { fg = c.base, bg = c.yellow },
-
-						CmpItemKindFunction = { fg = c.base, bg = c.mauve },
-						CmpItemKindStruct = { fg = c.base, bg = c.mauve },
-						CmpItemKindClass = { fg = c.base, bg = c.mauve },
-						CmpItemKindModule = { fg = c.base, bg = c.mauve },
-						CmpItemKindOperator = { fg = c.base, bg = c.mauve },
-
-						CmpItemKindVariable = { fg = c.base, bg = c.sky },
-						CmpItemKindFile = { fg = c.base, bg = c.sky },
-
-						CmpItemKindUnit = { fg = c.base, bg = c.peach },
-						CmpItemKindSnippet = { fg = c.base, bg = c.peach },
-						CmpItemKindFolder = { fg = c.base, bg = c.peach },
-
-						CmpItemKindMethod = { fg = c.base, bg = c.blue },
-						CmpItemKindValue = { fg = c.base, bg = c.blue },
-						CmpItemKindEnumMember = { fg = c.base, bg = c.blue },
-
-						CmpItemKindInterface = { fg = c.base, bg = c.lavender },
-						CmpItemKindColor = { fg = c.base, bg = c.lavender },
-						CmpItemKindTypeParameter = { fg = c.base, bg = c.lavender },
+						CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
+						CmpItemKindKeyword = { fg = C.base, bg = C.red },
+						CmpItemKindText = { fg = C.base, bg = C.teal },
+						CmpItemKindMethod = { fg = C.base, bg = C.blue },
+						CmpItemKindConstructor = { fg = C.base, bg = C.blue },
+						CmpItemKindFunction = { fg = C.base, bg = C.blue },
+						CmpItemKindFolder = { fg = C.base, bg = C.blue },
+						CmpItemKindModule = { fg = C.base, bg = C.blue },
+						CmpItemKindConstant = { fg = C.base, bg = C.peach },
+						CmpItemKindField = { fg = C.base, bg = C.green },
+						CmpItemKindProperty = { fg = C.base, bg = C.green },
+						CmpItemKindEnum = { fg = C.base, bg = C.green },
+						CmpItemKindUnit = { fg = C.base, bg = C.green },
+						CmpItemKindClass = { fg = C.base, bg = C.yellow },
+						CmpItemKindVariable = { fg = C.base, bg = C.flamingo },
+						CmpItemKindFile = { fg = C.base, bg = C.blue },
+						CmpItemKindInterface = { fg = C.base, bg = C.yellow },
+						CmpItemKindColor = { fg = C.base, bg = C.red },
+						CmpItemKindReference = { fg = C.base, bg = C.red },
+						CmpItemKindEnumMember = { fg = C.base, bg = C.red },
+						CmpItemKindStruct = { fg = C.base, bg = C.blue },
+						CmpItemKindValue = { fg = C.base, bg = C.peach },
+						CmpItemKindEvent = { fg = C.base, bg = C.blue },
+						CmpItemKindOperator = { fg = C.base, bg = C.blue },
+						CmpItemKindTypeParameter = { fg = C.base, bg = C.blue },
 					}
 				end,
 			})

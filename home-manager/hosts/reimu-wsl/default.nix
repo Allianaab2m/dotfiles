@@ -1,4 +1,10 @@
-{ lib, config, pkgs, homeManager, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  homeManager,
+  ...
+}:
 let
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in
@@ -9,13 +15,13 @@ rec {
   ];
 
   home.packages = with pkgs; [
-     gcc
+    gcc
   ];
 
   home.activation = {
     updateLinks = ''
-    export ROOT="${home.homeDirectory}/dotfiles"
-    ln -snf "$ROOT/config/atcoder-cli-nodejs" "${home.homeDirectory}/.config/"
+      export ROOT="${home.homeDirectory}/dotfiles"
+      ln -snf "$ROOT/config/atcoder-cli-nodejs" "${home.homeDirectory}/.config/"
     '';
   };
 

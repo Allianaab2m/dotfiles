@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   home.file.".aerospace.toml".text = ''
     # Start aerospace at login
     start-at-login = true
@@ -73,18 +74,6 @@
     alt-shift-9 = 'move-node-to-workspace 9'
     alt-shift-0 = 'move-node-to-workspace 0'
 
-    # Switch workspaces with F-row
-    f1 = 'workspace 1'
-    f2 = 'workspace 2'
-    f3 = 'workspace 3'
-    f4 = 'workspace 4'
-    f5 = 'workspace 5'
-    f6 = 'workspace 6'
-    f7 = 'workspace 7'
-    f8 = 'workspace 8'
-    f9 = 'workspace 9'
-    f10 = 'workspace 0'
-
     # Window move to workspaces with F-row
     shift-f1 = 'move-node-to-workspace 1'
     shift-f2 = 'move-node-to-workspace 2'
@@ -96,7 +85,7 @@
     shift-f8 = 'move-node-to-workspace 8'
     shift-f9 = 'move-node-to-workspace 9'
     shift-f10 = 'move-node-to-workspace 0'
-    
+
     # Mode service
     alt-shift-semicolon = 'mode service'
 

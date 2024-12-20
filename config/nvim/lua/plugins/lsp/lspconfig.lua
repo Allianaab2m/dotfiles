@@ -1,10 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile" },
-	dependencies = {
-		"mason.nvim",
-		{ "williamboman/mason-lspconfig.nvim", config = function() end },
-	},
 	opts = function()
 		---@class PluginLspOpts
 		local ret = {
@@ -54,7 +50,7 @@ return {
 			},
 			servers = {
 				lua_ls = {
-					settins = {
+					settings = {
 						Lua = {
 							workspace = {
 								checkThirdParty = false,
@@ -90,6 +86,15 @@ return {
 			require("config.keymaps").on_attach(client, buffer)
 		end)
 		require("utils.lsp").setup()
+
+		local servers = {
+			--"nil",
+			"hls",
+			"lua_ls",
+			"vtsls",
+			"pyright",
+			"nil_ls",
+		}
 
 		-- diagnostics signs
 		for severity, icon in pairs(opts.diagnostics.signs.text) do
@@ -131,7 +136,6 @@ return {
 
 		vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-		local servers = opts.servers
 		local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -141,55 +145,17 @@ return {
 			opts.capabilities or {}
 		)
 
-		local function setup(server)
-			local server_opts = vim.tbl_deep_extend("force", {
-				capabilities = vim.deepcopy(capabilities),
-			}, servers[server] or {})
-			if server_opts.enabled == false then
-				return
+		local setup_handler = function(server_name)
+			local ls_specific = opts.servers[server_name]
+			if server_name == "lua_ls" and ls_specific then
+				require("lspconfig")["lua_ls"].setup(vim.tbl_deep_extend("force", capabilities, ls_specific))
 			end
 
-			if opts.setup[server] then
-				if opts.setup[server](server, server_opts) then
-					return
-				end
-			elseif opts.setup["*"] then
-				if opts.setup["*"](server, server_opts) then
-					return
-				end
-			end
-			require("lspconfig")[server].setup(server_opts)
+			require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", capabilities, opts))
 		end
 
-		local have_mason, mlsp = pcall(require, "mason-lspconfig")
-		local all_mlsp_servers = {}
-		if have_mason then
-			all_mlsp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
-		end
-
-		local ensure_installed = {}
-		for server, server_opts in pairs(servers) do
-			if server_opts then
-				server_opts = server_opts == true and {} or server_opts
-				if server_opts.enabled ~= false then
-					if server_opts.mason == false or not vim.tbl_contains(all_mlsp_servers, server) then
-						setup(server)
-					else
-						ensure_installed[#ensure_installed + 1] = server
-					end
-				end
-			end
-		end
-
-		if have_mason then
-			mlsp.setup({
-				ensure_installed = vim.tbl_deep_extend(
-					"force",
-					ensure_installed,
-					require("utils").opts("mason-lspconfig.nvim").ensure_installed or {}
-				),
-				handlers = { setup },
-			})
+		for _, server in ipairs(servers) do
+			setup_handler(server)
 		end
 	end,
 }

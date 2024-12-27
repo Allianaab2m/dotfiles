@@ -42,7 +42,13 @@ local components = {
 			end
 		end
 
-		return "Active" .. "(" .. table.concat(lsp_names, ",") .. ")"
+		for _, formatter in ipairs(require("conform").list_formatters(0)) do
+			if formatter.available then
+				table.insert(lsp_names, formatter.name)
+			end
+		end
+
+		return "Active" .. "(" .. table.concat(lsp_names, ", ") .. ")"
 	end,
 }
 

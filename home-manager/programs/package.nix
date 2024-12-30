@@ -19,6 +19,7 @@ let
     xdg-utils
     wget
     zellij
+    lefthook
   ];
   # Language runtimes
   dev = with pkgs; [
@@ -42,6 +43,8 @@ let
     nil
     nixfmt-rfc-style
     lua-language-server
+    nodePackages.vscode-json-languageserver
+    typos-lsp
   ];
 
   rust = with pkgs; [

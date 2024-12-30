@@ -39,6 +39,8 @@ local components = {
 			local filetypes = client.config.filetypes
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
 				table.insert(lsp_names, client.name)
+			elseif client.name == "typos_lsp" then
+				table.insert(lsp_names, client.name)
 			end
 		end
 

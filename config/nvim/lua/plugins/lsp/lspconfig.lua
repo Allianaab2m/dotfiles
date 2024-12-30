@@ -8,14 +8,15 @@ return {
 			diagnostics = {
 				underline = true,
 				update_in_insert = false,
-				virtual_text = {
-					spacing = 4,
-					source = "if_many",
-					prefix = "icons",
-					format = function(diagnostic)
-						return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-					end,
-				},
+				-- virtual_text = {
+				-- spacing = 4,
+				-- source = "if_many",
+				-- prefix = "icons",
+				-- format = function(diagnostic)
+				-- 	return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+				-- end,
+				-- },
+				virtual_text = false,
 				severity_sort = true,
 				signs = {
 					text = {
@@ -75,6 +76,15 @@ return {
 						},
 					},
 				},
+				jsonls = {
+					cmd = { "vscode-json-languageserver", "--stdio" },
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
+						},
+					},
+				},
 			},
 			setup = {},
 		}
@@ -88,12 +98,13 @@ return {
 		require("utils.lsp").setup()
 
 		local servers = {
-			--"nil",
 			"hls",
 			"lua_ls",
 			"vtsls",
 			"pyright",
 			"nil_ls",
+			"jsonls",
+			"typos_lsp",
 		}
 
 		-- diagnostics signs
@@ -125,11 +136,13 @@ return {
 			end)
 		end
 
-		opts.diagnostics.virtual_text.prefix = function(diagnostic)
-			local icons = require("utils").icons.diagnostics
-			for d, icon in pairs(icons) do
-				if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-					return icon
+		if opts.diagnostics.virtual_text then
+			opts.diagnostics.virtual_text.prefix = function(diagnostic)
+				local icons = require("utils").icons.diagnostics
+				for d, icon in pairs(icons) do
+					if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+						return icon
+					end
 				end
 			end
 		end
@@ -149,6 +162,10 @@ return {
 			local ls_specific = opts.servers[server_name]
 			if server_name == "lua_ls" and ls_specific then
 				require("lspconfig")["lua_ls"].setup(vim.tbl_deep_extend("force", capabilities, ls_specific))
+				return
+			elseif server_name == "jsonls" and ls_specific then
+				require("lspconfig")["jsonls"].setup(vim.tbl_deep_extend("force", capabilities, ls_specific))
+				return
 			end
 
 			require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", capabilities, opts))

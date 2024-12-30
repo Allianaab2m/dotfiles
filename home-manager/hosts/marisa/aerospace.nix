@@ -5,7 +5,8 @@
     start-at-login = true
 
     after-startup-command = [
-      'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+      'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+      'layout tiles'
     ]
 
     enable-normalization-flatten-containers = true
@@ -14,6 +15,7 @@
     accordion-padding = 30
 
     default-root-container-layout = 'tiles'
+    default-root-container-orientation = 'auto'
 
     on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
@@ -108,6 +110,14 @@
 
     [mode.service.binding]
     esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main'] # reset layout
+    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    h = ['join-with left', 'mode main']
+    j = ['join-with down', 'mode main']
+    k = ['join-with up', 'mode main']
+    l = ['join-with right', 'mode main']
 
     [[on-window-detected]]
     if.app-id = 'company.thebrowser.Browser'

@@ -43,10 +43,15 @@ in
       autoUpdate = true;
       cleanup = "uninstall";
     };
-    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note;
     taps = [
+      # for Aerospace
       "nikitabobko/tap"
+      # for JankyBorders
+      "FelixKratz/formulae"
+    ];
+    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note;
+    brews = [
+      "borders"
     ];
   };
-
 }

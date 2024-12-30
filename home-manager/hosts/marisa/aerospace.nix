@@ -4,6 +4,10 @@
     # Start aerospace at login
     start-at-login = true
 
+    after-startup-command = [
+      'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+    ]
+
     enable-normalization-flatten-containers = true
     enable-normalization-opposite-orientation-for-nested-containers = true
 

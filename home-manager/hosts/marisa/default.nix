@@ -15,6 +15,7 @@ rec {
     ./aerospace.nix
     ./git.nix
     ./ghostty.nix
+    ./sketchybar.nix
     ./zsh.nix
   ];
 

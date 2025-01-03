@@ -6,7 +6,15 @@
 
     after-startup-command = [
       'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+      'exec-and-forget sketchybar',
       'layout tiles'
+    ]
+
+    # Notify Sketchybar about workspace change
+    exec-on-workspace-change = [
+        '/bin/bash',
+        '-c',
+        'sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
     ]
 
     enable-normalization-flatten-containers = true
@@ -66,7 +74,6 @@
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
-    alt-0 = 'workspace 0'
 
     # Window move to workspaces
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -78,7 +85,6 @@
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 0'
 
     # Window move to workspaces with F-row
     shift-f1 = 'move-node-to-workspace 1'
@@ -106,7 +112,6 @@
     7 = ['secondary', 'main']
     8 = ['secondary', 'main']
     9 = ['secondary', 'main']
-    0 = ['secondary', 'main']
 
     [mode.service.binding]
     esc = ['reload-config', 'mode main']

@@ -20,6 +20,7 @@ let
     wget
     zellij
     lefthook
+    zscroll
   ];
   # Language runtimes
   dev = with pkgs; [

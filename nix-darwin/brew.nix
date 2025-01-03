@@ -35,6 +35,11 @@ let
     "notion"
     "anytype"
   ];
+  font = [
+    "font-sf-pro"
+    "sf-symbols"
+    "font-sketchybar-app-font"
+  ];
 in
 {
   homebrew = {
@@ -49,9 +54,11 @@ in
       # for JankyBorders
       "FelixKratz/formulae"
     ];
-    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note;
+    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font;
     brews = [
       "borders"
+      "sketchybar"
+      "nowplaying-cli"
     ];
   };
 }

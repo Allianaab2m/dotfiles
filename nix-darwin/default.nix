@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./brew.nix
     ./system.nix
@@ -19,6 +20,7 @@
   fonts = {
     packages = with pkgs; [
       plemoljp-nf
+      udev-gothic-nf
     ];
   };
 }

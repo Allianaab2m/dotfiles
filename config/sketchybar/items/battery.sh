@@ -3,8 +3,6 @@
 battery=(
   script="$PLUGIN_DIR/battery.sh"
   icon.font="$FONT:Regular:18.0"
-  update_freq=120
-  updates=on
 
   icon.padding_right=5
   icon.padding_left=15
@@ -18,7 +16,6 @@ battery=(
 )
 
 sketchybar --add item battery right \
-           --set battery "${battery[@]}"\
-              icon.font.size=15 update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --set battery "${battery[@]}" \
            --subscribe battery power_source_change system_woke
 

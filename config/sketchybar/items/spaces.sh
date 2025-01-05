@@ -39,6 +39,7 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       background.padding_left=8
       background.color=$BG0
       background.border_color=$BG1
+    background.height=35
       script="$PLUGIN_DIR/space.sh"
     )
 

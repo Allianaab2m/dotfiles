@@ -68,7 +68,7 @@ source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/wifi.sh"
 
 
-sketchybar --add bracket y wifi battery     \
+sketchybar --add bracket y wifi battery \
            --set         y background.height=35 \
                            background.color=$BG0
 

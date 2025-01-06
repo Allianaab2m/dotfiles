@@ -30,6 +30,7 @@ let
     "android-studio"
     "utm"
     "ghostty"
+    "unity-hub"
   ];
   note = [
     "notion"

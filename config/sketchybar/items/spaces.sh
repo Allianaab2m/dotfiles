@@ -3,9 +3,9 @@
 sketchybar --add event aerospace_workspace_change
 
 space_creator=(
-  icon=􀆊
+  icon=""
   icon.font="$FONT:Heavy:16.0"
-  padding_right=14
+  padding_right=0
   label.drawing=off
   display=active
   script="$PLUGIN_DIR/space_windows.sh"
@@ -36,7 +36,7 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       label.highlight_color=$WHITE
       label.font="sketchybar-app-font:Regular:16.0"
       label.y_offset=-1
-      background.padding_left=8
+      background.padding_left=2
       background.color=$BG0
       background.border_color=$BG1
     background.height=35

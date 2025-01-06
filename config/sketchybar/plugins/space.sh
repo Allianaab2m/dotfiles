@@ -10,7 +10,7 @@ update() {
     
     sketchybar --set space.$(aerospace list-workspaces --focused) icon.highlight=true \
                       label.highlight=true \
-                      background.border_color=$GREY
+                      background.border_color=$GREY 
   fi
 }
 

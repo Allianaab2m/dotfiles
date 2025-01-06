@@ -16,7 +16,9 @@ np=(
     background.color=$BG0
     background.height=35
 
-    label="Loading..."
+    icon="􀊕"
+
+    label="Not found"
     label.padding_right=15
 )
 

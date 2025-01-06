@@ -4,6 +4,7 @@ front_app=(
   label.font="$FONT:Bold:12.0"
   icon.background.drawing=on
   display=active
+
   script="$PLUGIN_DIR/front_app.sh"
 
   background.drawing=off

@@ -19,11 +19,10 @@ bar=(
   shadow=off
   position=top
   sticky=on
-  padding_right=10
-  padding_left=10
+  padding_right=5
+  padding_left=5
   y_offset=5
   margin=7
-  corner_radius=17
 )
 
 sketchybar --bar "${bar[@]}"
@@ -59,16 +58,19 @@ source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/front_app.sh"
 
 sketchybar --add bracket a apple.logo front_app \
+           --animate tanh 10 \
            --set         a background.color=$BG0 \
                            background.height=35
 
 # Right
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/wifi.sh"
 
 
-sketchybar --add bracket y wifi battery \
+sketchybar --add bracket y wifi volume battery \
+           --animate tanh 10 \
            --set         y background.height=35 \
                            background.color=$BG0
 

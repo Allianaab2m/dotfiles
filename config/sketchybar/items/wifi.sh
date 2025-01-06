@@ -6,12 +6,11 @@ POPUP_CLICK_SCRIPT="sketchybar --set wifi popup.drawing=toggle"
 wifi=(
   label.drawing=off
 
-  icon.font="$FONT:Regular:18.0"
+  icon.font="$FONT:Regular:16.0"
   script="$PLUGIN_DIR/wifi.sh"
-  icon.color=0xffffffff
-  update_freq=60
 
   icon.padding_left=15
+  icon.padding_right=6
 
   background.drawing=off
   background.height=35
@@ -20,6 +19,8 @@ wifi=(
 
   click_script="$POPUP_CLICK_SCRIPT"
   popup.height=35
+
+  icon=􀙈
 )
 
 wifi_ssid=(
@@ -27,7 +28,5 @@ wifi_ssid=(
 )
 
 sketchybar --add item wifi right
-sketchybar --add item wifi.ssid popup.wifi
-
-sketchybar --set wifi.ssid "${wifi_ssid[@]}"
 sketchybar --set wifi "${wifi[@]}"
+sketchybar --subscribe wifi wifi_change

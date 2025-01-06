@@ -7,9 +7,10 @@
 
 AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
 AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_WINDOW_TITLE=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $3); print $3}')
 
 if [ "$SENDER" = "front_app_switched" ]; then
-  sketchybar --animate sin 10 --set "$NAME" label="$INFO" icon.background.image="app.$INFO" icon.background.image.scale=0.8
+  sketchybar --animate tanh 10 --set "$NAME" label="$INFO" icon.background.image="app.$INFO" icon.background.image.scale=0.8
 
   apps=$AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR
   icon_strip=" "

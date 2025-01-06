@@ -47,6 +47,7 @@ in
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";
+      upgrade = true;
     };
     taps = [
       # for Aerospace

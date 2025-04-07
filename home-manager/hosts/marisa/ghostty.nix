@@ -3,7 +3,7 @@
   home.file.".config/ghostty/config".text = ''
     shell-integration = zsh
 
-    font-family = "UDEV Gothic 35NFLG"
+    font-family = "PlemolJP35 Console NF"
 
     theme = "catppuccin-mocha"
     window-theme = "ghostty"

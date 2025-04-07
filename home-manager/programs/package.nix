@@ -21,6 +21,10 @@ let
     zellij
     lefthook
     zscroll
+    postgresql
+    viu
+    yt-dlp
+    ffmpeg
   ];
   # Language runtimes
   dev = with pkgs; [
@@ -33,6 +37,8 @@ let
     python3
     uv
     typst
+    graphviz
+    jdk
   ];
 
   # Language server, formatter
@@ -47,17 +53,7 @@ let
     nodePackages.vscode-json-languageserver
     typos-lsp
   ];
-
-  rust = with pkgs; [
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-  ];
 in
 {
-  home.packages = misc ++ dev ++ lsp ++ rust;
+  home.packages = misc ++ dev ++ lsp;
 }

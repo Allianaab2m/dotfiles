@@ -11,10 +11,13 @@
       ls = "eza --icons always --classify always";
       la = "eza --icons always --classify always --all";
       ll = "eza --icons always --long --all --git";
-      tree = "eza --icons always --classify always --tree";
+      tree = "eza --icons always --classify always --tree --git-ignore";
       acc = "pnpm acc";
       dot = "cd ~/dotfiles";
     };
+    envExtra = ''
+      . "$HOME/.cargo/env"
+    '';
     initExtra = ''
       function _fzf_cd_ghq() {
         FZF_DEFAULT_OPTS="''${FZF_DEFAULT_OPTS} --reverse --height=50%"

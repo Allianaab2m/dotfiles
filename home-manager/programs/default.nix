@@ -4,6 +4,7 @@
     ./bat.nix
     ./delta.nix
     ./direnv.nix
+    ./emacs.nix
     ./fastfetch.nix
     ./git.nix
     ./gh.nix

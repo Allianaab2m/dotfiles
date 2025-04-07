@@ -12,6 +12,11 @@ let
     "readdle-spark"
     "logseq"
     "obsidian"
+    "raspberry-pi-imager"
+    "adobe-acrobat-reader"
+    "obs"
+    "gimp"
+    "inkscape"
   ];
   keybind = [
     "raycast"
@@ -31,6 +36,10 @@ let
     "utm"
     "ghostty"
     "unity-hub"
+    "intellij-idea"
+    "ollama"
+    "rustrover"
+    "xcodes"
   ];
   note = [
     "notion"
@@ -40,6 +49,7 @@ let
     "font-sf-pro"
     "sf-symbols"
     "font-sketchybar-app-font"
+    "font-ibm-plex-sans-jp"
   ];
 in
 {
@@ -59,7 +69,6 @@ in
     casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font;
     brews = [
       "borders"
-      "sketchybar"
       "nowplaying-cli"
     ];
   };

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   system = {
     stateVersion = 5;
     defaults = {

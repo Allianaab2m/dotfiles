@@ -13,8 +13,13 @@
 
   nixpkgs = {
     overlays = [
-      inputs.neovim-nightly-overlay.overlays.default
       inputs.fenix.overlays.default
+      (import (
+        builtins.fetchTarball {
+          url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+          sha256 = "17ixcpiml5axvwrlqbp7xb386jkg1lc0hpzfvixfm5xzk94c1g4y";
+        }
+      ))
     ];
     config = {
       allowUnfree = true;

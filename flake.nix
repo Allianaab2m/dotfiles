@@ -14,16 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Neovim nightly build
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # Nix wrapper for Rust
-    fenix = {
-      url = "github:nix-community/fenix/monthly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -48,10 +38,6 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      overlays = [
-        inputs.neovim-nightly-overlay.overlays.default
-      ];
-
       # nix-darwin
       darwinConfigurations = {
         marisa = nix-darwin.lib.darwinSystem {
@@ -60,15 +46,17 @@
         };
       };
 
-      # home-manager
-      homeManagerModules = import ./modules/home-manager;
-
       homeConfigurations = {
         # youmu: Ubuntu 24.04.1 + WSL2 (Host: Windows 11 23H2)
         youmu-wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs flakeRoot homeManager;
+            inherit
+              inputs
+              outputs
+              flakeRoot
+              homeManager
+              ;
           };
           modules = [
             ./home-manager
@@ -80,7 +68,12 @@
         reimu-wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs flakeRoot homeManager;
+            inherit
+              inputs
+              outputs
+              flakeRoot
+              homeManager
+              ;
           };
           modules = [
             ./home-manager

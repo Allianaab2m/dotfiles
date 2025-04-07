@@ -5,7 +5,6 @@ source "$CONFIG_DIR/colors.sh"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
-DRAWING=on
 
 if [ "$PERCENTAGE" = "" ]; then
   exit 0
@@ -31,7 +30,6 @@ esac
 
 if [[ "$CHARGING" != "" ]]; then
   ICON="􀢋"
-  DRAWING=off
 fi
 
-sketchybar --set "$NAME" drawing=$DRAWING icon="$ICON" label="${PERCENTAGE}%"
+sketchybar --set "$NAME" icon="$ICON" label="${PERCENTAGE}%"

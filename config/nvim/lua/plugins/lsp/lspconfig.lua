@@ -26,6 +26,19 @@ return {
 						[vim.diagnostic.severity.INFO] = require("utils").icons.diagnostics.Info,
 					},
 				},
+				float = {
+					border = "single",
+					title = "Diagnostics",
+					header = {},
+					suffix = {},
+					format = function(diag)
+						if diag.code then
+							return string.format("[%s](%s): %s", diag.source, diag.code, diag.message)
+						else
+							return string.format("[%s]: %s", diag.source, diag.message)
+						end
+					end,
+				},
 			},
 			inlay_hints = {
 				enabled = true,

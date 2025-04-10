@@ -25,13 +25,15 @@ let
     viu
     yt-dlp
     ffmpeg
+    gnupg
+    zbar
   ];
   # Language runtimes
   dev = with pkgs; [
     # C/C++
     gcc
     nodejs_22
-    nodePackages.pnpm
+    pnpm_10
     deno
     go
     python3
@@ -39,6 +41,7 @@ let
     typst
     graphviz
     jdk
+    turso-cli
   ];
 
   # Language server, formatter

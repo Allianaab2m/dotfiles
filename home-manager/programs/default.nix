@@ -6,6 +6,7 @@
     ./direnv.nix
     ./emacs.nix
     ./fastfetch.nix
+    ./fish.nix
     ./git.nix
     ./gh.nix
     ./lazygit.nix

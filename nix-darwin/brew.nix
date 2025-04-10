@@ -65,6 +65,8 @@ in
       "nikitabobko/tap"
       # for JankyBorders
       "FelixKratz/formulae"
+      # Turso
+      "tursodatabase/tap"
     ];
     casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font;
     brews = [

@@ -17,6 +17,8 @@
     };
     envExtra = ''
       . "$HOME/.cargo/env"
+
+      export PATH="$PATH:/Users/alliana/.turso"
     '';
     initExtra = ''
       function _fzf_cd_ghq() {

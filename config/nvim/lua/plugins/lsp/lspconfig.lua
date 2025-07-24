@@ -1,45 +1,10 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile" },
+	enabled = false,
 	opts = function()
 		---@class PluginLspOpts
 		local ret = {
-			---@type vim.diagnostic.Opts
-			diagnostics = {
-				underline = true,
-				update_in_insert = false,
-				-- virtual_text = {
-				-- spacing = 4,
-				-- source = "if_many",
-				-- prefix = "icons",
-				-- format = function(diagnostic)
-				-- 	return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-				-- end,
-				-- },
-				virtual_text = false,
-				severity_sort = true,
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = require("utils").icons.diagnostics.Error,
-						[vim.diagnostic.severity.WARN] = require("utils").icons.diagnostics.Warn,
-						[vim.diagnostic.severity.HINT] = require("utils").icons.diagnostics.Hint,
-						[vim.diagnostic.severity.INFO] = require("utils").icons.diagnostics.Info,
-					},
-				},
-				float = {
-					border = "single",
-					title = "Diagnostics",
-					header = {},
-					suffix = {},
-					format = function(diag)
-						if diag.code then
-							return string.format("[%s](%s): %s", diag.source, diag.code, diag.message)
-						else
-							return string.format("[%s]: %s", diag.source, diag.message)
-						end
-					end,
-				},
-			},
 			inlay_hints = {
 				enabled = true,
 				exclude = {},
@@ -63,32 +28,6 @@ return {
 				timeout_ms = nil,
 			},
 			servers = {
-				lua_ls = {
-					settings = {
-						Lua = {
-							workspace = {
-								checkThirdParty = false,
-							},
-							codeLens = {
-								enable = true,
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-							doc = {
-								privateName = { "^_" },
-							},
-							hint = {
-								enable = true,
-								setType = false,
-								paramType = true,
-								paramName = "Disable",
-								semicolon = "Disable",
-								arrayIndex = "Disable",
-							},
-						},
-					},
-				},
 				jsonls = {
 					cmd = { "vscode-json-languageserver", "--stdio" },
 					settings = {

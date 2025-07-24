@@ -3,14 +3,14 @@
   home.file.".config/ghostty/config".text = ''
     shell-integration = zsh
 
-    font-family = "PlemolJP35 Console NF"
+    font-family = "Maple Mono NF"
 
     theme = "catppuccin-mocha"
     window-theme = "ghostty"
     macos-titlebar-style = "hidden"
 
-    background-opacity = 0.85
-    background-blur-radius = 20
+    background-opacity = 0.50
+    background-blur-radius = 10
 
     macos-titlebar-style = transparent
 

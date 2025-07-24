@@ -1,6 +1,7 @@
 { ... }:
 {
   system = {
+    primaryUser = "alliana";
     stateVersion = 5;
     defaults = {
       NSGlobalDomain = {

@@ -1,5 +1,31 @@
 return {
 	{
+		"everviolet/nvim",
+		name = "evergarden",
+		priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+		lazy = false,
+		config = function()
+			require("evergarden").setup({
+				theme = {
+					variant = "winter", -- 'winter'|'fall'|'spring'|'summer'
+					accent = "green",
+				},
+				editor = {
+					transparent_background = false,
+					sign = { color = "none" },
+					float = {
+						color = "mantle",
+						invert_border = false,
+					},
+					completion = {
+						color = "surface0",
+					},
+				},
+			})
+			vim.cmd([[colorscheme evergarden]])
+		end,
+	},
+	{
 		"killitar/obscure.nvim",
 		lazy = false,
 		enabled = false,
@@ -57,6 +83,7 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
+		enabled = false,
 		opts = {},
 		config = function()
 			require("catppuccin").setup({

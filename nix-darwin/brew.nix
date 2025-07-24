@@ -17,18 +17,24 @@ let
     "obs"
     "gimp"
     "inkscape"
+    "jordanbaird-ice"
+    "ltspice"
   ];
   keybind = [
     "raycast"
     "karabiner-elements"
     "aerospace"
+    "aeroindicator"
   ];
   msoffice = [
     "microsoft-word"
     "microsoft-excel"
     "microsoft-powerpoint"
   ];
-  chat = [ "discord" ];
+  chat = [
+    "discord"
+    "slack"
+  ];
   dev = [
     "orbstack"
     "visual-studio-code@insiders"
@@ -40,6 +46,8 @@ let
     "ollama"
     "rustrover"
     "xcodes"
+    "gitify"
+    "postman"
   ];
   note = [
     "notion"
@@ -50,6 +58,10 @@ let
     "sf-symbols"
     "font-sketchybar-app-font"
     "font-ibm-plex-sans-jp"
+    "font-maple-mono-nf"
+  ];
+  game = [
+    "prismlauncher"
   ];
 in
 {
@@ -67,11 +79,16 @@ in
       "FelixKratz/formulae"
       # Turso
       "tursodatabase/tap"
+      # AeroIndicator
+      "rien7/apps"
     ];
-    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font;
+    casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font ++ game;
     brews = [
       "borders"
       "nowplaying-cli"
+      "stripe/stripe-cli/stripe"
+      "tcl-tk"
+      "wireguard-tools"
     ];
   };
 }

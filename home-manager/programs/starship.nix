@@ -29,6 +29,12 @@ in
       git_branch = {
         format = "[$symbol$branch(:$remote_branch)]($style) ";
       };
+      gradle = {
+        symbol = " ";
+      };
+      kotlin = {
+        symbol = " ";
+      };
       cmd_duration = {
         format = "⌛[$duration]($style) ";
       };

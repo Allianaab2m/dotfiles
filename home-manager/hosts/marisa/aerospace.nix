@@ -6,15 +6,19 @@
 
     after-startup-command = [
       'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
-      'exec-and-forget sketchybar',
+      'exec-and-forget aeroIndicator --restart-service',
       'layout tiles'
     ]
 
     # Notify Sketchybar about workspace change
     exec-on-workspace-change = [
-        '/bin/bash',
-        '-c',
-        'sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
+      '/bin/bash',
+      '-c',
+      'aeroIndicator workspace-change $AEROSPACE_FOCUSED_WORKSPACE'
+    ]
+
+    on-focus-changed = [
+      'exec-and-forget aeroIndicator focus-change',
     ]
 
     enable-normalization-flatten-containers = true
@@ -74,6 +78,7 @@
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
+    alt-x = 'workspace-back-and-forth'
 
     # Window move to workspaces
     alt-shift-1 = 'move-node-to-workspace 1'

@@ -4,6 +4,7 @@
     autocd = true;
     enableCompletion = true;
     autosuggestion.enable = true;
+    zsh-abbr.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
       cat = "bat";
@@ -18,6 +19,7 @@
     envExtra = ''
       . "$HOME/.cargo/env"
 
+      export PATH="$HOME/.local/share/mise/shims:$PATH"
       export PATH="$PATH:/Users/alliana/.turso"
     '';
     initExtra = ''
@@ -35,5 +37,14 @@
       bindkey "^g" _fzf_cd_ghq
       eval "$(direnv hook zsh)"
     '';
+    zsh-abbr.abbreviations = {
+      ga = "git add";
+      gcm = "git commit";
+      gsw = "git switch";
+      gst = "git status";
+      gush = "git push";
+      gul = "git pull";
+      g = "git";
+    };
   };
 }

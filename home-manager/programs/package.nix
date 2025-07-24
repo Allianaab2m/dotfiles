@@ -32,16 +32,19 @@ let
   dev = with pkgs; [
     # C/C++
     gcc
-    nodejs_22
-    pnpm_10
+    # nodejs_22 => mise
+    # pnpm_10 => mise
     deno
     go
-    python3
+    # python3 => mise
     uv
     typst
     graphviz
     jdk
     turso-cli
+    mise
+    firebase-tools
+    tex-fmt
   ];
 
   # Language server, formatter

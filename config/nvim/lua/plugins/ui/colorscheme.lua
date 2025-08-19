@@ -4,6 +4,7 @@ return {
 		name = "evergarden",
 		priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
 		lazy = false,
+		enabled = false,
 		config = function()
 			require("evergarden").setup({
 				theme = {
@@ -83,7 +84,6 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		enabled = false,
 		opts = {},
 		config = function()
 			require("catppuccin").setup({

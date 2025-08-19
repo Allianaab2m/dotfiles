@@ -32,7 +32,7 @@ require("lazy").setup({
 		{ import = "plugins.language" },
 		{ import = "plugins.test" },
 	},
-	install = { colorscheme = { "obscure" } },
+	install = { colorscheme = { "catppuccin" } },
 	checker = { enabled = true },
 	defaults = {
 		lazy = true,

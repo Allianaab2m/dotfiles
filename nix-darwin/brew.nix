@@ -7,7 +7,7 @@ let
   tools = [
     "1password"
     "google-drive"
-    "tailscale"
+    "tailscale-app"
     "morisawa-desktop-manager"
     "readdle-spark"
     "logseq"
@@ -81,6 +81,8 @@ in
       "tursodatabase/tap"
       # AeroIndicator
       "rien7/apps"
+      # Apple Music Discord Rpc
+      "nextfire/tap"
     ];
     casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font ++ game;
     brews = [
@@ -89,6 +91,10 @@ in
       "stripe/stripe-cli/stripe"
       "tcl-tk"
       "wireguard-tools"
+      {
+        name = "apple-music-discord-rpc";
+        restart_service = "changed";
+      }
     ];
   };
 }

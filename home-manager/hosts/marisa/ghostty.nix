@@ -3,7 +3,10 @@
   home.file.".config/ghostty/config".text = ''
     shell-integration = zsh
 
-    font-family = "Maple Mono NF"
+    font-family = "Lilex"
+    font-feature = "calt, ss02, ss04, cv11, cv08"
+    font-size = 12
+
 
     theme = "catppuccin-mocha"
     window-theme = "ghostty"

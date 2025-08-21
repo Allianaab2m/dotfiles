@@ -1,18 +1,28 @@
 version: '3'
 
+env:
+  OS: '{{OS}}'
+
+vars:
+  HOSTNAME:
+    sh: hostname
+
 tasks:
   up:
     cmds:
       - nix flake update
+      - nix run nixpkgs#home-manager -- switch --flake .#{{.HOSTNAME}}
+      - nix-collect-garbage --delete-old
+  update:
+    cmds:
+      - nix flake update
   hmsw: # home-manager switch
     cmds:
-      - nix run nixpkgs#home-manager -- switch --flake .#{{env "NAME"}}
-  darwin-sw: # nix-darwin switch
-    cmds:
-      - nix run nix-darwin -- switch --flake .#marisa
-  darwin-home-sw:
-    cmds:
-      - nix run nixpkgs#home-manager -- switch --flake .#marisa
+      - nix run nixpkgs#home-manager -- switch --flake .#{{.HOSTNAME}}
   gc:
     cmds:
       - nix-collect-garbage --delete-old
+  darwin-sw: # nix-darwin switch
+    platforms: [darwin]
+    cmds:
+      - nix run nix-darwin -- switch --flake .#{{.HOSTNAME}}

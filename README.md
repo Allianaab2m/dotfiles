@@ -27,10 +27,20 @@ then, run `nix run nixpkgs#home-manager -- switch --flake .#{hostname}`.
 
 See also: [Taskfile.yaml](https://github.com/Allianaab2m/dotfiles/blob/main/Taskfile.yaml)
 
-### Update
+### Upgrade
+
+Runs `nix flake update`, `home-manager switch` and `nix-garbage-collect --delete-old`
 
 ```sh
 task up
+```
+
+### Update
+
+```sh
+task update
+```
+```
 ```
 
 ### Garbage collection
@@ -40,9 +50,6 @@ task gc
 ```
 
 ### home-manager switch
-
-> [!NOTE]
-> It works only Linux devices.
 
 ```sh
 task hmsw
@@ -57,8 +64,3 @@ task hmsw
 task darwin-sw
 ```
 
-### home-manager switch (for darwin)
-
-```sh
-task darwin-home-sw
-```

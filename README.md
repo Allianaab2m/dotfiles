@@ -40,8 +40,6 @@ task up
 ```sh
 task update
 ```
-```
-```
 
 ### Garbage collection
 

@@ -14,6 +14,11 @@
       swc = "switch -c";
       cm = "commit -m";
       al = "config --get-regexp ^alias\\.";
+      remote-head = "symbolic-ref refs/remotes/origin/HEAD";
+      default-branch = "!git remote-head | sed 's!.*/!!'";
+      refresh = "fetch --all --prune";
+      dead = "!git refresh --quiet && git switch -d $(git remote-head)";
+      single = "!git branch | grep -v HEAD | xargs --no-run-if-empty git branch -d";
     };
     ignores = [
       ".DS_Store"

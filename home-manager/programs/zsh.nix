@@ -33,6 +33,18 @@
         zle reset-prompt
       }
 
+      clone() {
+        command -v ghq || return 1
+        ghq get --partial blobless "$1"
+        local target
+        target=$(echo "$1" | sed -r 's;https?://[^/]+|\.git$;;')
+        local dir
+        dir=$(ghq list | grep --color=never --fixed-strings "$target")
+        [ -n "$dir" ] && cd "$(ghq root)/$dir" || return
+        git dead
+        git single
+      }
+
       zle -N _fzf_cd_ghq
       bindkey "^g" _fzf_cd_ghq
       eval "$(direnv hook zsh)"

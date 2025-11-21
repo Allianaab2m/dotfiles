@@ -5,7 +5,6 @@ let
     "google-chrome"
   ];
   tools = [
-    "1password"
     "google-drive"
     "tailscale-app"
     "morisawa-desktop-manager"
@@ -25,11 +24,13 @@ let
     "karabiner-elements"
     "aerospace"
     "aeroindicator"
+    "homerow"
   ];
   msoffice = [
     "microsoft-word"
     "microsoft-excel"
     "microsoft-powerpoint"
+    "windows-app"
   ];
   chat = [
     "discord"
@@ -39,15 +40,13 @@ let
     "orbstack"
     "visual-studio-code@insiders"
     "android-studio"
-    "utm"
     "ghostty"
     "unity-hub"
     "intellij-idea"
-    "ollama"
     "rustrover"
-    "xcodes"
     "gitify"
     "postman"
+    "google-cloud-sdk"
   ];
   note = [
     "notion"
@@ -83,6 +82,10 @@ in
       "rien7/apps"
       # Apple Music Discord Rpc
       "nextfire/tap"
+      # Pulumi
+      "pulumi/tap"
+      # Terraform
+      "hashicorp/tap"
     ];
     casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font ++ game;
     brews = [
@@ -91,10 +94,15 @@ in
       "stripe/stripe-cli/stripe"
       "tcl-tk"
       "wireguard-tools"
+      "pulumi"
+      "esc"
       {
         name = "apple-music-discord-rpc";
         restart_service = "changed";
       }
     ];
+    masApps = {
+      Bitwarden = 1352778147;
+    };
   };
 }

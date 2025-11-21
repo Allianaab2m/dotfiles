@@ -28,8 +28,18 @@ map("i", "JK", "<Esc>", { desc = "Esc" })
 map("i", "kj", "<Esc>", { desc = "Esc" })
 map("i", "KJ", "<Esc>", { desc = "Esc" })
 
-map("n", "<S-h>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
-map("n", "<S-l>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
+if vim.g.vscode then
+	local vscode = require("vscode")
+	map("n", "<S-h>", function()
+		vscode.call("workbench.action.previousEditor")
+	end, { desc = "Prev buffer" })
+	map("n", "<S-l>", function()
+		vscode.call("workbench.action.nextEditor")
+	end, { desc = "Next buffer" })
+else
+	map("n", "<S-h>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
+	map("n", "<S-l>", "<Cmd>bprev<CR>", { desc = "Prev buffer" })
+end
 
 map("n", "<leader>gg", function()
 	require("utils.lazygit")({ cwd = require("utils.root").git() })

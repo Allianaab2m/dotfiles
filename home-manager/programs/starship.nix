@@ -16,7 +16,6 @@ in
     enable = true;
     settings = {
       aws.disabled = true;
-      gcloud.disabled = true;
       username = {
         disabled = false;
         show_always = true;
@@ -38,12 +37,16 @@ in
       cmd_duration = {
         format = "⌛[$duration]($style) ";
       };
+      gcloud = {
+        format = "on [$symbol$account(@$domain)/$project]($style)";
+      };
       directory = {
         truncation_length = 100;
         truncate_to_repo = false;
         truncation_symbol = "…/";
       };
       palette = "catppuccin_mocha";
-    } // lib.importTOML "${src}/themes/mocha.toml";
+    }
+    // lib.importTOML "${src}/themes/mocha.toml";
   };
 }

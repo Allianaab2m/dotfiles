@@ -47,6 +47,9 @@
 
       zle -N _fzf_cd_ghq
       bindkey "^g" _fzf_cd_ghq
+
+      source /Users/alliana/.zsh/plugins/ni/ni.zsh
+
       eval "$(direnv hook zsh)"
     '';
     zsh-abbr.abbreviations = {

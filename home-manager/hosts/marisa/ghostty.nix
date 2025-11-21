@@ -3,12 +3,12 @@
   home.file.".config/ghostty/config".text = ''
     shell-integration = zsh
 
-    font-family = "Lilex"
+    font-family = "Moralerspace Neon"
     font-feature = "calt, ss02, ss04, cv11, cv08"
     font-size = 12
 
 
-    theme = "catppuccin-mocha"
+    theme = Catppuccin Mocha
     window-theme = "ghostty"
     macos-titlebar-style = "hidden"
 
@@ -24,6 +24,12 @@
     cursor-style-blink = false
     shell-integration-features = no-cursor
     resize-overlay = never
+
+    keybind = global:alt+shift+t=toggle_quick_terminal
+
+    link-url = true
+    quick-terminal-size = 50%,1200px
+    macos-window-buttons = hidden
   '';
   # for CLI
   programs.zsh = {

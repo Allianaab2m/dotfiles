@@ -13,8 +13,14 @@
     };
   };
 
-  # security.pam.enableSudoTouchIdAuth = true;
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security = {
+    pam = {
+      services = {
+        sudo_local.touchIdAuth = true;
+        sudo_local.watchIdAuth = true;
+      };
+    };
+  };
 
   fonts = {
     packages = with pkgs; [

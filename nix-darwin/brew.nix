@@ -18,6 +18,8 @@ let
     "inkscape"
     "jordanbaird-ice"
     "ltspice"
+    "battery"
+    "music-presence"
   ];
   keybind = [
     "raycast"
@@ -80,8 +82,6 @@ in
       "tursodatabase/tap"
       # AeroIndicator
       "rien7/apps"
-      # Apple Music Discord Rpc
-      "nextfire/tap"
       # Pulumi
       "pulumi/tap"
       # Terraform
@@ -96,10 +96,6 @@ in
       "wireguard-tools"
       "pulumi"
       "esc"
-      {
-        name = "apple-music-discord-rpc";
-        restart_service = "changed";
-      }
     ];
     masApps = {
       Bitwarden = 1352778147;

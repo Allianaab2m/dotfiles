@@ -15,9 +15,10 @@ in
     includes = [
       { path = "${src}/catppuccin.gitconfig"; }
     ];
-    extraConfig = {
+    settings = {
       delta = {
         features = "catppuccin-mocha";
+        "side-by-side" = true;
       };
     };
   };

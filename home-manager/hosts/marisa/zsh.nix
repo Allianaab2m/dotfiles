@@ -6,6 +6,7 @@
       export PATH=$PATH:/opt/homebrew/bin
       export PNPM_HOME=/Users/alliana/Library/pnpm
       export PATH=$PATH:$PNPM_HOME
+      export PATH=$PATH:/Users/alliana/Library/Application\ Support/Coursier/bin
       export SSH_AUTH_SOCK=/Users/alliana/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
 
       source /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc

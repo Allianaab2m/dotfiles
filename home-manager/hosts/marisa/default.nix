@@ -27,13 +27,14 @@ rec {
     updateLinks = ''
       export ROOT="${home.homeDirectory}/dotfiles"
       ln -snf "$ROOT/config/atcoder-cli-nodejs" "${home.homeDirectory}/.config/"
+      ln -sf "${pkgs.jdk21}/Library/Java/JavaVirtualMachines/zulu-21.jdk" "${home.homeDirectory}/Library/Java/JavaVirtualMachines/"
     '';
   };
 
   home = {
     username = "alliana";
     homeDirectory = "/Users/${home.username}";
-    stateVersion = "24.11";
+    stateVersion = "25.11";
   };
 
   # Remove `Last login:` prompt

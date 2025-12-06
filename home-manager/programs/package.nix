@@ -45,6 +45,7 @@ let
     mise
     firebase-tools
     tex-fmt
+    coursier
   ];
 
   # Language server, formatter

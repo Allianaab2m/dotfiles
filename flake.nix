@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs?ref=nixos-unstable";
+      url = "github:nixos/nixpkgs?ref=nixos-25.11";
     };
     # Nix modules for darwin
     nix-darwin = {

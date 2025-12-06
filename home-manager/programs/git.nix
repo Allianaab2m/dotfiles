@@ -19,15 +19,6 @@
         dead = "!git refresh --quiet && git switch -d $(git remote-head)";
         single = "!git branch | grep -v HEAD | xargs --no-run-if-empty git branch -d";
       };
-    };
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFLmR7uSY/Aj8w5VeojtLp8w0ba4tQnUIOzoe8GMkvsM";
-      signByDefault = true;
-    };
-    ignores = [
-      ".DS_Store"
-    ];
-    extraConfig = {
       init = {
         defaultBranch = "main";
       };
@@ -49,9 +40,15 @@
       core = {
         pager = "delta";
       };
-      delta = {
-        "side-by-side" = true;
-      };
     };
+    signing = {
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFLmR7uSY/Aj8w5VeojtLp8w0ba4tQnUIOzoe8GMkvsM";
+      signByDefault = true;
+    };
+    ignores = [
+      ".DS_Store"
+    ];
+    # extraConfig = {
+    # };
   };
 }

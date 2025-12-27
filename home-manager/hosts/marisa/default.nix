@@ -4,6 +4,7 @@
   config,
   pkgs,
   homeManager,
+  inputs,
   ...
 }:
 let

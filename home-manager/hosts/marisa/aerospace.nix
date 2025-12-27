@@ -49,7 +49,7 @@
     alt-comma = 'layout accordion horizontal vertical'
 
     # Terminal
-    alt-enter = 'exec-and-forget open -n /Users/alliana/Applications/Home Manager Apps/Alacritty.app'
+    alt-enter = 'exec-and-forget osascript -e "tell application \\"Ghossty\\" to run'
     alt-t = 'exec-and-forget open -n /Users/alliana/Applications/Home Manager Apps/Alacritty.app'
 
     # Window Focus
@@ -69,54 +69,54 @@
     alt-shift-equal = 'resize smart +50'
 
     # Switch workspaces
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
+    # alt-2 = 'workspace 2'
+    # alt-3 = 'workspace 3'
+    # alt-4 = 'workspace 4'
+    # alt-5 = 'workspace 5'
+    # alt-6 = 'workspace 6'
+    # alt-7 = 'workspace 7'
+    # alt-8 = 'workspace 8'
+    # alt-9 = 'workspace 9'
     alt-x = 'workspace-back-and-forth'
 
-    # Window move to workspaces
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-0 = 'workspace 0'
+    alt-1 = 'workspace 1'
+    alt-b = 'workspace 𝙱̲rowser'
+    alt-m = 'workspace 𝙼̲usic'
+    alt-d = 'workspace 𝙳̲evelopment' 
+    alt-r = 'workspace Te𝚛̲minal'
+    alt-c = 'workspace 𝙲̲ommunication'
 
-    # Window move to workspaces with F-row
-    shift-f1 = 'move-node-to-workspace 1'
-    shift-f2 = 'move-node-to-workspace 2'
-    shift-f3 = 'move-node-to-workspace 3'
-    shift-f4 = 'move-node-to-workspace 4'
-    shift-f5 = 'move-node-to-workspace 5'
-    shift-f6 = 'move-node-to-workspace 6'
-    shift-f7 = 'move-node-to-workspace 7'
-    shift-f8 = 'move-node-to-workspace 8'
-    shift-f9 = 'move-node-to-workspace 9'
-    shift-f10 = 'move-node-to-workspace 0'
+
+    # Window move to workspaces
+    # alt-shift-2 = 'move-node-to-workspace 2'
+    # alt-shift-3 = 'move-node-to-workspace 3'
+    # alt-shift-4 = 'move-node-to-workspace 4'
+    # alt-shift-5 = 'move-node-to-workspace 5'
+    # alt-shift-6 = 'move-node-to-workspace 6'
+    # alt-shift-7 = 'move-node-to-workspace 7'
+    # alt-shift-8 = 'move-node-to-workspace 8'
+    # alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = ['move-node-to-workspace 0', 'workspace 0']
+    alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+    alt-shift-b = ['move-node-to-workspace 𝙱̲rowser', 'workspace 𝙱̲rowser']
+    alt-shift-m = ['move-node-to-workspace 𝙼̲usic', 'workspace 𝙼̲usic']
+    alt-shift-d = ['move-node-to-workspace 𝙳̲evelopment', 'workspace 𝙳̲evelopment']
+    alt-shift-r = ['move-node-to-workspace Te𝚛̲minal', 'workspace Te𝚛̲minal']
+    alt-shift-c = ['move-node-to-workspace 𝙲̲ommunication', 'workspace 𝙲̲ommunication']
 
     # Mode service
     alt-shift-semicolon = 'mode service'
 
     # workspace assignment
     [workspace-to-monitor-force-assignment]
-    1 = 'main'
-    2 = 'main'
-    3 = 'main'
-    4 = 'main'
-    5 = 'main'
-    6 = ['secondary', 'main']
-    7 = ['secondary', 'main']
-    8 = ['secondary', 'main']
-    9 = ['secondary', 'main']
+    0 = 'main'
+    1 = ['secondary', 'main']
+    '𝙱̲rowser' = 'main'
+    'Te𝚛̲minal' = 'main'
+    '𝙼̲usic' = ['secondary', 'main']
+    '𝙳̲evelopment' = 'main'
+    '𝙲̲ommunication' = ['secondary', 'main']
 
     [mode.service.binding]
     esc = ['reload-config', 'mode main']
@@ -131,14 +131,26 @@
 
     [[on-window-detected]]
     if.app-id = 'company.thebrowser.Browser'
-    run = 'move-node-to-workspace 1'
-
-    [[on-window-detected]]
-    if.app-id = 'org.alacritty'
-    run = 'move-node-to-workspace 2'
+    run = 'move-node-to-workspace 𝙱̲rowser'
 
     [[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty'
-    run = 'move-node-to-workspace 2'
+    run = 'move-node-to-workspace Te𝚛̲minal'
+
+    [[on-window-detected]]
+    if.app-id = 'com.apple.Music'
+    run = 'move-node-to-workspace 𝙼̲usic' 
+
+    [[on-window-detected]]
+    if.app-id = 'com.microsoft.VSCodeInsiders'
+    run = 'move-node-to-workspace 𝙳̲evelopment'
+
+    [[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 𝙲̲ommunication'
+
+    [[on-window-detected]]
+    if.app-id = 'com.hnc.Discord'
+    run = 'move-node-to-workspace 𝙲̲ommunication'
   '';
 }

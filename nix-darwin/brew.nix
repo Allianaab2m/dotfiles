@@ -37,6 +37,7 @@ let
   chat = [
     "discord"
     "slack"
+    "zoom"
   ];
   dev = [
     "orbstack"
@@ -48,7 +49,7 @@ let
     "rustrover"
     "gitify"
     "postman"
-    "google-cloud-sdk"
+    "gcloud-cli"
   ];
   note = [
     "notion"
@@ -96,6 +97,7 @@ in
       "wireguard-tools"
       "pulumi"
       "esc"
+      "opencode"
     ];
     masApps = {
       Bitwarden = 1352778147;

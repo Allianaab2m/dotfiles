@@ -43,7 +43,7 @@ let
     jdk
     turso-cli
     mise
-    firebase-tools
+    # firebase-tools
     tex-fmt
     coursier
   ];

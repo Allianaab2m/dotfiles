@@ -22,7 +22,6 @@
       nixpkgs,
       nix-darwin,
       home-manager,
-      fenix,
       ...
     }@inputs:
     let
@@ -42,7 +41,9 @@
       darwinConfigurations = {
         marisa = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          modules = [ ./nix-darwin ];
+          modules = [
+            ./nix-darwin/default.nix
+          ];
         };
       };
 
@@ -86,8 +87,8 @@
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager
-            ./home-manager/hosts/marisa
+            ./home-manager/default.nix
+            ./home-manager/hosts/marisa/default.nix
           ];
         };
       };

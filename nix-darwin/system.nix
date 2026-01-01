@@ -14,6 +14,8 @@
         "com.apple.mouse.tapBehavior" = 1;
         # Fnキーを押さなくてもF1~F12が使えるように
         "com.apple.keyboard.fnState" = true;
+        # 自動ピリオド無効化
+        NSAutomaticPeriodSubstitutionEnabled = false;
       };
       finder = {
         AppleShowAllFiles = true;

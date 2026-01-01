@@ -14,7 +14,7 @@ in
 {
   programs.starship = {
     enable = true;
-    settings = {
+    settings = lib.importTOML "${src}/themes/mocha.toml" // {
       aws.disabled = true;
       git_branch = {
         format = "[$symbol$branch(:$remote_branch)]($style) ";
@@ -60,8 +60,7 @@ in
         symbol = " ";
         format = "[$symbol$stack]($style) ";
       };
-      palette = "cappuccin_mocha";
-    }
-    // lib.importTOML "${src}/themes/mocha.toml";
+      palette = "catppuccin_mocha";
+    };
   };
 }

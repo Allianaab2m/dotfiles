@@ -3,7 +3,7 @@
   home.file.".config/ghostty/config".text = ''
     shell-integration = zsh
 
-    font-family = "Moralerspace Neon"
+    font-family = "PlemolJP35 Console NF"
     font-feature = "calt, ss02, ss04, cv11, cv08"
     font-size = 12
 

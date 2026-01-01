@@ -13,7 +13,8 @@
 
   nixpkgs = {
     overlays = [
-      inputs.fenix.overlays.default
+      # inputs.fenix.overlays.default
+      # inputs.jj-starship.overlays.default
     ];
     config = {
       allowUnfree = true;

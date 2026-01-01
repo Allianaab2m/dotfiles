@@ -20,6 +20,8 @@ let
     "ltspice"
     "battery"
     "music-presence"
+    "hhkb"
+    "azookey"
   ];
   keybind = [
     "raycast"
@@ -87,6 +89,8 @@ in
       "pulumi/tap"
       # Terraform
       "hashicorp/tap"
+      # jj-starship
+      "dmmulroy/tap"
     ];
     casks = browser ++ tools ++ keybind ++ msoffice ++ chat ++ dev ++ note ++ font ++ game;
     brews = [
@@ -98,6 +102,7 @@ in
       "pulumi"
       "esc"
       "opencode"
+      "jj-starship"
     ];
     masApps = {
       Bitwarden = 1352778147;

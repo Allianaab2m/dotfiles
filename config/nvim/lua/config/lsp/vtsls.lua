@@ -20,5 +20,8 @@ return {
 				enumMemberValues = { enabled = true },
 			},
 		},
+		vtsls = {
+			autoUseWorkspaceTsdk = true,
+		},
 	},
 }

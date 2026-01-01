@@ -16,15 +16,6 @@ in
     enable = true;
     settings = {
       aws.disabled = true;
-      username = {
-        disabled = false;
-        show_always = true;
-        format = "[$user]($style)@";
-      };
-      hostname = {
-        ssh_only = false;
-        format = "[$hostname](mauve) ";
-      };
       git_branch = {
         format = "[$symbol$branch(:$remote_branch)]($style) ";
       };
@@ -34,18 +25,42 @@ in
       kotlin = {
         symbol = " ";
       };
+      docker_context = {
+        symbol = "󰡨 ";
+        format = "[$symbol$context]($style) ";
+      };
       cmd_duration = {
-        format = "⌛[$duration]($style) ";
+        format = "[󰔚 $duration]($style) ";
       };
       gcloud = {
-        format = "on [$symbol$account(@$domain)/$project]($style)";
+        symbol = "󱇶 ";
+        format = "[$symbol$project]($style) ";
+      };
+      git_status = {
+        format = "([\$all_status$ahead_behind]($style) )";
+        ahead = "⇡$\{count\}";
+        behind = "⇣$\{count\}";
+      };
+      nodejs = {
+        format = "[$symbol$version]($style) ";
       };
       directory = {
-        truncation_length = 100;
+        truncation_length = 2;
         truncate_to_repo = false;
         truncation_symbol = "…/";
+        fish_style_pwd_dir_length = 1;
+        format = "[$path]($style) ";
       };
-      palette = "catppuccin_mocha";
+      package = {
+        symbol = "󰏓 ";
+        format = "[$symbol$version]($style) ";
+        display_private = true;
+      };
+      pulumi = {
+        symbol = " ";
+        format = "[$symbol$stack]($style) ";
+      };
+      palette = "cappuccin_mocha";
     }
     // lib.importTOML "${src}/themes/mocha.toml";
   };

@@ -9,6 +9,7 @@
     ./fish.nix
     ./git.nix
     ./gh.nix
+    ./jujutsu.nix
     ./lazygit.nix
     ./neovim.nix
     ./package.nix

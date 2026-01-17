@@ -50,7 +50,7 @@
 
     # Terminal
     alt-enter = 'exec-and-forget osascript -e "tell application \\"Ghossty\\" to run'
-    alt-t = 'exec-and-forget open -n /Users/alliana/Applications/Home Manager Apps/Alacritty.app'
+    # alt-t = 'exec-and-forget open -n /Users/alliana/Applications/Home Manager Apps/Ghostty.app'
 
     # Window Focus
     alt-h = 'focus left'

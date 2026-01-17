@@ -22,7 +22,9 @@
       export PATH="$HOME/.local/share/mise/shims:$PATH"
       export PATH="$PATH:/Users/alliana/.turso"
     '';
-    initExtra = ''
+    initContent = ''
+      autoload -U promptinit; promptinit
+      prompt pure
       function _fzf_cd_ghq() {
         FZF_DEFAULT_OPTS="''${FZF_DEFAULT_OPTS} --reverse --height=50%"
         local root="$(ghq root)"
@@ -49,6 +51,22 @@
       bindkey "^g" _fzf_cd_ghq
 
       source /Users/alliana/.zsh/plugins/ni/ni.zsh
+
+      # PROJECT IDをプロンプトの右側に表示
+      is_first=true
+      function gcp_project_id() {
+        if [ -f "$HOME/.config/gcloud/active_config" ]; then
+          gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+          project_id=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+
+          if "''${is_first}"; then
+            is_first=false
+            RPROMPT=''${RPROMPT}%F{039}''\'''\${project_id}'%f
+          fi
+        fi
+      }
+      autoload -Uz add-zsh-hook
+      add-zsh-hook precmd gcp_project_id
 
       eval "$(direnv hook zsh)"
     '';

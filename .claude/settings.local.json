@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nix run:*)",
+      "Bash(nix log:*)",
+      "Bash(nix derivation:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); drv=list\\(d['derivations'].values\\(\\)\\)[0]; print\\(drv['env']['buildCommand']\\)\")",
+      "Bash(nix eval:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(task gc:*)",
+      "Bash(xattr:*)",
+      "Bash(sudo xattr:*)",
+      "Bash(nix-collect-garbage:*)",
+      "Bash(sudo chmod:*)"
+    ]
+  }
+}

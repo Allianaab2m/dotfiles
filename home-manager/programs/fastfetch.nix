@@ -8,9 +8,27 @@
           binaryPrefix = "si";
         };
         percent = {
-          type = 3;
+          type = [
+            "bar"
+            "bar-monochrome"
+          ];
         };
         separator = " ➜  ";
+        bar = {
+          border = {
+            left = "";
+            leftElapsed = "";
+            right = "";
+            rightElapsed = "";
+          };
+          char = {
+            total = "";
+            elapsed = "";
+          };
+          color = {
+            total = null;
+          };
+        };
       };
       modules = [
         {
@@ -79,6 +97,11 @@
           keyColor = "33";
         }
         {
+          type = "battery";
+          key = "├  ";
+          keyColor = "33";
+        }
+        {
           type = "monitor";
           key = "├  ";
           keyColor = "33";
@@ -90,9 +113,10 @@
         }
       ];
       logo = {
-        type = "kitty-direct";
-        source = "/Users/alliana/Pictures/github_icon.png";
-        width = 32;
+        # type = "kitty-direct";
+        # source = "/Users/alliana/Pictures/github_icon.png";
+        # width = 32;
+        type = "small";
       };
     };
   };

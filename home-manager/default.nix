@@ -15,6 +15,21 @@
     overlays = [
       # inputs.fenix.overlays.default
       # inputs.jj-starship.overlays.default
+      (_f: p: {
+        yt-dlp = p.yt-dlp.overridePythonAttrs (o: {
+          # don't use gnome keyring
+          dependencies = (
+            __filter (
+              p:
+              !(__elem p.pname [
+                "cffi"
+                "secretstorage"
+              ])
+            ) o.dependencies
+          );
+        });
+      })
+      inputs.brew-nix.overlays.default
     ];
     config = {
       allowUnfree = true;

@@ -7,10 +7,13 @@
       export PNPM_HOME=/Users/alliana/Library/pnpm
       export PATH=$PATH:$PNPM_HOME
       export PATH=$PATH:/Users/alliana/Library/Application\ Support/Coursier/bin
-      export SSH_AUTH_SOCK=/Users/alliana/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
+      export PATH=$PATH:/Users/alliana/.moon/bin
+      export PATH=/Users/alliana/.opencode/bin:$PATH
 
-      source /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc
-      source /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.zsh.inc
+      alias gtr='git gtr'
+
+      # source /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc
+      # source /opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.zsh.inc
     '';
   };
 }

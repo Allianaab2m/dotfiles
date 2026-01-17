@@ -14,6 +14,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    brew-nix = {
+      url = "github:BatteredBunny/brew-nix";
+      inputs.brew-api.follows = "brew-api";
+    };
+    brew-api = {
+      url = "github:BatteredBunny/brew-api";
+      flake = false;
+    };
   };
 
   outputs =
@@ -22,6 +30,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      brew-nix,
       ...
     }@inputs:
     let
@@ -35,7 +44,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
       # nix-darwin
       darwinConfigurations = {

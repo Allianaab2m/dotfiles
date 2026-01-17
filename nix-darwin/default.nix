@@ -3,6 +3,7 @@
   imports = [
     ./brew.nix
     ./system.nix
+    ./services
   ];
 
   nix = {
@@ -28,4 +29,5 @@
       udev-gothic-nf
     ];
   };
+
 }

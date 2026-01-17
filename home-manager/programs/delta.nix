@@ -18,7 +18,6 @@ in
     settings = {
       delta = {
         features = "catppuccin-mocha";
-        "side-by-side" = true;
       };
     };
   };

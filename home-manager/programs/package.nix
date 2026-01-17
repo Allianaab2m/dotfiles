@@ -27,27 +27,33 @@ let
     ffmpeg
     gnupg
     zbar
+    ghostscript
+    pure-prompt
   ];
   # Language runtimes
   dev = with pkgs; [
     # C/C++
     gcc
-    # nodejs_22 => mise
-    # pnpm_10 => mise
-    deno
     go
-    # python3 => mise
     uv
     typst
     graphviz
     jdk
     turso-cli
     mise
-    # firebase-tools
     tex-fmt
     coursier
+    sleek
+    google-cloud-sdk
+    pulumi
+    pulumi-esc
+    pulumiPackages.pulumi-nodejs
+    cloudflared
+    tree-sitter
+    stripe-cli
+    # opencode
+    wireguard-tools
   ];
-
   # Language server, formatter
   lsp = with pkgs; [
     vtsls
@@ -55,9 +61,9 @@ let
     black
     isort
     nil
-    nixfmt-rfc-style
+    nixfmt
     lua-language-server
-    nodePackages.vscode-json-languageserver
+    vscode-json-languageserver
     typos-lsp
   ];
 in

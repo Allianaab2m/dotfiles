@@ -1,54 +1,70 @@
-local opt = vim.opt
+vim.g.mapleader = t("<Space>")
 
-opt.autowrite = true
-opt.clipboard = "unnamedplus"
-opt.conceallevel = 2
-opt.confirm = true
-opt.cursorline = true
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
+vim.opt.backup = true
+vim.opt.backupdir = vim.fn.expand(vim.fn.stdpath("cache") .. "/.vim_backup")
+vim.opt.swapfile = false
+vim.opt.writebackup = true
+vim.opt.autoread = true
+vim.opt.hidden = true
+vim.opt.mouse = "a"
+
+vim.opt.shortmess:append("I")
+vim.opt.clipboard:append({ "unnamedplus" })
+
+vim.opt.wrap = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.virtualedit = "onemore"
+vim.opt.visualbell = true
+vim.opt.errorbells = false
+vim.opt.showmatch = true
+vim.opt.smoothscroll = true
+-- vim.opt.signcolumn = "yes"
+
+vim.opt.fenc = "utf-8"
+local tabwidth = 2
+vim.opt.tabstop = tabwidth
+vim.opt.softtabstop = tabwidth
+vim.opt.shiftwidth = tabwidth
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.backspace = { "indent", "eol", "start" }
+vim.opt.nrformats:remove({ "unsigned", "octal" })
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.wrapscan = true
+vim.opt.wildmode = { list = "longest" }
+
+vim.opt.undolevels = 1000
+vim.opt.history = 1000
+
+vim.opt.scrolloff = 4
+
+vim.opt.list = true
+
+vim.opt.listchars = {
+	tab = "▸▹┊",
+	trail = "▫",
+	nbsp = "␣",
+	extends = "❯",
+	precedes = "❮",
 }
-opt.foldlevel = 99
-opt.formatoptions = "jcroqlnt"
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true
-opt.inccommand = "nosplit"
-opt.jumpoptions = "view"
-opt.laststatus = 3
-opt.linebreak = true
-opt.list = true
-opt.mouse = "a"
-opt.number = true
-opt.relativenumber = true
-opt.scrolloff = 4
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
-opt.shiftround = true
-opt.expandtab = true
-opt.tabstop = 2
-opt.shiftwidth = 0
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false
-opt.sidescrolloff = 8
-opt.signcolumn = "yes"
-opt.smartcase = true
-opt.smartindent = true
-opt.splitbelow = true
-opt.splitkeep = "screen"
-opt.splitright = true
-opt.termguicolors = true
-opt.timeoutlen = vim.g.vscode and 1000 or 300
-opt.undofile = true
-opt.undolevels = 10000
-opt.updatetime = 200
-opt.virtualedit = "block"
-opt.wildmode = "longest:full,full"
-opt.winminwidth = 5
-opt.wrap = false
-opt.smoothscroll = true
-opt.pumheight = 10
+
+vim.opt.pumblend = 10
+vim.opt.laststatus = 0
+-- vim.opt.cmdheight = 0
+
+if vim.g.vscode then
+	vim.opt.cmdheight = 1
+else
+	vim.opt.cmdheight = 0
+end
+
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
+vim.o.foldmethod = "expr"

@@ -14,6 +14,7 @@ rec {
   imports = [
     ./alacritty.nix
     ./aerospace.nix
+    ./cask.nix
     ./git.nix
     ./ghostty.nix
     ./sketchybar.nix
@@ -21,7 +22,10 @@ rec {
   ];
 
   home.packages = with pkgs; [
+    jankyborders
     jdk21
+    ibm-plex
+    # raycast
   ];
 
   home.activation = {

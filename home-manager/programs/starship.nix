@@ -13,7 +13,7 @@ let
 in
 {
   programs.starship = {
-    enable = true;
+    enable = false;
     settings = lib.importTOML "${src}/themes/mocha.toml" // {
       aws.disabled = true;
       git_branch = {

@@ -1,0 +1,8 @@
+require("config.global")
+require("config.options")
+require("config.pack")
+require("config.keymaps")
+require("config.filetype")
+require("config.abbrev")
+require("config.commands")
+require("config.autocmd")

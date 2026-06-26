@@ -40,7 +40,7 @@ let
     graphviz
     jdk
     turso-cli
-    mise
+    # mise
     tex-fmt
     coursier
     sleek

@@ -45,4 +45,6 @@ vim.lsp.enable({
 	"vtsls",
 	"biome",
 	"gopls",
+	"gleam",
+	"ruby_lsp",
 })

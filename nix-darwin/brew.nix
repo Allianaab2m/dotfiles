@@ -1,9 +1,5 @@
 { ... }:
 let
-  # browser = [
-  #   "arc"
-  #   "google-chrome"
-  # ];
   tools = [
     "tailscale-app"
     "azookey"
@@ -12,20 +8,8 @@ let
     "parsec"
     "raycast"
     "wireshark-app"
+    "cursor"
   ];
-  # dev = [
-  #   "gitify"
-  #   "postman"
-  #   "visual-studio-code@insiders"
-  # ];
-  # note = [
-  #   "notion"
-  #   "obsidian"
-  # ];
-  # communication = [
-  #   "discord"
-  #   "slack"
-  # ];
   keybind = [
     "karabiner-elements"
     "homerow"
@@ -36,16 +20,6 @@ let
     "microsoft-powerpoint"
     "windows-app"
   ];
-  # misc = [
-  #   "gimp"
-  #   "inkscape"
-  #   "raspberry-pi-imager"
-  #   "obs"
-  #   "jordanbaird-ice"
-  #   "battery"
-  #   "keycastr"
-  #   "music-presence"
-  # ];
 in
 {
   homebrew = {
@@ -54,10 +28,17 @@ in
       autoUpdate = true;
       cleanup = "uninstall";
       upgrade = true;
+      # Homebrew 5.x で `brew bundle --cleanup` 単体は禁止され、
+      # --force / --force-cleanup / $HOMEBREW_ASK が必須になったため付与する。
+      extraFlags = [ "--force-cleanup" ];
     };
+    taps = [
+      "encoredev/tap"
+    ];
     casks = tools ++ keybind ++ msoffice;
     brews = [
       "git-gtr"
+      "encoredev/tap/encore"
     ];
   };
 }

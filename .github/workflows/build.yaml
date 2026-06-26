@@ -1,0 +1,42 @@
+name: Build for macOS
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**.nix"
+      - "flake.lock"
+  pull_request:
+    paths:
+      - "**.nix"
+      - "flake.lock"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Nix
+        uses: ./.github/actions/setup-nix
+        with:
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: ${{ github.event_name == 'pull_request' }}
+
+      - name: Build devShell
+        run: nix develop --show-trace -c true
+
+      - name: Build homeConfigurations
+        # .#homeConfigurations.${自分の定義しているアトリビュート名}.activationPackage に変更
+        run: nix build --show-trace --no-link .#marisa.default.activationPackage
+
+      - name: Build darwinConfigurations
+        # .#darwinConfigurations.${自分の定義しているアトリビュート名}.system に変更
+        run: nix build --show-trace --no-link .#marisa.default.system
+
+      - name: Print disk usage
+        run: df -h
+

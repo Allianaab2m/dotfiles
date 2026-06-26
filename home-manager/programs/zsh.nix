@@ -15,6 +15,7 @@
       tree = "eza --icons always --classify always --tree --git-ignore";
       acc = "pnpm acc";
       dot = "cd ~/dotfiles";
+      rm = "echo 'rm is disabled. Use trash instead.'";
     };
     envExtra = ''
       . "$HOME/.cargo/env"

@@ -13,7 +13,7 @@
       font-feature = "calt, ss02, ss04, cv11, cv08";
       font-thicken = true;
 
-      theme = "0x96f";
+      theme = "Catppuccin Mocha";
       window-theme = "ghostty";
 
       background-opacity = 0.50;

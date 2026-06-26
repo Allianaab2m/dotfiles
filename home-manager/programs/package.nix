@@ -53,6 +53,7 @@ let
     stripe-cli
     # opencode
     wireguard-tools
+    claude-code
   ];
   # Language server, formatter
   lsp = with pkgs; [
@@ -66,7 +67,10 @@ let
     vscode-json-languageserver
     typos-lsp
   ];
+  llm = with pkgs; [
+    llm-agents.codex
+  ];
 in
 {
-  home.packages = misc ++ dev ++ lsp;
+  home.packages = misc ++ dev ++ lsp ++ llm;
 }

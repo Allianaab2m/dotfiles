@@ -30,6 +30,8 @@
         });
       })
       inputs.brew-nix.overlays.default
+      inputs.nix-claude-code.overlays.default
+      inputs.llm-agents.overlays.default
     ];
     config = {
       allowUnfree = true;

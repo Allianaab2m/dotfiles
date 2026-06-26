@@ -2,7 +2,7 @@
 {
   home.file.".aerospace.toml".text = ''
     # Start aerospace at login
-    start-at-login = true
+    start-at-login = false
 
     after-startup-command = [
       'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',

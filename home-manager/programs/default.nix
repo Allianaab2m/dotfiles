@@ -2,6 +2,7 @@
 {
   imports = [
     ./bat.nix
+    ./claude-code.nix
     ./delta.nix
     ./direnv.nix
     ./emacs.nix
@@ -10,6 +11,7 @@
     ./git.nix
     ./gh.nix
     ./ghostty.nix
+    ./index.nix
     ./jujutsu.nix
     ./lazygit.nix
     ./neovim.nix

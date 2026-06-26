@@ -12,7 +12,7 @@ let
     (google-chrome.overrideAttrs (oldAttrs: {
       src = pkgs.fetchurl {
         url = builtins.head oldAttrs.src.urls;
-        hash = "sha256-AHygUjSFN5kuiE4e2k3Ou3hza28ENmRAkBRxqDxXO6Y=";
+        hash = "sha256-H92sFAm/BJXSFdcACfVoxoVaqMgF8t2hdI9Aujk6Sg4=";
       };
     }))
   ];
@@ -22,25 +22,13 @@ let
   ];
   dev = with pkgs.brewCasks; [
     gitify
-    postman
+    cmux
+    coderabbit
   ];
   communication = with pkgs.brewCasks; [
     discord
     slack
   ];
-  # msoffice = with pkgs.brewCasks; [
-  #   microsoft-word
-  #   (lib.hiPrio microsoft-excel)
-  #   microsoft-powerpoint
-  #   (windows-app.overrideAttrs (oldAttrs: {
-  #     unpackPhase = ''
-  #       set -euo pipefail
-  #       xar -xf "$src" com.microsoft.rdc.macos.pkg/Payload
-  #       gzip -d < com.microsoft.rdc.macos.pkg/Payload | cpio -idm
-  #     '';
-  #     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [pkgs.cpio pkgs.gzip];
-  #   }))
-  # ];
   keybind = with pkgs.brewCasks; [
     homerow
   ];
@@ -58,7 +46,9 @@ in
   home.packages =
     browser ++
     note ++
+    dev ++
     keybind ++
+    communication ++
     misc ++ 
     [
       pkgs.brewCasks."visual-studio-code@insiders"

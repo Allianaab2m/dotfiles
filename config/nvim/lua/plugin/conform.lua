@@ -11,6 +11,7 @@ return {
 			css = { "prettier" },
 			markdown = { "prettier" },
 			sql = { "sleek" },
+			gleam = { "gleam" },
 		},
 		format_on_save = { timeout_ms = 500 },
 	},

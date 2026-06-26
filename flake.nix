@@ -130,5 +130,19 @@
           ];
         };
       };
+
+      devShells.aarch64-darwin.default =
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        pkgs.mkShellNoCC {
+          packages = with pkgs; [
+            lua-language-server
+            vim-language-server
+            yaml-language-server
+            nil
+          ];
+        };
+    };
     };
 }

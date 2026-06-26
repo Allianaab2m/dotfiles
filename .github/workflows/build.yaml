@@ -31,11 +31,11 @@ jobs:
 
       - name: Build homeConfigurations
         # .#homeConfigurations.${自分の定義しているアトリビュート名}.activationPackage に変更
-        run: nix build --show-trace --no-link .#marisa.default.activationPackage
+        run: nix build --show-trace --no-link .#homeConfigurations.marisa.default.activationPackage
 
       - name: Build darwinConfigurations
         # .#darwinConfigurations.${自分の定義しているアトリビュート名}.system に変更
-        run: nix build --show-trace --no-link .#marisa.default.system
+        run: nix build --show-trace --no-link .#darwinConfigurations.marisa.default.system
 
       - name: Print disk usage
         run: df -h

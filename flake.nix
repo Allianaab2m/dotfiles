@@ -133,7 +133,7 @@
 
       devShells.aarch64-darwin.default =
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin
         in
         pkgs.mkShellNoCC {
           packages = with pkgs; [
